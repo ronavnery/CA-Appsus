@@ -1,8 +1,9 @@
 
 
-const controlBar= {
+export default {
     template: `
        <section>
+           
             <div class="new-item-control">
                 <input type="text"/>
             </div>
@@ -23,4 +24,3 @@ const controlBar= {
     }
 }
 
-export default controlBar;

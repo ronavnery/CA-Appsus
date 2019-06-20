@@ -2,6 +2,8 @@
 @import '/css/mail/side-bar.css';
 @import '/css/mail/mail-list.css';
 
+@import '/css/notes/notes-main.css';
+
 /* Main */
 html {
     font-size: 62.5%;
