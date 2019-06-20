@@ -1,0 +1,13 @@
+/* Main */
+body {
+    margin: 0;
+
+}
+/* Layout */
+
+.app-header {
+    width: 100vw;
+    height: 90px;
+    background: #282828;
+    color:white;
+}
