@@ -1,34 +1,32 @@
-
-.control-bar{
-    width: 30rem;
-    background-color:rgba(255,255,255, 0.8);
-    color:yellow;
-    padding: 1rem;
-    margin: 2rem auto;
-    border-radius: 3px;
+.control-bar {
+  width: 30rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: yellow;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 3px;
 }
 
-h3{
-    font-size:1.8rem;
-    margin: 0;
+h3 {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
-p{
-    font-size:1.8rem;
-    margin: 0;
+p {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
-input.text-input{
-    height: 2.8rem;
-    
+.note-app input.text-input {
+  height: 2.8rem;
 }
 
-ul{
-    list-style: none;
+.note-app ul {
+  list-style: none;
 }
-li{
-    width: 16rem;
-    background: #fff;
-    padding: 2rem;
-    margin: 1rem;
+.note-app li {
+  width: 16rem;
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem;
 }
