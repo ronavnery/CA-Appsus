@@ -1,13 +1,29 @@
 /* Main */
+html {
+    font-size: 62.5%;
+}
+
 body {
     margin: 0;
-
+    background-image: url('/img/background/background.jpg');
+    background-size: cover;
 }
-/* Layout */
+/* ----------------Layout --------------*/
 
+/* Header */
 .app-header {
     width: 100vw;
-    height: 90px;
+    height: 50px;
     background: #282828;
     color:white;
+    font-size: 3rem;
+}
+
+.app-header a {
+    color: white;
+    margin: 10px;
+}
+
+.app-header a:hover {
+    color: cyan;
 }
