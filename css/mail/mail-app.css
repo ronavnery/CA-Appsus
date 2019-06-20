@@ -31,7 +31,6 @@
     height: calc(100vh - 50px);
     background: #F3F3F3;
     border: 1px solid #898989;
-    box-sizing: border-box;
 }
 
 /* MAIL: LIST: SEARCHBOX */
@@ -39,7 +38,6 @@
 .searchbox-container {
     height: 70px;
     border-bottom: 1px solid black;
-    box-sizing: border-box;
 }
 
 .previews {
