@@ -1,0 +1,82 @@
+/* MAIL: SIDE BAR */
+
+.side-bar-container {
+    width: 285px;
+    background: #373737;
+    height: calc(100vh - 50px);
+}
+
+.side-bar-container li {
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.new-mail-btn {
+    cursor: pointer;
+    height: 70px;
+    background: rgba(6, 192, 77, 0.8);
+    border: 1px solid black;
+    font-size: 2rem;
+}
+
+.new-mail-btn:hover {
+    color: white;
+}
+
+/* MAIL: LIST */
+
+.mail-list-container {
+    width: 500px;
+    height: calc(100vh - 50px);
+    background: #F3F3F3;
+    border: 1px solid #898989;
+    box-sizing: border-box;
+}
+
+/* MAIL: LIST: SEARCHBOX */
+
+.searchbox-container {
+    height: 70px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.previews {
+    height: calc(100vh - 50px - 70px);
+    overflow-y: scroll;
+}
+
+/* MAIL: LIST: PREVIEW */
+
+.mail-preview-container {
+    cursor: pointer;
+    min-height: 100px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+/* MAIL: DETAILS */
+
+.mail-details-container {
+    width: calc(100vw - 785px);
+    height: calc(100vh - 50px);
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #898989;
+    box-sizing: border-box;
+}
+
+/* MAIL: DETAILS: CONTROLBAR */
+
+.controlbar-container {
+    height: 70px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+/* MAIL: DETAILS: CONTENT */
+
+.details-content-container {
+    overflow-y: scroll;
+    height: calc(100vh - 50px - 70px);
+}
