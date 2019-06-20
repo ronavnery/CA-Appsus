@@ -1,3 +1,7 @@
+@import '/css/helpers.css';
+@import '/css/mail/side-bar.css';
+@import '/css/mail/mail-list.css';
+
 /* Main */
 html {
     font-size: 62.5%;
@@ -7,16 +11,19 @@ body {
     margin: 0;
     background-image: url('/img/background/background.jpg');
     background-size: cover;
+    font-size: 1.6rem;
 }
+
 /* ----------------Layout --------------*/
 
 /* Header */
+
 .app-header {
     width: 100vw;
     height: 50px;
     background: #282828;
     color:white;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .app-header a {

@@ -1,0 +1,5 @@
+.side-bar-container {
+    width: 285px;
+    background: #373737;
+    height: calc(100vh - 50px);
+}

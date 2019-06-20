@@ -3,7 +3,7 @@
 
 import mainRouter from './routes.js'
 const appRoutes = new VueRouter({ routes: mainRouter })
-import appHeader from './cmps/app-header.cmp.js'
+import appHeader from './sharedCmps/app-header.cmp.js'
 
 var appsus = new Vue({
     el: "#appsus",
