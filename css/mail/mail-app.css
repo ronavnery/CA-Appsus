@@ -30,7 +30,7 @@
     width: 500px;
     height: calc(100vh - 50px);
     background: #F3F3F3;
-    border: 1px solid #898989;
+    /* border: 1px solid #898989; */
 }
 
 /* MAIL: LIST: SEARCHBOX */
