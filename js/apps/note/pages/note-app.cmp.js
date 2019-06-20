@@ -3,7 +3,7 @@ import noteService from '../services/notes.service.js'
 
 export default {
   template: `
-        <section class="Note-app">
+        <section class="note-app">
            
             <div class="control-bar">
                  <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" class="text-input"/> 
@@ -11,22 +11,27 @@ export default {
             
             
             <ul>
-                <li v-for="(Note, i) in Notes" @click="toggleNote(Note)" :class="{'Note-done' : Note.isDone}">
-                    {{Note.txt}}  
+                <li v-for="(note) in notes" @click="toggleNote(note)" :class="{'note-done' : note.isDone}">
+                   <h3>{{note.title}}</h3>
+                <p> {{note.txt}}</p>  
                     <button @click.stop="deleteNote(i)">x</button>
                 </li>
             </ul>
-            <div>
+            <div class='editModal'>
                
-                <input type="checkbox" v-model="newNote.isDone"  /> Done?
-                <input type="number" v-model.number="newNote.priority" placeholder="Priority"  /> 
+
+
+
+
+                <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
+                <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
                 <button @click="addNote">Add</button>
             </div>
         </section>
-    `,
+    `, 
   data() {
     return {
-      Notes: noteService.query(),
+      notes: noteService.query(),
       newNote: noteService.getEmptyNote()
     }
   },
@@ -34,16 +39,16 @@ export default {
     addNote() {
       noteService.add(this.newNote)
       this.newNote = noteService.getEmptyNote()
-      console.log(this.Notes)
+      console.log(this.notes)
     },
-    toggleNote(Note) {
+    toggleNote(note) {
       console.log('TOGGLING Note')
-      noteService.toggle(Note)
+      noteService.toggle(note)
     },
 
-    deleteNote(NoteIdx) {
+    deleteNote(noteIdx) {
       // console.log('Ev', ev);
-      this.Notes.splice(NoteIdx, 1)
+      this.notes.splice(noteIdx, 1)
     },
     keyUp(ev) {
       if (ev.key === 'Enter') {
@@ -55,4 +60,3 @@ export default {
 }
 
 
-// <!-- <control-bar ></control-bar> -->

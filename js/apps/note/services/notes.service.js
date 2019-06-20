@@ -11,6 +11,7 @@ _createNotes()
 
 function query() {
   return gNotes
+//   console.log('gNotes :', gNotes);
 }
 function add(Note) {
   Note.id = makeId()
@@ -21,20 +22,22 @@ function toggle(Note) {
 }
 
 function _createNotes() {
-  add(getEmptyNote('Finish Note App'))
-  add(getEmptyNote('Go to the beach'))
+  add(getEmptyNote('Finish Note App', 'Remeber'))
+  add(getEmptyNote('Go to the beach','And later',))
+  console.log('gNotes created', gNotes);
 }
 
-function getEmptyNote(txt = '') {
+function getEmptyNote(txt = '', title = '', imageURL='', color = 'yellow', pinned = false) {
   return {
     txt,
+    title,
+    imageURL,
+    color,
     isDone: false,
-    priority: 0
+    pinned: false,
+    lastEdited: Date.now()
   }
 }
-
-
-
 
 function makeId(length = 5) {
   var text = ''
