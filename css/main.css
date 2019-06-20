@@ -1,6 +1,8 @@
 @import '/css/helpers.css';
 @import '/css/mail/mail-app.css';
 
+@import '/css/notes/notes-main.css';
+
 /* Main */
 html {
     font-size: 62.5%;
