@@ -1,19 +1,19 @@
 @import '/css/helpers.css';
-@import '/css/mail/side-bar.css';
-@import '/css/mail/mail-list.css';
+@import '/css/mail/mail-app.css';
 
 @import '/css/notes/notes-main.css';
 
 /* Main */
 html {
     font-size: 62.5%;
+    font-family: sans-serif;
 }
 
 body {
     margin: 0;
     background-image: url('/img/background/background.jpg');
     background-size: cover;
-    font-size: 1.6rem;
+    font-size: 2.4rem;
 }
 
 /* ----------------Layout --------------*/

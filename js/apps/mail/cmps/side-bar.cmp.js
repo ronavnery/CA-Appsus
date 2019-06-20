@@ -3,7 +3,7 @@
 export default {
     template: `
     <section class="side-bar-container flex column">
-        <button>New Mail</button>
+        <button class="new-mail-btn">New Mail</button>
         <ul>
             <li>Inbox</li>
             <li>Starred</li>
