@@ -1,12 +1,11 @@
 @import '/css/helpers.css';
 @import '/css/mail/mail-app.css';
 
-@import '/css/notes/notes-main.css';
-
 /* Main */
 html {
     font-size: 62.5%;
     font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -21,7 +20,6 @@ body {
 /* Header */
 
 .app-header {
-    width: 100vw;
     height: 50px;
     background: #282828;
     color:white;
