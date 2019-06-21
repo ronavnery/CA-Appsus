@@ -51,5 +51,7 @@ p {
 }
 
 .note-app .hide{
-  background-color: red;
+  opacity:0;
+
 }
+

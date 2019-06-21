@@ -23,8 +23,8 @@ Vue.component('todo-app', {
     `,
     data() {
         return {
-            todos: todoService.query(),
-            newTodo : todoService.getEmptyTodo()
+            // todos: todoService.query(),
+            // newTodo : todoService.getEmptyTodo()
         }
     },
     methods: {

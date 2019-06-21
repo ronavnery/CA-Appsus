@@ -21,15 +21,11 @@ export default {
             <div class='edit-modal' v-if = "activeNoteIdx !=-1" >
                  
                 <h3 contenteditable="true">{{activeNote.title}}</h3>
-                <p> {{activeNote.txt}}</p>  
+                <p contenteditable="true"> {{activeNote.txt}}</p>  
                 <div class="edit-footer flex space-between">
                     <div class="controls"><h3>control bar</h3></div>
-                    <button @click="addNote">Close</button>
-                </div>
-               
-                <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
-                <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
-            
+                    <button @click="closeModal">Close</button>
+                </div>             
             </div>
         </section>
     `,
@@ -37,8 +33,7 @@ export default {
     return {
       notes: noteService.query(),
       newNote: noteService.getEmptyNote(),
-      activeNoteIdx: -1,
-        activeNote: {}
+      activeNoteIdx: -1
     }
   },
   methods: {
@@ -61,14 +56,22 @@ export default {
       if (ev.key === 'Enter') {
         this.addNote()
       }
+    },
+    closeModal() {
+      this.activeNoteIdx = -1
+      console.log('update note :');
+
     }
   },
   computed: {
     activeNote: function() {
-      if (activeNoteIdx == -1) return null
-      return this.notes[activeNoteIdx]
+      if (this.activeNoteIdx == -1) return null
+      return this.notes[this.activeNoteIdx]
     }
   },
 
   components: { controlBar }
 }
+
+// <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
+// <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
