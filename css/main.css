@@ -1,6 +1,6 @@
-@import './css/helpers.css';
-@import './css/mail/mail-app.css';
-@import './css/note/note-main.css';
+@import './helpers.css';
+@import './mail/mail-app.css';
+@import './note/note-main.css';
 
 /* Main */
 html {
