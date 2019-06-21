@@ -46,14 +46,14 @@
 .clean-list {
   list-style-type: none;
 }
-
-.show {
+/* Do we need these classes - if not then lets delete */
+/* .show {
   transform: scale(1);
 }
 
 .hide {
   transform: scale(0);
-}
+} */
 
 .container {
   max-width: 980px;
