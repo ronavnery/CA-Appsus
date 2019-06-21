@@ -1,7 +1,7 @@
-@import '/css/helpers.css';
-@import '/css/mail/mail-app.css';
-@import '/css/note/note-main.css';
-@import '/icon-font/css/style.css';
+@import './helpers.css';
+@import './mail/mail-app.css';
+@import './note/note-main.css';
+@import '../fonts/icon-font/css/style.css';
 
 /* Main */
 html {
