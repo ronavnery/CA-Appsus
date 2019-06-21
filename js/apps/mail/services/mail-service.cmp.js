@@ -5,7 +5,8 @@ let mailsDB;
 let gNextId = 1;
 
 export const mailService = {
-    queryMails
+    queryMails,
+    parseMail
 }
 
 function queryMails() {
@@ -22,11 +23,12 @@ function generateMails() {
     let mails = []
     const numOfMails = 10;
     for (let i = 0; i < numOfMails; i++) {
-        mails.push(createMail('Ron Avnery',`Hello This is a long subject to test this app' ${gNextId}`,
+        mails.push(createMail('Ron Avnery',`Subject mothafucka! ${gNextId}`,
          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur porro cum placeat pariatur, quia nam id aspernatur repellat quaerat facere nesciunt vitae quidem itaque! Veritatis suscipit quia voluptates quos minima?'))
     }
     return mails;
 }
+
 function createMail(sender, subject, body) {
     return {
         id: gNextId++,
@@ -38,4 +40,11 @@ function createMail(sender, subject, body) {
         isStarred: false,
         isTrashed: false,
     }
+}
+
+function parseMail(mail, key, length = 50) {
+    var item = mail[key]
+    if (key === 'sentAt') return Date(item).toString().split(' ').slice(0, 5).join(' ');
+    if (item.length > length) return item.substring(0,length) + '...'
+    return item;
 }

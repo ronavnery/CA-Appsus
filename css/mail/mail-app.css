@@ -52,6 +52,25 @@
     min-height: 100px;
     border-bottom: 1px solid black;
     box-sizing: border-box;
+    padding: 10px;
+    font-size: 1.8rem;
+}
+
+.mail-preview-container:hover {
+    animation: shadow-drop-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes shadow-drop-center {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+.preview-subject {
+    color: cornflowerblue
 }
 
 /* MAIL: DETAILS */

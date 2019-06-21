@@ -7,9 +7,6 @@ import appHeader from './sharedCmps/app-header.cmp.js'
 
 var appsus = new Vue({
     el: "#appsus",
-    created() {
-        console.log('app created')
-    },
     template: `
         <main>
             <!-- <app-header></app-header> -->
