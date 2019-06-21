@@ -1,0 +1,55 @@
+.control-bar {
+  width: 30rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: yellow;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 3px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.note-app input.text-input {
+  height: 2.8rem;
+  width: 30rem;
+  border: 
+}
+
+.note-app ul {
+  list-style: none;
+}
+.note-app li {
+  width: 16rem;
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.note-app .edit-modal{
+  width: 50vw;
+  padding: 2rem;
+  background: #fff;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 20vh;
+  box-shadow: 12px 12px 20px rgba(0,0,0,0.3);
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.note-app .edit-footer{
+  padding-top:1rem;
+}
+
+.note-app .hide{
+  background-color: red;
+}

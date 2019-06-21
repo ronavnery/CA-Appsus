@@ -6,49 +6,56 @@ export default {
         <section class="note-app">
            
             <div class="control-bar">
-                 <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" class="text-input"/> 
+                 <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> 
+                 <!-- <button @click="addNote">Add</button> -->
             </div>
             
             
             <ul>
-                <li v-for="(note) in notes" @click="toggleNote(note)" :class="{'note-done' : note.isDone}">
-                   <h3>{{note.title}}</h3>
-                <p> {{note.txt}}</p>  
+                <li v-for="(note, i) in notes" @click="editNote(note , i)" :class="{'note-done' : note.isDone , 'hide' :(activeNoteIdx===i) }">
+                    <h3>{{note.title}}</h3>
+                    <p> {{note.txt}}</p>  
                     <button @click.stop="deleteNote(i)">x</button>
                 </li>
             </ul>
-            <div class='editModal'>
+            <div class='edit-modal' v-if = "activeNoteIdx !=-1" >
+                 
+                <h3 contenteditable="true">{{activeNote.title}}</h3>
+                <p> {{activeNote.txt}}</p>  
+                <div class="edit-footer flex space-between">
+                    <div class="controls"><h3>control bar</h3></div>
+                    <button @click="addNote">Close</button>
+                </div>
                
-
-
-
-
                 <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
                 <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
-                <button @click="addNote">Add</button>
+            
             </div>
         </section>
-    `, 
+    `,
   data() {
     return {
       notes: noteService.query(),
-      newNote: noteService.getEmptyNote()
+      newNote: noteService.getEmptyNote(),
+      activeNoteIdx: -1,
+        activeNote: {}
     }
   },
   methods: {
     addNote() {
+      if (this.newNote.txt === '') return
       noteService.add(this.newNote)
       this.newNote = noteService.getEmptyNote()
       console.log(this.notes)
-    },
-    toggleNote(note) {
-      console.log('TOGGLING Note')
-      noteService.toggle(note)
     },
 
     deleteNote(noteIdx) {
       // console.log('Ev', ev);
       this.notes.splice(noteIdx, 1)
+    },
+    editNote(note, i) {
+      console.log('note :', note)
+      this.activeNoteIdx = i
     },
     keyUp(ev) {
       if (ev.key === 'Enter') {
@@ -56,7 +63,12 @@ export default {
       }
     }
   },
+  computed: {
+    activeNote: function() {
+      if (activeNoteIdx == -1) return null
+      return this.notes[activeNoteIdx]
+    }
+  },
+
   components: { controlBar }
 }
-
-
