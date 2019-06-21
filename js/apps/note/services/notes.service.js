@@ -1,4 +1,6 @@
 // CRUDL
+import { utilities } from '../../../utils.js'
+
 export default {
   getEmptyNote,
   query,
@@ -22,28 +24,49 @@ function toggle(Note) {
 }
 
 function _createNotes() {
-  add(getEmptyNote('Finish Note App', 'Remeber'))
+  add(getEmptyTxtNote('Finish Note App', 'Remeber'))
   add(getEmptyNote('Go to the beach', 'And later'))
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyNote(
+function getEmptyTxtNote(
   txt = '',
   title = '',
-  imageURL = '',
-  color = 'yellow',
-  showCheckbox = false,
-  pinned = false
-) {
+  color = 'c-yellow'
+  ) {
   return {
-    txt,
-    title,
-    imageURL,
+    content: {
+      txt,
+      title
+    },
     color,
-    showCheckbox,
-    isDone: false,
     pinned: false,
     lastEdited: Date.now()
+  }
+}
+
+function getEmptyImgNote(
+  imageURL = null,
+  color = 'c-yellow'
+) {
+  return {
+    content: {
+      imageURL,
+      color,
+      pinned: false,
+      lastEdited: Date.now()
+    }
+  }
+}
+
+function getEmptyTodoNote() {
+  return {
+    content: {
+      todos: [{ txt, isDone }],
+      color,
+      pinned: false,
+      lastEdited: Date.now()
+    }
   }
 }
 
