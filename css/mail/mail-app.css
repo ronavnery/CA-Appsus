@@ -67,6 +67,7 @@
     box-sizing: border-box;
     padding: 10px;
     font-size: 1.8rem;
+    border-left: 4px solid  #0C9DD0;
 }
 
 .mail-preview-container:hover {
