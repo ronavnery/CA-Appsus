@@ -2,7 +2,7 @@
 
 .side-bar-container {
     width: 285px;
-    background: #373737;
+    background: #1C2129;
     height: calc(100vh - 50px);
 }
 
@@ -10,14 +10,27 @@
     cursor: pointer;
     list-style: none;
     margin-bottom: 10px;
+    color:white;
+    width: 200px;
+    height: 54px;
+    padding: 10px;
+}
+
+.side-bar-container li:hover {
+    background: rgba(12, 157, 208, 0.7);
+    border-radius: 3px;
 }
 
 .new-mail-btn {
     cursor: pointer;
-    height: 70px;
-    background: rgba(6, 192, 77, 0.8);
-    border: 1px solid black;
+    height: 50px;  
+    margin: 20px;
+    background: #0C9DD0;
     font-size: 2rem;
+    border:none;
+    color: white;
+    border-radius: 3px;
+    font-weight: 500;
 }
 
 .new-mail-btn:hover {

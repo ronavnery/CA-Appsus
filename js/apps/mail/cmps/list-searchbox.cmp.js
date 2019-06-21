@@ -1,9 +1,19 @@
-
+import eventBus, { FILTER_BY } from '../../../event-bus.js';
 
 export default {
     template: `
     <section class="searchbox-container">
-        this is searchbox
+        <input type="text" v-model="searchTerm" @keyup="searchInMails"/>
     </section>
-    `
+    `,
+    data() {
+        return {
+            searchTerm: null
+        }
+    },
+    methods: {
+        searchInMails() {
+            eventBus.$emit(FILTER_BY, this.searchTerm)
+        }
+    }
 }

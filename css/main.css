@@ -5,14 +5,21 @@
 /* Main */
 html {
     font-size: 62.5%;
-    font-family: sans-serif;
 }
 
 body {
     margin: 0;
     background-image: url('../img/background/background.jpg');
     background-size: cover;
+    font-family: 'Lato';
     font-size: 2.4rem;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Regular.ttf');
 }
 
 /* ----------------Layout --------------*/
@@ -22,7 +29,7 @@ body {
 .app-header {
     width: 100vw;
     height: 50px;
-    background: #282828;
+    background: #1C2129;
     color:white;
     font-size: 2rem;
 }

@@ -7,6 +7,10 @@ export default {
     <span>{{getMailData('sender')}}</span>
     <span>{{getMailData('subject')}}</span>
     <span>{{getMailData('body')}}</span>
+    <span>isRead: {{getMailData('isRead')}}</span>
+    <span>isSent: {{getMailData('isSent')}}</span>
+    <span>isStarred: {{getMailData('isStarred')}}</span>
+    <span>isTrashed: {{getMailData('isTrashed')}}</span>
 
     </section>
     `,
