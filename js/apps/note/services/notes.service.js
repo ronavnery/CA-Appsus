@@ -1,8 +1,8 @@
 // CRUDL
-import { utilities } from '../../../utils.js'
+import  utilities  from '../../../services/utils.service.js'
 
 export default {
-  getEmptyNote,
+  getEmptyTxtNote,
   query,
   add,
   toggle
@@ -25,7 +25,7 @@ function toggle(Note) {
 
 function _createNotes() {
   add(getEmptyTxtNote('Finish Note App', 'Remeber'))
-  add(getEmptyNote('Go to the beach', 'And later'))
+  add(getEmptyTxtNote('Go to the beach', 'And later'))
   console.log('gNotes created', gNotes)
 }
 
