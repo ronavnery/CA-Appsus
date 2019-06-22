@@ -26,7 +26,7 @@
     height: 50px;  
     margin: 20px;
     background: #0C9DD0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     border:none;
     color: white;
     border-radius: 3px;
@@ -43,7 +43,6 @@
     width: 500px;
     height: calc(100vh - 50px);
     background: #F3F3F3;
-    /* border: 1px solid #898989; */
 }
 
 /* MAIL: LIST: SEARCHBOX */
@@ -83,8 +82,32 @@
     }
   }
 
+.preview-icons {
+    width: 10%;
+}
+
+.icon-unread {
+    color: #2D9CDB;
+}
+
+.icon-unread:hover {
+}
+
+.icon-starred {
+    color: gold
+}
+
+.preview-txt {
+    width: 75%;
+}
+
 .preview-subject {
-    color: cornflowerblue
+    margin: 4px 0 4px 0;
+}
+
+.preview-time {
+    color: #828282;
+    width: 15%
 }
 
 /* MAIL: DETAILS */
