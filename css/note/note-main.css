@@ -149,7 +149,10 @@ padding: 0.6rem;;
   background-color: rgb(255, 255, 255);
   position: absolute;
   z-index: 20;
-  display: none;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+  border: 1px solid lightgray;
+  border-radius: 3px;
+ 
 }
 
 .color-spot{
@@ -162,9 +165,14 @@ padding: 0.6rem;;
   /* z-index: 30; */
 }
 
+.color-spot:hover{
+  border: 1px solid rgb(95, 95, 95);
+}
 
 .color-spot:last-child{
- 
   border:1px solid rgb(146, 146, 146);
+}
 
+.color-spot:hover, .color-spot:last-child:hover{
+  border: 1px solid rgb(95, 95, 95);
 }

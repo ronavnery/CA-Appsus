@@ -3,7 +3,7 @@ import colorCtrl from '../cmps/color-ctrl-cmp.js';
 
 export default {
   template: `
-    <section class="note" :class="[info.color]">
+    <section class="note" :class="'note-color-'+[info.color]">
     <i class="icon icon-sm icon-quill-write-1"></i>
        <h3>{{info.content.title}}</h3>
        <p> {{info.content.txt}}</p> 

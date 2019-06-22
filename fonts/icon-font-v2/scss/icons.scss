@@ -77,16 +77,9 @@ $icon-house-chimney-2: unicode(ea46);
 $icon-alarm-bell-2: unicode(ea47);
 $icon-list-bullets-3-heavy: unicode(ea48);
 $icon-bin-1-heavy: unicode(ea49);
+$icon-color-painting-palette-heavy: unicode(ea4a);
+$icon-picture-landscape-heavy: unicode(ea4b);
 $icon-email-action-forward: unicode(ea4c);
-$icon-rating-star-3: unicode(ea4d);
-$icon-color-painting-palette-2: unicode(ea4e);
-$icon-bin-1-2: unicode(ea4f);
-$icon-picture-landscape-1: unicode(ea50);
-$icon-picture-landscape-2: unicode(ea51);
-$icon-color-painting-palette-1: unicode(ea52);
-$icon-sign-badge-circle: unicode(ea55);
-$icon-circle-1: unicode(ea56);
-$icon-circle-2: unicode(ea57);
 
 .icon-navigation-right-circle-2::before {
   content: $icon-navigation-right-circle-2;
@@ -376,43 +369,15 @@ $icon-circle-2: unicode(ea57);
   content: $icon-bin-1-heavy;
 }
 
+.icon-color-painting-palette-heavy::before {
+  content: $icon-color-painting-palette-heavy;
+}
+
+.icon-picture-landscape-heavy::before {
+  content: $icon-picture-landscape-heavy;
+}
+
 .icon-email-action-forward::before {
   content: $icon-email-action-forward;
-}
-
-.icon-rating-star-3::before {
-  content: $icon-rating-star-3;
-}
-
-.icon-color-painting-palette-2::before {
-  content: $icon-color-painting-palette-2;
-}
-
-.icon-bin-1-2::before {
-  content: $icon-bin-1-2;
-}
-
-.icon-picture-landscape-1::before {
-  content: $icon-picture-landscape-1;
-}
-
-.icon-picture-landscape-2::before {
-  content: $icon-picture-landscape-2;
-}
-
-.icon-color-painting-palette-1::before {
-  content: $icon-color-painting-palette-1;
-}
-
-.icon-sign-badge-circle::before {
-  content: $icon-sign-badge-circle;
-}
-
-.icon-circle-1::before {
-  content: $icon-circle-1;
-}
-
-.icon-circle-2::before {
-  content: $icon-circle-2;
 }
 

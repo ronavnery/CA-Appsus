@@ -14,7 +14,7 @@ export default {
       <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" :class="{ 'hide' :(activeNoteIdx===i) }"> -->
           <!-- <color-ctrl></color-ctrl> -->
 
-          <component :is="note.type" v-for="(note, i) in notes" :info="note" @open-colors="openColors()" @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
+          <component :is="note.type" v-for="(note, i) in notes" :info="note" @changecolor = "changeColor($event,i)" @open-colors="openColors()" @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
       
           
       
@@ -34,7 +34,7 @@ export default {
       notes: noteService.query(),
       newNote: noteService.getEmptyTxtNote(),
       activeNoteIdx: -1,
-      colors:8  
+      colors: 8
     }
   },
   methods: {
@@ -61,12 +61,19 @@ export default {
     closeModal() {
       this.activeNoteIdx = -1
       console.log('update note :')
+    },
+    openColors() {
+      console.log('open the color palette')
+    },
+
+    changeColor(color, noteIdx) {
+      let id = this.notes[noteIdx].id
+      noteService.setValue(id , 'color' , color)
+      this.notes= noteService.query()
+      console.log('this.notes :', this.notes);
     }
   },
-  openColors(){
-    console.log('open the color palette');
-    
-  },
+
   computed: {
     activeNote: function() {
       if (this.activeNoteIdx == -1) return null
@@ -74,10 +81,8 @@ export default {
     }
   },
 
-  components: { controlBar, colorCtrl,txtNote, todoNote }
+  components: { controlBar, colorCtrl, txtNote, todoNote }
 }
 
 // <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
 // <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
-
-

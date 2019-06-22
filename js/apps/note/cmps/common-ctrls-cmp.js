@@ -16,7 +16,7 @@ import colorCtrl from './color-ctrl-cmp.js'
     return {}
   },
   created() {
-    console.log('colors at cmn control',this.colors)
+    // console.log('colors at cmn control',this.colors)
   },
   methods: {
     closeMsg() {

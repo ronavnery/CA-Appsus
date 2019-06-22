@@ -7,7 +7,8 @@ export default {
   getEmptyImgNote,
   query,
   add,
-  toggle
+  toggle,
+  setValue
 }
 
 var gNotes = []
@@ -26,15 +27,15 @@ function toggle(Note) {
 }
 
 function _createNotes() {
-  add(getEmptyTxtNote('Finish Note App', 'Remeber','note-color-1'))
-  add(getEmptyTxtNote('Go to the beach', 'And later','note-color-2'))
-  add(getEmptyTodoNote('Buy Flowers','note-color-3'))
+  add(getEmptyTxtNote('Finish Note App', 'Remeber', 1))
+  add(getEmptyTxtNote('Go to the beach', 'And later', 2))
+  add(getEmptyTodoNote('Buy Flowers', 3))
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyTxtNote(txt = '', title = '', color ,) {
+function getEmptyTxtNote(txt = '', title = '', color) {
   return {
-    type:'txt-note',
+    type: 'txt-note',
     content: {
       txt,
       title
@@ -45,9 +46,9 @@ function getEmptyTxtNote(txt = '', title = '', color ,) {
   }
 }
 
-function getEmptyImgNote(imageURL = null, color ,) {
+function getEmptyImgNote(imageURL = null, color) {
   return {
-    type:'img-note',
+    type: 'img-note',
     content: {
       imageURL,
       color,
@@ -57,16 +58,27 @@ function getEmptyImgNote(imageURL = null, color ,) {
   }
 }
 
-function getEmptyTodoNote(txt = '', color ,) {
+function getEmptyTodoNote(txt = '', color) {
   return {
-    type:'todo-note',
+    type: 'todo-note',
     content: {
-      todos: [{ txt, isDone:false }],
+      todos: [{ txt, isDone: false }],
       color,
       pinned: false,
       lastEdited: Date.now()
     }
   }
+}
+
+function setValue(id, attr , val) {
+  let note = getNoteById(id)
+  note[attr]=val
+}
+
+function getNoteById(id) {
+  return gNotes.find(note => {
+    return note.id === id
+  })
 }
 
 function makeId(length = 5) {
