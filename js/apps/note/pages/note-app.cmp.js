@@ -2,18 +2,35 @@ import controlBar from '../cmps/ctrl-bar-cmp.js'
 import txtNote from '../cmps/txt-note-cmp.js'
 import todoNote from '../cmps/todo-note-cmp.js'
 import colorCtrl from '../cmps/color-ctrl-cmp.js'
+import txtInput from '../cmps/txt-input-cmp.js'
+import inputTypeSelect from '../cmps/input-type-select-cmp.js'
 
 import noteService from '../services/notes.service.js'
 
 export default {
   template: `
   <section class="note-app">
-    <div class="control-bar">
-      <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> 
-    </div>
+    
+      <!-- <component :is="[newNote.type]+'-input'"></component> -->
+    <div class="input-bar flex space-between">
+      <div v-if="newNote.type === 'txt-note'">
+        <input type="text" placeholder="Your note..." v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
+        <input-type-select @click.native="changeInputType(ev)" />
+    
+      <div class="input-bar" v-else-if="newNote.type === 'todo-note'">
+      <input type="text" placeholder="enter todo" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
+
+
+
+      
+</div>
+
+
       <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" :class="{ 'hide' :(activeNoteIdx===i) }"> -->
           <!-- <color-ctrl></color-ctrl> -->
 
+
+<!--///////////////////////////////////////////////////////////////////// -->
           <component :is="note.type" v-for="(note, i) in notes" :info="note" @change-color = "changeColor($event,i)"  @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
       
           
@@ -68,9 +85,12 @@ export default {
 
     changeColor(color, noteIdx) {
       let id = this.notes[noteIdx].id
-      noteService.setValue(id , 'color' , color)
-      this.notes= noteService.query()
-      console.log('this.notes :', this.notes);
+      noteService.setValue(id, 'color', color)
+      this.notes = noteService.query()
+      console.log('this.notes :', this.notes)
+    },
+    changeInputType(ev){
+      console.log('ev :', ev);
     }
   },
 
@@ -78,10 +98,20 @@ export default {
     activeNote: function() {
       if (this.activeNoteIdx == -1) return null
       return this.notes[this.activeNoteIdx]
+    },
+    inputType: function() {
+      // return newNote.type
     }
   },
 
-  components: { controlBar, colorCtrl, txtNote, todoNote }
+  components: {
+    controlBar,
+    colorCtrl,
+    txtNote,
+    todoNote,
+    'txt-note-input': txtInput,
+    'input-type-select':inputTypeSelect
+  }
 }
 
 // <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->

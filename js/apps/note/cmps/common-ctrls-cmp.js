@@ -4,7 +4,6 @@ export default {
   template: `
 <div class="common-ctrl flex space-between ">
   
-    <!-- <color-ctrl :colors='colors' ></color-ctrl> -->
     <button @click.stop="openColorCtrl($event)" ><i class="icon button-icon icon-color-painting-palette-1"></i></button>   
     
     <button @click.stop="deleteNote($event)"><i class="icon button-icon icon-bin-1-heavy"></i></button>

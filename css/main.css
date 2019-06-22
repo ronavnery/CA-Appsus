@@ -1,7 +1,8 @@
 @import '../css/helpers.css';
 @import './mail/mail-app.css';
 @import './note/note-main.css';
-@import '../fonts/icon-font/css/style.css';
+@import '../css/';
+@import '../css/fonts.css';
 
 /* Main */
 :root{
@@ -22,6 +23,8 @@ html {
     font-size: 62.5%;
 }
 
+
+
 body {
     margin: 0;
     background-image: url('../img/background/background.jpg');
@@ -34,8 +37,11 @@ body {
 
 @font-face {
     font-family: 'Lato';
-    src: url('../fonts/Lato/Lato-Regular.ttf');
+    src: url('../fonts/' );
 }
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Raleway:300,300i,400,400i,500,500i,600,700,800&display=swap');
+
 
 /* ----------------Layout --------------*/
 /* --------------- 

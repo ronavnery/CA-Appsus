@@ -1,5 +1,5 @@
-import commonControls from './common-ctrls-cmp.js';
-import colorCtrl from '../cmps/color-ctrl-cmp.js';
+import commonControls from './common-ctrls-cmp.js'
+import colorCtrl from '../cmps/color-ctrl-cmp.js'
 
 export default {
   template: `
@@ -14,30 +14,25 @@ export default {
     
     </section>
     `,
-  props: ['info','colors'],
+  props: ['info', 'colors'],
   data() {
     return {
       showColorCtrl: false
     }
   },
-  mounted() {
-  
-   
-  },
+  mounted() {},
   methods: {
     deleteNote(ev) {
       // this.$emit('deleteNote')
     },
-    openColors(){
+    openColors() {
       console.log('open colors on note')
-      this.showColorCtrl= true
+      this.showColorCtrl = true
     },
-    closeColors(){
+    closeColors() {
       console.log('close colors on note')
-      this.showColorCtrl= false
+      this.showColorCtrl = false
     }
   },
-  components:{ commonControls,colorCtrl}
+  components: { commonControls, colorCtrl }
 }
-
-

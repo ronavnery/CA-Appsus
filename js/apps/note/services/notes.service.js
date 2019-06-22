@@ -27,18 +27,17 @@ function toggle(Note) {
 }
 
 function _createNotes() {
-  add(getEmptyTxtNote('Finish Note App', 'Remeber', 1))
-  add(getEmptyTxtNote('Go to the beach', 'And later', 2))
+  add(getEmptyTxtNote('Finish Note App', 1))
+  add(getEmptyTxtNote('Go to the beach', 2))
   add(getEmptyTodoNote('Buy Flowers', 3))
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyTxtNote(txt = '', title = '', color) {
+function getEmptyTxtNote(txt = '', color) {
   return {
     type: 'txt-note',
     content: {
       txt,
-      title
     },
     color,
     pinned: false,
