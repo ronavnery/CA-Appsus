@@ -46,7 +46,7 @@
 .clean-list {
   list-style-type: none;
 }
-/* Do we need these classes - if not then lets delete */
+/* Do we need these classes? - if not then lets delete */
 /* .show {
   transform: scale(1);
 }

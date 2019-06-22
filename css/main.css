@@ -4,6 +4,20 @@
 @import '../fonts/icon-font/css/style.css';
 
 /* Main */
+:root{
+    --txt-dark: hsl(196, 93%, 11%);
+    --note-color-1: rgb(244, 255, 146) ;
+    --note-color-2: rgb(243, 169, 84) ;
+    --note-color-3: rgb(122, 202, 255) ;
+    --note-color-4: rgb(233, 160, 255) ;
+    --note-color-5: rgb(124, 255, 124) ;
+    --note-color-6: rgb(255, 128, 128) ;
+    --note-color-7: rgb(189, 189, 189) ;
+    --note-color-8: rgb(255, 255, 255) ;
+}
+
+
+
 html {
     font-size: 62.5%;
 }

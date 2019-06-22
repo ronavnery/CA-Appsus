@@ -1,7 +1,10 @@
+i,p,h1,h2,h3,h4,h5{
+  color: var(--txt-dark)
+}
+
 .control-bar {
   width: 30rem;
   background-color: rgba(255, 255, 255, 0.8);
-  color: yellow;
   padding: 1rem;
   margin: 2rem auto;
   border-radius: 3px;
@@ -20,38 +23,148 @@ p {
 .note-app input.text-input {
   height: 2.8rem;
   width: 30rem;
-  border: 
+  /* border:  */
 }
 
-.note-app ul {
-  list-style: none;
-}
-.note-app li {
+.note-app .note {
   width: 16rem;
   background: #fff;
-  padding: 2rem;
+  padding: 1rem 1.6rem 0.2rem;
+  /* padding-bottom: 0; */
   margin: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 1px;
 }
 
-.note-app .edit-modal{
+.note-app .edit-modal {
   width: 50vw;
   padding: 2rem;
   background: #fff;
   position: absolute;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
   top: 20vh;
-  box-shadow: 12px 12px 20px rgba(0,0,0,0.3);
+  box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.3);
   border: 1px solid lightgrey;
   border-radius: 3px;
 }
 
-.note-app .edit-footer{
-  padding-top:1rem;
+.note-app .edit-footer {
+  padding-top: 1rem;
 }
 
-.note-app .hide{
-  opacity:0;
-
+.note-app .hide {
+  opacity: 0;
 }
 
+.note li {
+  font-size: 1.6rem;
+}
+.note {
+  position: relative;
+}
+
+.note .icon {
+  position: absolute;
+  opacity: 0.5;
+  top: 1rem;
+  right: 1rem;
+}
+
+.note-app .note-color-1 {
+  background-color: var(--note-color-1);
+}
+
+.note-app .note-color-2 {
+  background-color: var(--note-color-2);
+}
+
+.note-app .note-color-3 {
+  background-color: var(--note-color-3);
+}
+
+.note-app .note-color-4 {
+  background-color: var(--note-color-4);
+}
+
+.note-app .note-color-5 {
+  background-color: var(--note-color-5);
+}
+
+.note-app .note-color-6 {
+  background-color: var(--note-color-6);
+}
+
+.note-app .note-color-7 {
+  background-color: var(--note-color-7);
+}
+
+.note-app .note-color-8 {
+  background-color: var(--note-color-8);
+}
+
+.common-ctrl {
+  /* border:1px dashed red; */
+  margin-top: 0.6rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.common-ctrl:hover{
+  opacity: 1;
+}
+
+.common-ctrl button {
+  width: 4rem;
+  height: 2.8rem;
+}
+
+.common-ctrl button{
+  background: transparent;
+  border: 0px;
+}
+.common-ctrl button:hover{
+  background: transparent;
+}
+
+.common-ctrl .button-icon {
+  position: static;
+  opacity: 1;
+  font-size: 1.3em;
+  width: 3rem;
+  height: 1.8rem;
+  outline: 0;
+}
+.common-ctrl .button-icon {
+  opacity:0.7
+  }
+.common-ctrl .button-icon:hover {
+opacity:1;
+}
+
+.color-ctrl{
+padding: 0.6rem;;
+  width: 14rem;
+  height: 8rem;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 20;
+  display: none;
+}
+
+.color-spot{
+  /* position: absolute; */
+  border-radius: 50%;
+  border:1px solid rgb(231, 231, 231);
+  margin: 0.4rem;
+  width:2.4rem;
+  height:2.4rem;
+  /* z-index: 30; */
+}
+
+
+.color-spot:last-child{
+ 
+  border:1px solid rgb(146, 146, 146);
+
+}

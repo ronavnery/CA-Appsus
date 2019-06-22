@@ -75,11 +75,6 @@ $icon-rating-star-1: unicode(ea44);
 $icon-house-chimney-1: unicode(ea45);
 $icon-house-chimney-2: unicode(ea46);
 $icon-alarm-bell-2: unicode(ea47);
-$icon-list-bullets-3-heavy: unicode(ea48);
-$icon-bin-1-heavy: unicode(ea49);
-$icon-color-painting-palette-heavy: unicode(ea4a);
-$icon-picture-landscape-heavy: unicode(ea4b);
-$icon-email-action-forward: unicode(ea4c);
 
 .icon-navigation-right-circle-2::before {
   content: $icon-navigation-right-circle-2;
@@ -359,25 +354,5 @@ $icon-email-action-forward: unicode(ea4c);
 
 .icon-alarm-bell-2::before {
   content: $icon-alarm-bell-2;
-}
-
-.icon-list-bullets-3-heavy::before {
-  content: $icon-list-bullets-3-heavy;
-}
-
-.icon-bin-1-heavy::before {
-  content: $icon-bin-1-heavy;
-}
-
-.icon-color-painting-palette-heavy::before {
-  content: $icon-color-painting-palette-heavy;
-}
-
-.icon-picture-landscape-heavy::before {
-  content: $icon-picture-landscape-heavy;
-}
-
-.icon-email-action-forward::before {
-  content: $icon-email-action-forward;
 }
 

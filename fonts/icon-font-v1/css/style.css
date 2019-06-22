@@ -37,10 +37,6 @@ Generated using nucleoapp.com
 .icon-16 {
   font-size: 16px;
 }
-.icon-24 {
-  font-size: 24px
-}
-
 .icon-32 {
   font-size: 32px;
 }
@@ -436,25 +432,5 @@ Generated using nucleoapp.com
 
 .icon-alarm-bell-2::before {
   content: "\ea47";
-}
-
-.icon-list-bullets-3-heavy::before {
-  content: "\ea48";
-}
-
-.icon-bin-1-heavy::before {
-  content: "\ea49";
-}
-
-.icon-color-painting-palette-heavy::before {
-  content: "\ea4a";
-}
-
-.icon-picture-landscape-heavy::before {
-  content: "\ea4b";
-}
-
-.icon-email-action-forward::before {
-  content: "\ea4c";
 }
 

@@ -1,8 +1,10 @@
 // CRUDL
-import  utilities  from '../../../services/utils.service.js'
+import utilities from '../../../services/utils.service.js'
 
 export default {
   getEmptyTxtNote,
+  getEmptyTodoNote,
+  getEmptyImgNote,
   query,
   add,
   toggle
@@ -24,17 +26,15 @@ function toggle(Note) {
 }
 
 function _createNotes() {
-  add(getEmptyTxtNote('Finish Note App', 'Remeber'))
-  add(getEmptyTxtNote('Go to the beach', 'And later'))
+  add(getEmptyTxtNote('Finish Note App', 'Remeber','note-color-1'))
+  add(getEmptyTxtNote('Go to the beach', 'And later','note-color-2'))
+  add(getEmptyTodoNote('Buy Flowers','note-color-3'))
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyTxtNote(
-  txt = '',
-  title = '',
-  color = 'c-yellow'
-  ) {
+function getEmptyTxtNote(txt = '', title = '', color ,) {
   return {
+    type:'txt-note',
     content: {
       txt,
       title
@@ -45,11 +45,9 @@ function getEmptyTxtNote(
   }
 }
 
-function getEmptyImgNote(
-  imageURL = null,
-  color = 'c-yellow'
-) {
+function getEmptyImgNote(imageURL = null, color ,) {
   return {
+    type:'img-note',
     content: {
       imageURL,
       color,
@@ -59,10 +57,11 @@ function getEmptyImgNote(
   }
 }
 
-function getEmptyTodoNote() {
+function getEmptyTodoNote(txt = '', color ,) {
   return {
+    type:'todo-note',
     content: {
-      todos: [{ txt, isDone }],
+      todos: [{ txt, isDone:false }],
       color,
       pinned: false,
       lastEdited: Date.now()
