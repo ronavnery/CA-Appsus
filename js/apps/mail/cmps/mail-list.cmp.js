@@ -8,7 +8,7 @@ export default {
     <section class="mail-list-container">
     <list-searchbox></list-searchbox>
     <div v-if="mails" class="previews flex column">
-        <mail-preview v-for="(mail,idx) in mailsToShow" :key="idx" :mail="mail"></mail-preview>        
+        <mail-preview v-for="(mail,idx) in mailsToShow" :key="idx" :mail="mail"> </mail-preview>        
     </div>
     </section>
     `,

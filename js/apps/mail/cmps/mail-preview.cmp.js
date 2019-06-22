@@ -1,10 +1,11 @@
 import { mailService } from '../services/mail-service.cmp.js'
 import eventBus, {SHOW_DETAILS} from '../../../event-bus.js';
 
+let prevMail = null;
 
 export default {
     template:`
-    <section class="mail-preview-container flex" @click="showMailDetails">
+    <section class="mail-preview-container flex" @click="handleMailClick" :class="mail.isSelected ? 'highlight-selected' : ''">
         <div class="preview-icons">
             <i class="icon icon-circle-1 icon-12 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
             <i class="icon icon-sign-badge-circle icon-12" v-if="mail.isRead" @click="toggleIsRead"></i>
@@ -28,6 +29,10 @@ export default {
     `,
     props: ['mail'],
     methods: {
+        handleMailClick() {
+            this.showMailDetails();
+            this.selectMail();
+        },
         showMailDetails() {
             eventBus.$emit(SHOW_DETAILS, this.mail);
         },
@@ -45,6 +50,11 @@ export default {
         },
         mouseOver() {
             this.isDisplayingTrash = !this.isDisplayingTrash
+        },
+        selectMail() {
+            if (prevMail) prevMail.isSelected = false;
+            prevMail = this.mail;
+            this.mail.isSelected = true;
         }
     }
 }

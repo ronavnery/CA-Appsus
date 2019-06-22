@@ -143,6 +143,9 @@
     margin-top: 5px;
 }
 
+.highlight-selected {
+    background: rgba(12, 157, 208, 0.4);
+}
 /* MAIL: DETAILS */
 
 .mail-details-container {

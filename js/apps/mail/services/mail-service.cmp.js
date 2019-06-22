@@ -60,6 +60,7 @@ function createMail(sender, address, subject, body, sentAt = Date.now()) {
         isStarred: false,
         isTrashed: false,
         isSent: false,
+        isSelected: false
     }
 }
 

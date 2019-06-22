@@ -1,49 +1,73 @@
 @font-face {
-	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-Light.ttf') format('truetype');
-	font-weight: light;
-	ffont-style:normal;
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
 }
+
 @font-face {
-	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-LightItalic.ttf') format('truetype');
-	font-weight: light;
-	font-style: italic;
+    font-family: 'Lato Hairline';
+    src: url('../fonts/Lato/Lato-Hairline.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('../fonts/Lato/Lato-HairlineItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
 }
 
 @font-face {
 	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style:normal;
+    src: url('../fonts/Lato/Lato-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 @font-face {
 	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style:normal;
+    src: url('../fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face {
-	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
-	font-weight: bold;
-	font-style:italic;
-}
-
-@font-face {
-	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-Light.ttf') format('truetype');
-	font-weight: light;
-	ffont-style:normal;
-}
-@font-face {
-	font-family: 'Lato';
-	src: url('../fonts/Lato/Lato-LightItalic.ttf') format('truetype');
-	font-weight: light;
-	font-style: italic;
-}
 /* Raleway */
 @font-face {
 	font-family: 'Raleway';
@@ -64,4 +88,10 @@
 	src: url('../fonts/Raleway/Raleway-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style:normal;
-}
+} 
+
+
+
+
+
+
