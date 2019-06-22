@@ -14,9 +14,10 @@ export default {
       <!-- <component :is="[newNote.type]+'-input'"></component> -->
     <div class="input-bar flex space-between">
       <div v-if="newNote.type === 'txt-note'">
-        <input type="text" placeholder="your note..." v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
-        <input-type-select @click.native="changeInputType(ev)" />
-    
+        <template>
+        <input type="text" placeholder="Your note..." v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
+        <input-type-select @click.native="changeInputType(ev)"></input-type-select>
+    <template>
       <div class="input-bar" v-else-if="newNote.type === 'todo-note'">
       <input type="text" placeholder="enter todo" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
 
