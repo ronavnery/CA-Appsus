@@ -5,8 +5,8 @@ export default {
   template: `
     <section class="note" :class="'note-color-'+[info.color]">
     <i class="icon icon-sm icon-quill-write-1"></i>
-       <h3>{{info.content.title}}</h3>
-       <p> {{info.content.txt}}</p> 
+      
+       <pre> {{info.content.txt}}</pre> 
        <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @close-color="closeColors()"></color-ctrl> 
         </transition>

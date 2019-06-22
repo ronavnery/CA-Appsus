@@ -2,7 +2,8 @@ export default {
   template: `
     <div class="color-ctrl flex flex-wrap">
     
-        <div v-for="(i) in 8" class="color-spot" :class="'note-color-'+[i]" @click="colorClicked(i)" >
+        <div v-for="(i) in 8" class="color-spot" :class="'note-color-'+[i]"
+        @click.stop="colorClicked(i)" >
         </div>
 </div>
 

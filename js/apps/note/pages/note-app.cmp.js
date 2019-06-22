@@ -10,36 +10,46 @@ import noteService from '../services/notes.service.js'
 export default {
   template: `
   <section class="note-app">
-    
+    {{this.newNote.type}}
       <!-- <component :is="[newNote.type]+'-input'"></component> -->
     <div class="input-bar flex space-between">
-      <div v-if="newNote.type === 'txt-note'">
-        <template>
-        <input type="text" placeholder="Your note..." v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
-        <input-type-select @click.native="changeInputType(ev)"></input-type-select>
-    <template>
-      <div class="input-bar" v-else-if="newNote.type === 'todo-note'">
-      <input type="text" placeholder="enter todo" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div>
+      <template v-if="newNote.type === 'txt-note'">
+        
+        <input type="text" placeholder="Your note..."
+        v-model="newNote.content.txt" @keyup.enter="addTxtNote"
+        @blur="addTxtNote" class="text-input"/> 
+        <input-type-select @input-change="changeInputType($event)"></input-type-select>
+      </template>
 
+    <template v-else-if="newNote.type === 'todo-note'">
+      <div class="input-bar" >
+      <input type="text" placeholder="enter todo" v-model="newNote.content.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div> 
+      </template>
 
 
       
-</div>
+    </div>
 
+      <!-- <pre>{{newNote}}</pre> -->
 
-      <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" :class="{ 'hide' :(activeNoteIdx===i) }"> -->
+      <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" "> -->
           <!-- <color-ctrl></color-ctrl> -->
 
 
-<!--///////////////////////////////////////////////////////////////////// -->
-          <component :is="note.type" v-for="(note, i) in notes" :info="note" @change-color = "changeColor($event,i)"  @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
+<!--//////////////////// NOTES  //////////////////////////////////// -->
+
+{{activeNoteIdx}} 
+          <component :is="note.type" v-for="(note, i) in notes"
+          :info="note" @change-color = "changeColor($event,i)" 
+          @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)"
+          :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
       
-          
+  <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
       
-      <div class='edit-modal' v-if = "activeNoteIdx !=-1" >
+      <div class='edit-modal'  v-if = "activeNoteIdx !=-1"
+      :class="'note-color-'+[activeNote.color]" >
             
-        <h3 contenteditable="true">{{activeNote.title}}</h3>
-        <p contenteditable="true"> {{activeNote.txt}}</p>  
+        <p contenteditable="true" @input="editText"> {{activeNote.content.txt}}</p>  
         <div class="edit-footer flex space-between">
           <div class="controls"><h3>control bar</h3></div>
           <button @click="closeModal">Close</button>
@@ -52,14 +62,17 @@ export default {
       notes: noteService.query(),
       newNote: noteService.getEmptyTxtNote(),
       activeNoteIdx: -1,
-      colors: 8
+      colors: 8,
+      editedTxt:''
+      
     }
   },
   methods: {
-    addNote() {
+    addTxtNote() {
+      console.log('this.newNote :', this.newNote)
       if (this.newNote.txt === '') return
-      noteService.add(this.newNote)
-      this.newNote = noteService.getEmptyNote()
+      noteService.addTxtNote(this.newNote)
+      this.newNote = noteService.getEmptyTxtNote()
       console.log(this.notes)
     },
 
@@ -77,8 +90,8 @@ export default {
       }
     },
     closeModal() {
+      this.activeNote.content.txt = this.editedTxt
       this.activeNoteIdx = -1
-      console.log('update note :')
     },
     openColors() {
       console.log('open the color palette')
@@ -90,8 +103,29 @@ export default {
       this.notes = noteService.query()
       console.log('this.notes :', this.notes)
     },
-    changeInputType(ev){
-      console.log('ev :', ev);
+
+
+    editText(ev) {
+      console.log(ev.target.innerText)
+      this.editedTxt = ev.target.innerText
+      console.log('this.editedTxt  :', this.editedTxt );
+    },
+
+
+
+    changeInputType(ev) {
+      console.log('ev is :', ev)
+      switch (ev) {
+        case 'txt':
+          this.newNote = noteService.getEmptyTxtNote()
+          break
+        case 'todo':
+          this.newNote = noteService.getEmptyTodoNote()
+          break
+        case 'txt':
+          this.newNote = noteService.getEmptyImgNote()
+          break
+      }
     }
   },
 
@@ -100,9 +134,9 @@ export default {
       if (this.activeNoteIdx == -1) return null
       return this.notes[this.activeNoteIdx]
     },
-    inputType: function() {
-      // return newNote.type
-    }
+    // editedTxt: function() {
+    //   return this.activeNote.content.txt
+    // }
   },
 
   components: {
@@ -111,7 +145,7 @@ export default {
     txtNote,
     todoNote,
     'txt-note-input': txtInput,
-    'input-type-select':inputTypeSelect
+    'input-type-select': inputTypeSelect
   }
 }
 

@@ -2,12 +2,12 @@
 	font-family: 'Lato';
 	src: url('../fonts/Lato/Lato-Light.ttf') format('truetype');
 	font-weight: light;
-	ffont-style:normal;
+	font-style:normal;
 }
 @font-face {
 	font-family: 'Lato';
 	src: url('../fonts/Lato/Lato-LightItalic.ttf') format('truetype');
-	font-weight: light;
+	font-weight: 
 	font-style: italic;
 }
 
