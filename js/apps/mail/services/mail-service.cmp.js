@@ -22,21 +22,21 @@ function queryMails() {
 
 function generateMails() {
     let mails = [
-        createMail('Yonatan Gailli',`Are you done yet?`,
+        createMail('Yonatan Gailli', 'yoanatan@gmail.com', `Are you done yet?`,
     'Hi friend, I loved your work yesterday. Great stuff. cant wait to get it  ', gNextSentTime),
-        createMail('Ron Avnery',`Re: Regarding you insurance claim`,
+        createMail('Ron Avnery', 'avnery@gmail.com', `Re: Regarding you insurance claim`,
     'Let’s Lorem efin ipsum times twenty four', gNextSentTime-(1*100000000)),
-        createMail('Yonatan Gailli',`When do you think you will be done?`,
+        createMail('Yonatan Gailli', 'yonatan@gmail.com', `When do you think you will be done?`,
     'Boy are you fast! Hope your GF doesnt also, you know... ', gNextSentTime-(2*100000000)),
-        createMail('Ben Cohen',`Hi Friend`,
+        createMail('Ben Cohen', 'benc990@gmail.com', `Hi Friend`,
     'Where is my money? You said yould pay me back for the Pizza I bought you and ...', gNextSentTime-(3*100000000)),
-        createMail('Yaron Biton',`Lets go fishing at your earliest convenience`,
+        createMail('Yaron Biton', 'yaronush@gmail.com', `Lets go fishing at your earliest convenience`,
     'Me dying for some Sushi', gNextSentTime-(4*100000000)),
-        createMail('Dorris Katzavim',`U R Hot`,
+        createMail('Dorris Katzavim', 'dorkatz@hotmail.com', `U R Hot`,
     'Looking for Polish Bride? send me bank acount info for pretty bride', gNextSentTime-(5*100000000)),
-        createMail('Apple',`Please buy our latest shie`,
+        createMail('Apple', 'do-not-reply@shitass.com', `Please buy our latest shie`,
     'A spectacular $43,00 Mouse made out of carbon fiber and absolutely lovely whit...', gNextSentTime-(6*100000000)),
-        createMail('Prince Motombo Kalumbo',`Help me please`,
+        createMail('Prince Motombo Kalumbo', 'imaprince@nigeria.com', `Help me please`,
     'I am the son of a Nigerian king and I stuck in hospital', gNextSentTime-(7*100000000)),
     ]
     // to push more emails:
@@ -48,10 +48,11 @@ function generateMails() {
     return mails;
 }
 
-function createMail(sender, subject, body, sentAt = Date.now()) {
+function createMail(sender, address, subject, body, sentAt = Date.now()) {
     return {
         id: gNextId++,
         sender,
+        address,
         subject,
         body,
         sentAt,

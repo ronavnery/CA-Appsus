@@ -10,7 +10,7 @@
     cursor: pointer;
     list-style: none;
     margin-bottom: 10px;
-    color:white;
+    color: white;
     width: 200px;
     height: 54px;
     padding: 10px;
@@ -23,11 +23,11 @@
 
 .new-mail-btn {
     cursor: pointer;
-    height: 50px;  
+    height: 50px;
     margin: 20px;
     background: #0C9DD0;
     font-size: 1.6rem;
-    border:none;
+    border: none;
     color: white;
     border-radius: 3px;
     font-weight: 500;
@@ -48,13 +48,13 @@
 /* MAIL: LIST: SEARCHBOX */
 
 .searchbox-container {
-    position:relative;
+    position: relative;
     height: 70px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #898989;
 }
 
 .searchbox-container input {
-    margin:15px;
+    margin: 15px;
     padding-right: 50px;
     width: 300px;
     height: 40px;
@@ -81,11 +81,11 @@
     position: relative;
     cursor: pointer;
     max-height: max-content;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #898989;
     box-sizing: border-box;
     padding: 10px;
     font-size: 1.8rem;
-    border-left: 4px solid  #0C9DD0;
+    border-left: 4px solid #0C9DD0;
 }
 
 .mail-preview-container:hover {
@@ -94,12 +94,12 @@
 
 @keyframes shadow-drop-center {
     0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
     100% {
-      box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.35);
     }
-  }
+}
 
 .preview-icons {
     width: 10%;
@@ -108,7 +108,6 @@
 .icon-unread {
     color: #2D9CDB;
 }
-
 
 .icon-starred {
     color: gold;
@@ -144,14 +143,12 @@
     margin-top: 5px;
 }
 
-
 /* MAIL: DETAILS */
 
 .mail-details-container {
     width: calc(100vw - 785px);
     height: calc(100vh - 50px);
-    background: rgba(255,255,255,0.5);
-    border: 1px solid #898989;
+    background: rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
 }
 
@@ -159,7 +156,6 @@
 
 .controlbar-container {
     height: 70px;
-    border-bottom: 1px solid black;
     box-sizing: border-box;
     background: #F3F3F3;
 }
@@ -167,6 +163,41 @@
 /* MAIL: DETAILS: CONTENT */
 
 .details-content-container {
+    padding: 5%;
     overflow-y: scroll;
     height: calc(100vh - 50px - 70px);
+    color: rgb(37, 42, 48);
+    font-size: 2.5rem;
+}
+
+.content-sender-avatar {
+    margin-right: 2%;
+    width: 75px;
+    line-height: 75px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    border: 1px solid rgb(37, 42, 48);
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+.content-sender {
+    height: 10%;
+    font-size: 4rem;
+    color: rgb(37, 42, 48)
+}
+
+.content-sender-email {
+    font-size: 2rem;
+    margin-left: 2px;
+}
+
+.content-time {
+    margin-left: auto;
+    font-size: 2.5rem;
+}
+
+.content-subject {
+    font-size: 3.6rem;
+    margin: 5% 0 5% 0;
 }
