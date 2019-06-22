@@ -25,6 +25,7 @@ export default {
     colorClicked(color) {
       this.$parent.$emit('change-color', color)
       this.$emit('close-color')
+      
     }
   }
 }
