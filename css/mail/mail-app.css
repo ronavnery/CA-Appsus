@@ -169,8 +169,18 @@
     padding: 5%;
     overflow-y: scroll;
     height: calc(100vh - 50px - 70px);
-    color: rgb(37, 42, 48);
+    /* color: rgb(37, 42, 48); */
+    color:white;
     font-size: 2.5rem;
+    box-sizing: border-box;
+    background-image: linear-gradient(to top, #0c9dd0, #2f7da6, #345f7d, #304455, #252a30);
+}
+
+.content-sender {
+    height: 10%;
+    font-size: 4rem;
+    /* color: rgb(37, 42, 48) */
+    color: white;
 }
 
 .content-sender-avatar {
@@ -181,13 +191,7 @@
     text-align: center;
     font-size: 32px;
     border: 1px solid rgb(37, 42, 48);
-    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
-}
-
-.content-sender {
-    height: 10%;
-    font-size: 4rem;
-    color: rgb(37, 42, 48)
+    background-image: linear-gradient(to top, #00c9dd, #1b93a2, #1d616b, #163338, #000506);
 }
 
 .content-sender-email {
@@ -198,6 +202,10 @@
 .content-time {
     margin-left: auto;
     font-size: 2.5rem;
+}
+
+.content-clock-icon {
+    color: white
 }
 
 .content-subject {

@@ -11,7 +11,7 @@ export default {
             <span class="content-sender-email">{{getMailData('address')}}</span>
         </div>
         <div class="content-time align-end">
-        <i class="icon icon-time-clock-circle icon-sm"></i>
+        <i class="icon icon-time-clock-circle icon-sm content-clock-icon"></i>
         <span >{{getMailData('sentAt')}}</span>
         </div>
     </div>

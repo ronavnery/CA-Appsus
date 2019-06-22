@@ -1,7 +1,7 @@
 import { mailService } from '../services/mail-service.cmp.js'
 import eventBus, {SHOW_DETAILS} from '../../../event-bus.js';
 
-let prevMail = null;
+let currMail = null;
 
 export default {
     template:`
@@ -52,8 +52,11 @@ export default {
             this.isDisplayingTrash = !this.isDisplayingTrash
         },
         selectMail() {
-            if (prevMail) prevMail.isSelected = false;
-            prevMail = this.mail;
+            if (currMail) {
+                currMail.isSelected = false
+                currMail.isRead = true;
+            }
+            currMail = this.mail;
             this.mail.isSelected = true;
         }
     }
