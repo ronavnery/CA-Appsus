@@ -1,39 +1,40 @@
-import controlBar from '../cmps/control-bar-cmp.js'
+import controlBar from '../cmps/ctrl-bar-cmp.js'
+import txtNote from '../cmps/txt-note-cmp.js'
+import todoNote from '../cmps/todo-note-cmp.js'
+import colorCtrl from '../cmps/color-ctrl-cmp.js'
+
 import noteService from '../services/notes.service.js'
 
 export default {
   template: `
-        <section class="note-app">
-           
-            <div class="control-bar">
-                 <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> 
-                 <!-- <button @click="addNote">Add</button> -->
-            </div>
+  <section class="note-app">
+    <div class="control-bar">
+      <input type="text" placeholder="" v-model="newNote.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> 
+    </div>
+      <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" :class="{ 'hide' :(activeNoteIdx===i) }"> -->
+          <!-- <color-ctrl></color-ctrl> -->
+
+          <component :is="note.type" v-for="(note, i) in notes" :info="note" @open-colors="openColors()" @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
+      
+          
+      
+      <div class='edit-modal' v-if = "activeNoteIdx !=-1" >
             
-            
-            <ul>
-                <li v-for="(note, i) in notes" @click="editNote(note , i)" :class="{'note-done' : note.isDone , 'hide' :(activeNoteIdx===i) }">
-                    <h3>{{note.title}}</h3>
-                    <p> {{note.txt}}</p>  
-                    <button @click.stop="deleteNote(i)">x</button>
-                </li>
-            </ul>
-            <div class='edit-modal' v-if = "activeNoteIdx !=-1" >
-                 
-                <h3 contenteditable="true">{{activeNote.title}}</h3>
-                <p contenteditable="true"> {{activeNote.txt}}</p>  
-                <div class="edit-footer flex space-between">
-                    <div class="controls"><h3>control bar</h3></div>
-                    <button @click="closeModal">Close</button>
-                </div>             
-            </div>
-        </section>
-    `,
+        <h3 contenteditable="true">{{activeNote.title}}</h3>
+        <p contenteditable="true"> {{activeNote.txt}}</p>  
+        <div class="edit-footer flex space-between">
+          <div class="controls"><h3>control bar</h3></div>
+          <button @click="closeModal">Close</button>
+        </div>             
+      </div>
+  </section>
+  `,
   data() {
     return {
       notes: noteService.query(),
-      newNote: noteService.getEmptyNote(),
-      activeNoteIdx: -1
+      newNote: noteService.getEmptyTxtNote(),
+      activeNoteIdx: -1,
+      colors:8  
     }
   },
   methods: {
@@ -44,8 +45,8 @@ export default {
       console.log(this.notes)
     },
 
-    deleteNote(noteIdx) {
-      // console.log('Ev', ev);
+    deleteNote(noteIdx, ev) {
+      // console.log('delete', i, ev)
       this.notes.splice(noteIdx, 1)
     },
     editNote(note, i) {
@@ -59,9 +60,12 @@ export default {
     },
     closeModal() {
       this.activeNoteIdx = -1
-      console.log('update note :');
-
+      console.log('update note :')
     }
+  },
+  openColors(){
+    console.log('open the color palette');
+    
   },
   computed: {
     activeNote: function() {
@@ -70,8 +74,10 @@ export default {
     }
   },
 
-  components: { controlBar }
+  components: { controlBar, colorCtrl,txtNote, todoNote }
 }
 
 // <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
 // <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
+
+
