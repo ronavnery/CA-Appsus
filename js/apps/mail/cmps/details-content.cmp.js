@@ -3,7 +3,7 @@ import eventBus, { SHOW_DETAILS } from '../../../event-bus.js';
 
 export default {
     template: `
-    <section class="details-content-container flex column">
+    <section v-if="mail" class="details-content-container flex column">
     <span>{{getMailData('sender')}}</span>
     <span>{{getMailData('subject')}}</span>
     <span>{{getMailData('body')}}</span>
@@ -16,7 +16,7 @@ export default {
     `,
     data() {
         return {
-            mail: {}
+            mail: null
         }
     },
     created() {
@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         getMailData(key, length = 50) {
-            // bug here, calls for parse before this.mail is ready(happens only once)
             return mailService.parseMail(this.mail, key, length);
         }
     },
