@@ -48,8 +48,26 @@
 /* MAIL: LIST: SEARCHBOX */
 
 .searchbox-container {
+    position:relative;
     height: 70px;
     border-bottom: 1px solid black;
+}
+
+.searchbox-container input {
+    margin:15px;
+    padding-right: 50px;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #BDBDBD;
+    text-indent: 15px;
+    font-size: 1.8rem;
+}
+
+.searchbox-container .icon-magnifier {
+    position: absolute;
+    top: 27px;
+    right: 138px;
+    font-size: 2.2rem;
 }
 
 .previews {
@@ -60,8 +78,9 @@
 /* MAIL: LIST: PREVIEW */
 
 .mail-preview-container {
+    position: relative;
     cursor: pointer;
-    min-height: 100px;
+    max-height: max-content;
     border-bottom: 1px solid black;
     box-sizing: border-box;
     padding: 10px;
@@ -90,15 +109,13 @@
     color: #2D9CDB;
 }
 
-.icon-unread:hover {
-}
 
 .icon-starred {
-    color: gold
+    color: gold;
 }
 
 .preview-txt {
-    width: 75%;
+    width: 85%;
 }
 
 .preview-subject {
@@ -106,9 +123,27 @@
 }
 
 .preview-time {
+    font-size: 1.6rem;
     color: #828282;
     width: 15%
 }
+
+.preview-trash {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.preview-time {
+    width: max-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
+}
+
 
 /* MAIL: DETAILS */
 

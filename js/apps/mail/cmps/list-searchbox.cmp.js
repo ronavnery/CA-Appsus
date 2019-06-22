@@ -4,6 +4,7 @@ export default {
     template: `
     <section class="searchbox-container">
         <input type="text" v-model="searchTerm" @keyup="searchInMails"/>
+        <i class="icon icon-star icon-magnifier"></i>
     </section>
     `,
     data() {
@@ -13,7 +14,7 @@ export default {
     },
     methods: {
         searchInMails() {
-            eventBus.$emit(FILTER_BY, this.searchTerm)
+            eventBus.$emit(FILTER_BY, this.searchTerm.toLowerCase())
         }
     }
 }
