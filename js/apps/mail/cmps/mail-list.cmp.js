@@ -35,9 +35,9 @@ export default {
             if (this.sectionFilter) {
                 if (this.sectionFilter === 'Inbox') return this.mails.filter(mail => {
                     if (!this.txtFilter) return (!mail.isTrashed && !mail.isSent)
-                    else return (!mail.isTrashed && !mail.isSent) && (mail.sender.includes(this.txtFilter) ||
-                    mail.subject.includes(this.txtFilter) ||
-                    mail.body.includes(this.txtFilter))
+                    else return (!mail.isTrashed && !mail.isSent) && (mail.sender.toLowerCase().includes(this.txtFilter) ||
+                    mail.subject.toLowerCase().includes(this.txtFilter) ||
+                    mail.body.toLowerCase().includes(this.txtFilter))
                 });
                 let key;
                 if (this.sectionFilter === 'Starred') key = 'isStarred'
@@ -45,9 +45,9 @@ export default {
                 else key = 'isTrashed'
                 return this.mails.filter(mail => {
                     if (!this.txtFilter) return mail[key]
-                    else return mail[key] && (mail.sender.includes(this.txtFilter) ||
-                    mail.subject.includes(this.txtFilter) ||
-                    mail.body.includes(this.txtFilter))
+                    else return mail[key] && (mail.sender.toLowerCase().includes(this.txtFilter) ||
+                    mail.subject.toLowerCase().includes(this.txtFilter) ||
+                    mail.body.toLowerCase().includes(this.txtFilter))
                 })
             }
         }

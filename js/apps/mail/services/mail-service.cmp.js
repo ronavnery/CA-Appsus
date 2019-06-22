@@ -64,7 +64,11 @@ function createMail(sender, subject, body, sentAt = Date.now()) {
 
 function parseMail(mail, key, length = 50) {
     var item = mail[key]
-    if (key === 'sentAt') return moment(item).fromNow();
+    if (key === 'sentAt') {
+        if (Date.now() - item < 86400000) return moment(item).format('hh:mm a')
+        else if (Date.now() - item > 86400000 && Date.now() - item < 172800000) return moment(item).fromNow();
+        else return moment(item).format('LL');
+    }
     if (item.length > length) return item.substring(0,length) + '...'
     return item;
 }
