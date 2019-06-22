@@ -21,14 +21,30 @@ function queryMails() {
 }
 
 function generateMails() {
-    let mails = []
-    const numOfMails = 10;
-    for (let i = 0; i < numOfMails; i++) {
-        mails.push(createMail('Ron Avnery',`Subject mothafucka! ${gNextId}`,
-         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur porro cum placeat pariatur, quia nam id aspernatur repellat quaerat facere nesciunt vitae quidem itaque! Veritatis suscipit quia voluptates quos minima?', gNextSentTime-(i*100000000)))
-    }
-    mails.unshift(createMail('Guy Richi',`Hello there! ${gNextId}`,
-    'Kuku pakuku', Date.now()))
+    let mails = [
+        createMail('Yonatan Gailli',`Are you done yet?`,
+    'Hi friend, I loved your work yesterday. Great stuff. cant wait to get it  ', gNextSentTime),
+        createMail('Ron Avnery',`Re: Regarding you insurance claim`,
+    'Let’s Lorem efin ipsum times twenty four', gNextSentTime-(1*100000000)),
+        createMail('Yonatan Gailli',`When do you think you will be done?`,
+    'Boy are you fast! Hope your GF doesnt also, you know... ', gNextSentTime-(2*100000000)),
+        createMail('Ben Cohen',`Hi Friend`,
+    'Where is my money? You said yould pay me back for the Pizza I bought you and ...', gNextSentTime-(3*100000000)),
+        createMail('Yaron Biton',`Lets go fishing at your earliest convenience`,
+    'Me dying for some Sushi', gNextSentTime-(4*100000000)),
+        createMail('Dorris Katzavim',`U R Hot`,
+    'Looking for Polish Bride? send me bank acount info for pretty bride', gNextSentTime-(5*100000000)),
+        createMail('Apple',`Please buy our latest shie`,
+    'A spectacular $43,00 Mouse made out of carbon fiber and absolutely lovely whit...', gNextSentTime-(6*100000000)),
+        createMail('Prince Motombo Kalumbo',`Help me please`,
+    'I am the son of a Nigerian king and I stuck in hospital', gNextSentTime-(7*100000000)),
+    ]
+    // to push more emails:
+    // const numOfMails = 10;
+    // for (let i = 0; i < numOfMails; i++) {
+    //     mails.push(createMail('Ron Avnery',`Subject mothafucka! ${gNextId}`,
+    //      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur porro cum placeat pariatur, quia nam id aspernatur repellat quaerat facere nesciunt vitae quidem itaque! Veritatis suscipit quia voluptates quos minima?', gNextSentTime-(i*100000000)))
+    // }
     return mails;
 }
 
@@ -39,10 +55,10 @@ function createMail(sender, subject, body, sentAt = Date.now()) {
         subject,
         body,
         sentAt,
-        isRead: getRandomBoolean(),
-        isStarred: getRandomBoolean(),
-        isTrashed: getRandomBoolean(),
-        isSent: getRandomBoolean(),
+        isRead: false,
+        isStarred: false,
+        isTrashed: false,
+        isSent: false,
     }
 }
 

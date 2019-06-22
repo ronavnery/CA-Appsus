@@ -8,11 +8,11 @@ export default {
             <li class="flex space-between" @click="goTo('Inbox')">Inbox 
             <span class="inbox-count">{{mailsCount.inbox}}</span></li>
             <li class="flex space-between" @click="goTo('Starred')">Starred 
-            <span class="inbox-count">{{mailsCount.starred}}</span></li>
+            <span class="starred-count">{{mailsCount.starred}}</span></li>
             <li class="flex space-between" @click="goTo('Sent')">Sent 
-            <span class="inbox-count">{{mailsCount.sent}}</span></li>
+            <span class="sent-count">{{mailsCount.sent}}</span></li>
             <li class="flex space-between" @click="goTo('Trashed')">Trash 
-            <span class="inbox-count">{{mailsCount.trash}}</span></li>
+            <span class="trash-count">{{mailsCount.trash}}</span></li>
         </ul>
     </section>
     `,
