@@ -14,7 +14,7 @@ export default {
       <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" :class="{ 'hide' :(activeNoteIdx===i) }"> -->
           <!-- <color-ctrl></color-ctrl> -->
 
-          <component :is="note.type" v-for="(note, i) in notes" :info="note" @changecolor = "changeColor($event,i)" @open-colors="openColors()" @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
+          <component :is="note.type" v-for="(note, i) in notes" :info="note" @change-color = "changeColor($event,i)"  @delete-note="deleteNote(i,$event)"  class="" :colors="colors"></component >
       
           
       

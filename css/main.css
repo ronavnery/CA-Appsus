@@ -61,3 +61,16 @@ body {
 .edit-footer{
     display:flex
 }
+
+
+.scale-fade-enter-active {
+    transition: all .4s ease;
+  }
+  .scale-fade-leave-active {
+    transition: all .4s ;
+  }
+  .scale-fade-enter, .scale-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: scale(10px);
+    opacity: 0;
+  }

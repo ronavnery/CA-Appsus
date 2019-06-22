@@ -23,7 +23,9 @@ export default {
       this.msg = null
     },
     colorClicked(color) {
-      this.$parent.$emit('changecolor', color)
+      this.$parent.$emit('change-color', color)
+      this.$emit('close-color')
+      
     }
   }
 }
