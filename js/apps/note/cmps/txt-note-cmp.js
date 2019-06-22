@@ -7,7 +7,9 @@ export default {
     <i class="icon icon-sm icon-quill-write-1"></i>
        <h3>{{info.content.title}}</h3>
        <p> {{info.content.txt}}</p> 
-       <color-ctrl ></color-ctrl> 
+       <transition name="scale-fade">
+         <color-ctrl v-if="showColorCtrl" @close-color="closeColors()"></color-ctrl> 
+        </transition>
        <common-controls @open-colors="openColors()" :colors='colors'></common-controls>
     
     </section>
@@ -15,7 +17,7 @@ export default {
   props: ['info','colors'],
   data() {
     return {
-     
+      showColorCtrl: false
     }
   },
   mounted() {
@@ -27,8 +29,12 @@ export default {
       // this.$emit('deleteNote')
     },
     openColors(){
-      console.log('open colors');
-      
+      console.log('open colors on note')
+      this.showColorCtrl= true
+    },
+    closeColors(){
+      console.log('close colors on note')
+      this.showColorCtrl= false
     }
   },
   components:{ commonControls,colorCtrl}
