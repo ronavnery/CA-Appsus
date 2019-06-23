@@ -17,12 +17,6 @@ export default {
     </div>
     <span class="content-subject">{{getMailData('subject')}}</span>
     <span>{{getMailData('body')}}</span>
-
-    <pre>{{mails}}</pre>
-    <span>isRead: {{getMailData('isRead')}}</span>
-    <span>isSent: {{getMailData('isSent')}}</span>
-    <span>isStarred: {{getMailData('isStarred')}}</span>
-    <span>isTrashed: {{getMailData('isTrashed')}}</span>
     </section>
     `,
     props: ['mails'],

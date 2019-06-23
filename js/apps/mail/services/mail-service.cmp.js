@@ -1,5 +1,6 @@
 // need to import utilService
 // need to import storageService
+import { utilService, MAILS_DB } from '../../../services/utils.service.js'
 
 let mailsDB;
 let gNextId = 1;
@@ -12,11 +13,11 @@ export const mailService = {
 }
 
 function queryMails() {
-    // var mails = storageService.load(MAILS_KEY);
-    // if (!mails) {
+    var mails = utilService.loadFromStorage(MAILS_DB);
+    if (!mails) {
     const mails = generateMails();
-    //   storageService.store(MAILS_KEY, mails)
-    // }
+      utilService.saveToStorage(MAILS_DB, mails)
+    }
     mailsDB = mails;
     return mailsDB;
     // return Promise.resolve(mailsDB);
@@ -82,6 +83,3 @@ function getMailById(mailId) {
     return Promise.resolve(mail);
 }
 
-function getRandomBoolean() {
-    return (Math.random() > 0.5)
-}

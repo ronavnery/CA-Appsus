@@ -6,14 +6,14 @@ export default {
         <button class="new-mail-btn">New Mail</button>
         <ul>
             <li class="flex space-between" @click="goTo('Inbox')">Inbox 
-            <span class="inbox-count">{{mails.inbox}}</span></li>
+            <span class="inbox-count">{{mailsCount.inbox}}
+            <span class="thick blue">({{mailsCount.unread}})</span></span></li>
             <li class="flex space-between" @click="goTo('Starred')">Starred 
-            <span class="starred-count">{{mails.starred}}</span></li>
+            <span class="starred-count">{{mailsCount.starred}}</span></li>
             <li class="flex space-between" @click="goTo('Sent')">Sent 
-            <span class="sent-count">{{mails.sent}}</span></li>
+            <span class="sent-count">{{mailsCount.sent}}</span></li>
             <li class="flex space-between" @click="goTo('Trashed')">Trash 
-            <span class="trash-count">{{mails.trash}}</span></li>
-            {{mailsCount}}
+            <span class="trash-count">{{mailsCount.trash}}</span></li>
         </ul>
     </section>
     `,
