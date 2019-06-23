@@ -2,7 +2,7 @@ import colorCtrl from './color-ctrl-cmp.js'
 
 export default {
   template: `
-<div class="common-ctrl flex space-between ">
+<div class="common-ctrl flex flex-end ">
   
     <button @click.stop="openColorCtrl($event)" ><i class="icon button-icon icon-color-painting-palette-1"></i></button>   
     

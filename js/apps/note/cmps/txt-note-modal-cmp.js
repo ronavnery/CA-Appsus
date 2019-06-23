@@ -14,7 +14,7 @@ export default {
         <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @close-color="closeColors()" @change-color="emitColorChange($event)"></color-ctrl> 
         </transition>
-       <common-controls @open-colors="openColors()" ></common-controls>
+       <common-controls @delete-note="deleteNote" @open-colors="openColors()" ></common-controls>
 
         </div>
         <button @click="closeModal">Close</button>
@@ -55,6 +55,9 @@ export default {
     closeModal() {
       this.localNote.content.txt = this.userInput
       this.$emit('close-modal', this.localNote)
+    },
+    deleteNote() {
+      this.parent.$emit('delete-note')
     }
   },
   components: { commonControls, colorCtrl }

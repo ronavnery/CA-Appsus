@@ -25,9 +25,9 @@ $icon-checklist: unicode(ea12);
 $icon-pin: unicode(ea13);
 $icon-share-1: unicode(ea14);
 $icon-share-2: unicode(ea15);
-$icon-search-2: unicode(ea16);
+$icon-star: unicode(ea16);
 $icon-search: unicode(ea17);
-$icon-trash: unicode(ea18);
+$icon-sent: unicode(ea18);
 $icon-bin-2: unicode(ea19);
 $icon-quill-write-1: unicode(ea1a);
 $icon-quill-write: unicode(ea1b);
@@ -85,11 +85,8 @@ $icon-picture-landscape-1: unicode(ea50);
 $icon-picture-landscape-2: unicode(ea51);
 $icon-color-painting-palette-1: unicode(ea52);
 $icon-sign-badge-circle: unicode(ea55);
-$icon-circle-blue: unicode(ea56);
+$icon-circle-1: unicode(ea56);
 $icon-circle-2: unicode(ea57);
-$icon-pin-2: unicode(ea58);
-$icon-text-style-2: unicode(ea59);
-$icon-text-options: unicode(ea5a);
 
 .icon-navigation-right-circle-2::before {
   content: $icon-navigation-right-circle-2;
@@ -171,16 +168,16 @@ $icon-text-options: unicode(ea5a);
   content: $icon-share-2;
 }
 
-.icon-search-2::before {
-  content: $icon-search-2;
+.icon-star::before {
+  content: $icon-star;
 }
 
 .icon-search::before {
   content: $icon-search;
 }
 
-.icon-trash::before {
-  content: $icon-trash;
+.icon-sent::before {
+  content: $icon-sent;
 }
 
 .icon-bin-2::before {
@@ -411,23 +408,11 @@ $icon-text-options: unicode(ea5a);
   content: $icon-sign-badge-circle;
 }
 
-.icon-circle-blue::before {
-  content: $icon-circle-blue;
+.icon-circle-1::before {
+  content: $icon-circle-1;
 }
 
 .icon-circle-2::before {
   content: $icon-circle-2;
-}
-
-.icon-pin-2::before {
-  content: $icon-pin-2;
-}
-
-.icon-text-style-2::before {
-  content: $icon-text-style-2;
-}
-
-.icon-text-options::before {
-  content: $icon-text-options;
 }
 

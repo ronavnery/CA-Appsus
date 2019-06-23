@@ -7,9 +7,10 @@ export default {
   getEmptyImgNote,
   query,
   addTxtNote,
-  toggle,
   setValue,
-  setNote
+  setNote,
+  deleteNote,
+  togglePinned
 }
 
 var gNotes = []
@@ -33,9 +34,6 @@ function addTxtNote(note) {
   utilService.saveToStorage('notes', gNotes)
 }
 
-function toggle(Note) {
-  Note.isDone = !Note.isDone
-}
 
 function _createNotes() {
   addTxtNote(getEmptyTxtNote('Finish Note App', 1))
@@ -85,7 +83,12 @@ function setNote(editedNote) {
   let id = editedNote.id
   let idx = getIdxById(id)
   gNotes[idx] = editedNote
-console.log('gNote[idx] :', gNotes[idx]);
+  console.log('gNote[idx] :', gNotes[idx])
+}
+
+function deleteNote(id) {
+  let noteIdx = getIdxById(id)
+  gNotes.splice(noteIdx, 1)
 }
 
 function setValue(id, attr, val) {
@@ -93,6 +96,12 @@ function setValue(id, attr, val) {
   let note = getNoteById(id)
   note[attr] = val
   utilService.saveToStorage('notes', gNotes)
+}
+function togglePinned(noteId) {
+  let note = getNoteById(noteId)
+  note.pinned = !note.pinned
+  utilService.saveToStorage('notes', gNotes)
+
 }
 
 function getNoteById(id) {

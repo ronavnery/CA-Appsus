@@ -35,20 +35,25 @@ export default {
 
 <!--//////////////////// NOTES  //////////////////////////////////// -->
     <div className="pinned-notes-container">
-
+    <div class="notes-container flex flex-wrap">
+        <component :is="note.type" v-for="(note, i) in notes"
+        :note="note" v-if="note.pinned===true" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
+        @delete-note="deleteNote(i)" @click.native="editNote(i)" 
+        :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+    </div>
     </div>
 
     <div class="notes-container flex column flex-wrap">
         <component :is="note.type" v-for="(note, i) in notes"
-        :note="note" @change-color = "changeColor($event)" 
-        @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)" 
+        :note="note" v-if="note.pinned===false" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
+        @delete-note="deleteNote(i)" @click.native="editNote(i)" 
         :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
     </div>
   <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
       
     <div   v-if = "activeNoteIdx !=-1">
 
-      <component :is="[activeNote.type]+'-modal'" :note="activeNote" @close-modal="saveEdit" @change-color="changeColor($event)"></component > 
+      <component :is="[activeNote.type]+'-modal'" :note="activeNote" @close-modal="saveEdit" @delete-note="deleteNote(activeNoteIdx,$event)" @change-color="changeColor($event)"></component > 
       <!-- type is {{activeNote.type}}-modal -->
       
                  
@@ -66,20 +71,21 @@ export default {
   },
   methods: {
     addTxtNote() {
-      if (this.newNote.txt === '') return
+      if (this.newNote.content.txt === '') return
       noteService.addTxtNote(this.newNote)
       this.newNote = noteService.getEmptyTxtNote()
     },
 
-    deleteNote(noteIdx, ev) {
+    deleteNote(noteIdx) {
       this.notes.splice(noteIdx, 1)
+      this.activeNoteIdx = -1
+      this.notes = noteService.query()
     },
-    editNote(note, i) {
-      this.activeNoteIdx = i
+    editNote( idx) {
+      if (this.activeNoteIdx !== -1) return
+      this.activeNoteIdx = idx
     },
     saveEdit(editedNote) {
-      // let activeNote = this.notes[this.activeNoteIdx]
-  
       noteService.setNote(editedNote)
       this.activeNoteIdx = -1
     },
@@ -90,13 +96,10 @@ export default {
     },
 
     changeColor(colorAndId) {
-      console.log('changgging', colorAndId)
       noteService.setValue(colorAndId.id, 'color', colorAndId.color)
-      this.notes = noteService.query()
-      console.log('this.notes :', this.notes);
+      this.notes = noteService.query() 
     },
 
-  
     changeInputType(ev) {
       switch (ev) {
         case 'txt':
@@ -109,6 +112,11 @@ export default {
           this.newNote = noteService.getEmptyImgNote()
           break
       }
+    },
+    togglePin(noteId) {
+      console.log('noteId :', noteId)
+      noteService.togglePinned(noteId)
+      this.notes = noteService.query() 
     }
   },
 

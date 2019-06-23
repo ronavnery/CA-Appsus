@@ -226,7 +226,7 @@ icons
     content: "\ea15";
 }
 
-.icon-search-2::before {
+.icon-star::before {
     content: "\ea16";
 }
 
@@ -234,7 +234,7 @@ icons
     content: "\ea17";
 }
 
-.icon-trash::before {
+.icon-sent::before {
     content: "\ea18";
 }
 
@@ -466,23 +466,11 @@ icons
     content: "\ea55";
 }
 
-.icon-circle-blue::before {
+.icon-circle-1::before {
     content: "\ea56";
 }
 
 .icon-circle-2::before {
     content: "\ea57";
-}
-
-.icon-pin-2::before {
-    content: "\ea58";
-}
-
-.icon-text-style-2::before {
-    content: "\ea59";
-}
-
-.icon-text-options::before {
-    content: "\ea5a";
 }
 

@@ -5,9 +5,11 @@ import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 export default {
   template: `
     <section class="note" :class="'note-color-'+[note.color]">
-    <button @click.stop="deleteNote($event)" class="button-pinned"><i class="icon button-icon icon-pin"></i></button>
-    <!-- <i class="icon button-icon icon-pin"></i> -->
-       <p> {{note.content.txt}}</p> 
+    <button @click.stop="togglePin($event)" id="button-pinned"><i class="icon  button-icon" v-bind:class="ToggeledPinIcon"></i></button>
+ 
+       <pre> {{note.content.txt}}
+         {{note.pinned}}
+       </pre> 
        <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @change-color="emitColorChange" @close-color="closeColors()"></color-ctrl> 
         </transition>
@@ -18,23 +20,26 @@ export default {
   props: ['note'],
   data() {
     return {
-      showColorCtrl: false
+      showColorCtrl: false,
+      ToggeledPinIcon: {
+        'icon-pin': !this.note.pinned,
+        'icon-pin-2': this.note.pinned
+      }
     }
   },
   mounted() {},
   methods: {
-    deleteNote(ev) {
-      // this.$emit('deleteNote')
+    togglePin() {
+      this.$emit('toggle-pin')
     },
+
     openColors() {
-      console.log('open colors on note')
       this.showColorCtrl = true
     },
     closeColors() {
       this.showColorCtrl = false
     },
     emitColorChange(color) {
-      console.log('got color', color, 'id is', this.note.id)
       this.closeColors()
       this.$emit('change-color', { color, id: this.note.id })
     }
