@@ -1,5 +1,4 @@
-import { mailService } from '../services/mail-service.cmp.js'
-import eventBus, { FILTER_BY, GO_TO, MAILS_COUNT } from '../../../event-bus.js';
+import eventBus, { FILTER_BY, GO_TO } from '../../../event-bus.js';
 import listSearchbox from './list-searchbox.cmp.js'
 import mailPreview from './mail-preview.cmp.js'
 
@@ -8,23 +7,20 @@ export default {
     <section class="mail-list-container">
     <list-searchbox></list-searchbox>
     <div v-if="mails" class="previews flex column">
-        <mail-preview v-for="(mail,idx) in mailsToShow" :key="idx" :mail="mail"> </mail-preview>        
+        <mail-preview v-for="(mail,idx) in mailsToShow" :key="idx" :mail="mail" @mail-changed="updateMailStatus">
+
+        </mail-preview>  
+
     </div>
     </section>
     `,
+    props: ['mails'],
     created() {
-        mailService.queryMails()
-            .then(mails => {
-                this.mails = mails
-                // Does this emit needs to be here? or on service or on side bar component?
-                eventBus.$emit(MAILS_COUNT, mails)
-            })
         eventBus.$on(FILTER_BY, (searchTerm) => this.txtFilter = searchTerm)
         eventBus.$on(GO_TO, (section) => this.sectionFilter = section)
     },
     data() {
         return {
-            mails: null,
             txtFilter: '',
             sectionFilter: 'Inbox'
         }
@@ -50,6 +46,11 @@ export default {
                     mail.body.toLowerCase().includes(this.txtFilter))
                 })
             }
+        }
+    },
+    methods: {
+        updateMailStatus(mail) {
+            this.$emit('mail-changed', mail)
         }
     },
     components: {

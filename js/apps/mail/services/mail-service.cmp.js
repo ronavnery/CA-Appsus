@@ -18,7 +18,8 @@ function queryMails() {
     //   storageService.store(MAILS_KEY, mails)
     // }
     mailsDB = mails;
-    return Promise.resolve(mailsDB);
+    return mailsDB;
+    // return Promise.resolve(mailsDB);
 }
 
 function generateMails() {

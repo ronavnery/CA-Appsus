@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail-service.cmp.js'
-import eventBus, {SHOW_DETAILS} from '../../../event-bus.js';
+import eventBus, {SHOW_DETAILS , MAILS_COUNT} from '../../../event-bus.js';
 
 let currMail = null;
 
@@ -30,6 +30,20 @@ export default {
     </router-link>
     `,
     props: ['mail'],
+    data() {
+        return {
+            localMail: this.mail
+        }
+    },
+    watch: {
+        mail: {
+            handler: function(newVal) {
+                console.log('mail has updated', newVal)
+                this.$emit('mail-changed', newVal)
+            },
+            deep: true
+        } 
+    },
     computed: {
         mailUrl() {
             return '/mail/' + this.mail.id

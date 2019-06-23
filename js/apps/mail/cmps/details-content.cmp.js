@@ -18,12 +18,14 @@ export default {
     <span class="content-subject">{{getMailData('subject')}}</span>
     <span>{{getMailData('body')}}</span>
 
+    <pre>{{mails}}</pre>
     <span>isRead: {{getMailData('isRead')}}</span>
     <span>isSent: {{getMailData('isSent')}}</span>
     <span>isStarred: {{getMailData('isStarred')}}</span>
     <span>isTrashed: {{getMailData('isTrashed')}}</span>
     </section>
     `,
+    props: ['mails'],
     data() {
         return {
             mail: null
@@ -37,7 +39,6 @@ export default {
         mailService.getMailById(mailId)
         .then(mail => {
             this.mail = mail
-            console.log(this.mail)
         })
     },
     methods: {
