@@ -35,12 +35,22 @@ body {
 
 /* Fonts */
 
-@font-face {
+/* @font-face {
     font-family: 'Lato';
     src: url('../fonts/' );
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Raleway:300,300i,400,400i,500,500i,600,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Raleway:300,300i,400,400i,500,500i,600,700,800&display=swap'); */
+
+/* ---------------- Typography Styles ----------- */
+ p, pre, input, h2, h3, h4, h5{
+     font-family: Lato;
+ }
+
+ p, pre, input{
+     font-size: 1.6rem;
+     font-weight: 400
+ }
 
 
 /* ----------------Layout --------------*/

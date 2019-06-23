@@ -1,20 +1,22 @@
 import commonControls from './common-ctrls-cmp.js'
 import colorCtrl from '../cmps/color-ctrl-cmp.js'
+import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 
 export default {
   template: `
-    <section class="note" :class="'note-color-'+[info.color]">
+    <section class="note" :class="'note-color-'+[note.color]">
     <i class="icon icon-sm icon-quill-write-1"></i>
-       <h3>{{info.content.title}}</h3>
-       <p> {{info.content.txt}}</p> 
+      
+       <!-- <pre> {{note}}</pre>  -->
+       <p> {{note.content.txt}}</p> 
        <transition name="scale-fade">
-         <color-ctrl v-if="showColorCtrl" @close-color="closeColors()"></color-ctrl> 
+         <color-ctrl v-if="showColorCtrl" @change-color="emitColorChange" @close-color="closeColors()"></color-ctrl> 
         </transition>
-       <common-controls @open-colors="openColors()" :colors='colors'></common-controls>
+       <common-controls @open-colors="openColors()"></common-controls>
     
     </section>
     `,
-  props: ['info', 'colors'],
+  props: ['note'],
   data() {
     return {
       showColorCtrl: false
@@ -30,8 +32,12 @@ export default {
       this.showColorCtrl = true
     },
     closeColors() {
-      console.log('close colors on note')
       this.showColorCtrl = false
+    },
+    emitColorChange(color) {
+      console.log('got color', color, 'id is', this.note.id)
+      this.closeColors()
+      this.$emit('change-color', { color, id: this.note.id })
     }
   },
   components: { commonControls, colorCtrl }
