@@ -5,9 +5,8 @@ import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 export default {
   template: `
     <section class="note" :class="'note-color-'+[note.color]">
-    <i class="icon icon-sm icon-quill-write-1"></i>
-      
-       <!-- <pre> {{note}}</pre>  -->
+    <button @click.stop="deleteNote($event)" class="button-pinned"><i class="icon button-icon icon-pin"></i></button>
+    <!-- <i class="icon button-icon icon-pin"></i> -->
        <p> {{note.content.txt}}</p> 
        <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @change-color="emitColorChange" @close-color="closeColors()"></color-ctrl> 

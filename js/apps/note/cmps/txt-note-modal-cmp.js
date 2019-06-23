@@ -3,7 +3,7 @@ import commonControls from '../cmps/common-ctrls-cmp.js'
 
 export default {
   template: `
-    <section :class="'note-color-'+[note.color]">
+    <section class="edit-modal" :class="'note-color-'+[note.color]">
            
         <!-- <pre>{{localNote}}</pre> -->
         

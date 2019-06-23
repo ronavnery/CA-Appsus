@@ -34,16 +34,19 @@ export default {
 
 
 <!--//////////////////// NOTES  //////////////////////////////////// -->
+    <div className="pinned-notes-container">
 
-{{activeNoteIdx}} 
-    <component :is="note.type" v-for="(note, i) in notes"
-    :note="note" @change-color = "changeColor($event)" 
-    @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)" 
-    :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
-      
+    </div>
+
+    <div class="notes-container flex column flex-wrap">
+        <component :is="note.type" v-for="(note, i) in notes"
+        :note="note" @change-color = "changeColor($event)" 
+        @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)" 
+        :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+    </div>
   <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
       
-    <div class='edit-modal'  v-if = "activeNoteIdx !=-1">
+    <div   v-if = "activeNoteIdx !=-1">
 
       <component :is="[activeNote.type]+'-modal'" :note="activeNote" @close-modal="saveEdit" @change-color="changeColor($event)"></component > 
       <!-- type is {{activeNote.type}}-modal -->

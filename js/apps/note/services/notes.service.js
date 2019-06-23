@@ -19,7 +19,7 @@ if (utils.loadFromStorage('notes')) {
   _createNotes()
 }
 
-console.log('gNotes :', gNotes)
+// console.log('gNotes :', gNotes)
 
 function query() {
   utils.saveToStorage('notes', gNotes)
@@ -40,7 +40,8 @@ function toggle(Note) {
 function _createNotes() {
   addTxtNote(getEmptyTxtNote('Finish Note App', 1))
   addTxtNote(getEmptyTxtNote('Go to the beach', 2))
-  addTxtNote(getEmptyTodoNote('Buy Flowers', 3))
+  addTxtNote(getEmptyTxtNote('Get a haircut', 2))
+  // addTxtNote(getEmptyTodoNote('Buy Flowers', 3))
   console.log('gNotes created', gNotes)
 }
 

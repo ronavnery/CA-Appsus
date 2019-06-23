@@ -34,8 +34,15 @@ p {
   font-size: 1.8rem;
   margin: 0;
 }
+.note-app .notes-container{
+  max-height: calc(100vh - 10rem);
+  justify-content: flex-start;
+  align-content : flex-start;
+
+}
 
 .note-app .note {
+  position: relative;
   width: 18rem;
   background: #fff;
   padding: 1rem 1.6rem 0.2rem;
@@ -50,12 +57,20 @@ p {
   background-color: red;
   overflow-y: hidden;
 }
-
+.note-app .button-pinned{
+  position: absolute;
+  top:1rem;
+  right:1rem;
+}
+.icon-pin{
+  color :red;
+  
+}
 /* MODAL////////////////// */
 .note-app .edit-modal {
   width: 50vw;
-  padding: 2rem;
-  background: #fff;
+  padding: 1rem 1.6rem;
+  /* background: #fff; */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -72,8 +87,6 @@ p {
 }
 
 
-
-
 .note-app .edit-modal p{
   line-height: 2.4rem;
 }
@@ -88,13 +101,9 @@ p {
 .note li {
   font-size: 1.6rem;
 }
-.note-bg {
-  position: relative;
-  box-shadow: 12 4px 2px rgba(0, 0, 0, 0.3);
-  /* clip-path: polygon(192px 0, 100% 20px, 100% 100%, 0 100%, 0 0); */
-}
 
-.note::before,
+
+/* .note::before,
 .note::after{
   content: '';
 display: block;
@@ -102,12 +111,12 @@ right:0;
 top:0;
 position: absolute;
 
-}
-.note::after{
+} */
+/* .note::after{
   border-top: 20px solid transparent;
   border-left: 20px solid rgba(32, 32, 32, 0.2);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3)
-}
+} */
 
 
 
@@ -162,19 +171,21 @@ position: absolute;
   opacity: 1;
 }
 
+.note button,
 .input-type-select button,
 .common-ctrl button {
   width: rem;
   height: 2.8rem;
   background: transparent;
   border: 0px;
+  outline:none;
 }
-
+.note button:hover,
 .input-type-select:hover,
 .common-ctrl button:hover{
   background: transparent;
 }
-
+.note button .button-icon,
 .input-type-select .button-icon,
 .common-ctrl .button-icon {
   position: static;
@@ -185,7 +196,7 @@ position: absolute;
   outline: 0;
   border: 0;
 }
-
+.note button .button-icon:hover,
 .input-type-select .button-icon:hover,
 .common-ctrl .button-icon:hover {
 opacity:1;
