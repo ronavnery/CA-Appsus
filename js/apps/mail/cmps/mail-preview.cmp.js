@@ -1,10 +1,11 @@
 import { mailService } from '../services/mail-service.cmp.js'
-import eventBus, {SHOW_DETAILS} from '../../../event-bus.js';
+import eventBus, {SHOW_DETAILS , MAILS_COUNT} from '../../../event-bus.js';
 
 let currMail = null;
 
 export default {
     template:`
+    <router-link :to="mailUrl">
     <section class="mail-preview-container flex" @click="handleMailClick" :class="mail.isSelected ? 'highlight-selected' : ''">
         <div class="preview-icons">
             <i class="icon icon-circle-1 icon-12 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
@@ -26,8 +27,28 @@ export default {
             <i class="icon icon-mailbox-in" v-else @click="toggleTrash"></i>
         </div>
     </section>
+    </router-link>
     `,
     props: ['mail'],
+    data() {
+        return {
+            localMail: this.mail
+        }
+    },
+    watch: {
+        mail: {
+            handler: function(newVal) {
+                console.log('mail has updated', newVal)
+                this.$emit('mail-changed', newVal)
+            },
+            deep: true
+        } 
+    },
+    computed: {
+        mailUrl() {
+            return '/mail/' + this.mail.id
+        },
+    },
     methods: {
         handleMailClick() {
             this.showMailDetails();

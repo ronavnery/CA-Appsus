@@ -1,13 +1,16 @@
-export default {
+export const utilService = {
+  makeId,
   saveToStorage,
   loadFromStorage,
-  copyStringToClipboard,
-  makeId
+  getRandomInt,
+  copyStringToClipboard
 }
 
+export const MAILS_DB = 'mails-db'
 
 
-export function makeId(length = 5) {
+
+function makeId(length = 5) {
   var txt = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -17,7 +20,7 @@ export function makeId(length = 5) {
   return txt;
 }
 
-export function saveToStorage(key, value) {
+function saveToStorage(key, value) {
   var strValue = JSON.stringify(value);
   try {
       localStorage.setItem(key, strValue);
@@ -30,19 +33,20 @@ export function saveToStorage(key, value) {
       }
   }
 }
-export function loadFromStorage(key) {
+
+function loadFromStorage(key) {
   return JSON.parse(localStorage.getItem(key))
 }
 
 
 
-export function getRandomInt(min, max) {
+function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-export function copyStringToClipboard(str) {
+function copyStringToClipboard(str) {
   // Create new element
   var el = document.createElement('textarea');
   // Set value (string to be copied)

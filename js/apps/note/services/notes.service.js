@@ -1,5 +1,5 @@
 // CRUDL
-import utils from '../../../services/utils.service.js'
+import { utilService } from '../../../services/utils.service.js'
 
 export default {
   getEmptyTxtNote,
@@ -13,8 +13,8 @@ export default {
 }
 
 var gNotes = []
-if (utils.loadFromStorage('notes')) {
-  gNotes = utils.loadFromStorage('notes')
+if (utilService.loadFromStorage('notes')) {
+  gNotes = utilService.loadFromStorage('notes')
 } else {
   _createNotes()
 }
@@ -22,7 +22,7 @@ if (utils.loadFromStorage('notes')) {
 // console.log('gNotes :', gNotes)
 
 function query() {
-  utils.saveToStorage('notes', gNotes)
+  utilService.saveToStorage('notes', gNotes)
   return gNotes
 }
 
@@ -30,7 +30,7 @@ function addTxtNote(note) {
   note.id = makeId()
   // console.log('note :', note)
   gNotes.unshift(note)
-  utils.saveToStorage('notes', gNotes)
+  utilService.saveToStorage('notes', gNotes)
 }
 
 function toggle(Note) {
@@ -92,7 +92,7 @@ function setValue(id, attr, val) {
   console.log('setting value', id, attr, val)
   let note = getNoteById(id)
   note[attr] = val
-  utils.saveToStorage('notes', gNotes)
+  utilService.saveToStorage('notes', gNotes)
 }
 
 function getNoteById(id) {

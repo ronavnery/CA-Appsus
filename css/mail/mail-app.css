@@ -1,3 +1,8 @@
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
 /* MAIL: SIDE BAR */
 
 .side-bar-container {
@@ -161,6 +166,20 @@
     height: 70px;
     box-sizing: border-box;
     background: #F3F3F3;
+    font-size: 5rem;
+    padding: 10px;
+}
+
+.controlbar-container * {
+    cursor: pointer;
+}
+
+.controlbar-container *:hover {
+    color: rgb(12, 157, 208);
+}
+
+.controlbar-container  *:not(.control-reply) {
+    margin-left: 30px;
 }
 
 /* MAIL: DETAILS: CONTENT */
