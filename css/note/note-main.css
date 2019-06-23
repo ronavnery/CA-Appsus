@@ -21,12 +21,9 @@ i,p,h1,h2,h3,h4,h5{
 
 }
 
-
 .input-type-select{
   width: 12rem;
-  
 }
-
 
 h3 {
   font-size: 1.8rem;
@@ -48,6 +45,13 @@ p {
   border-radius: 1px;
 }
 
+.note-app .note pre{
+  width: 18rem;
+  background-color: red;
+  overflow-y: hidden;
+}
+
+/* MODAL////////////////// */
 .note-app .edit-modal {
   width: 50vw;
   padding: 2rem;
@@ -60,6 +64,16 @@ p {
   border: 1px solid lightgrey;
   border-radius: 3px;
 }
+
+.note-app .edit-modal .common-ctrl {
+  margin-top: 0.6rem;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+
+
+
 .note-app .edit-modal p{
   line-height: 2.4rem;
 }
@@ -142,6 +156,7 @@ position: absolute;
   opacity: 0;
   transition: opacity 0.3s;
 }
+
 
 .common-ctrl:hover{
   opacity: 1;

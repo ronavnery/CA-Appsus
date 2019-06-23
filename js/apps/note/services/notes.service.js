@@ -8,7 +8,8 @@ export default {
   query,
   addTxtNote,
   toggle,
-  setValue
+  setValue,
+  setNote
 }
 
 var gNotes = []
@@ -18,10 +19,9 @@ if (utils.loadFromStorage('notes')) {
   _createNotes()
 }
 
-console.log('gNotes :', gNotes);
+console.log('gNotes :', gNotes)
 
 function query() {
-  console.log('gNotes :', gNotes)
   utils.saveToStorage('notes', gNotes)
   return gNotes
 }
@@ -80,15 +80,29 @@ function getEmptyTodoNote(txt = '', color) {
   }
 }
 
+function setNote(editedNote) {
+  let id = editedNote.id
+  let idx = getIdxById(id)
+  gNotes[idx] = editedNote
+console.log('gNote[idx] :', gNotes[idx]);
+}
+
 function setValue(id, attr, val) {
+  console.log('setting value', id, attr, val)
   let note = getNoteById(id)
   note[attr] = val
+  utils.saveToStorage('notes', gNotes)
 }
 
 function getNoteById(id) {
   return gNotes.find(note => {
     return note.id === id
   })
+}
+
+function getIdxById(id) {
+  let idx = gNotes.findIndex(note => note.id === id)
+  return idx
 }
 
 function makeId(length = 5) {

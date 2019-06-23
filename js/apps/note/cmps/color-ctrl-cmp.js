@@ -1,3 +1,5 @@
+
+
 export default {
   template: `
     <div class="color-ctrl flex flex-wrap">
@@ -24,8 +26,11 @@ export default {
       this.msg = null
     },
     colorClicked(color) {
-      this.$parent.$emit('change-color', color)
-      this.$emit('close-color')
+      // eventBus.$emit(CHANGE_COLOR, color)
+      console.log('sending color change', color)
+      this.$emit('change-color', color)
+
+      // this.$emit('close-color')
     }
   }
 }

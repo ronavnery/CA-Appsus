@@ -1,9 +1,11 @@
-import controlBar from '../cmps/ctrl-bar-cmp.js'
 import txtNote from '../cmps/txt-note-cmp.js'
 import todoNote from '../cmps/todo-note-cmp.js'
 import colorCtrl from '../cmps/color-ctrl-cmp.js'
 import txtInput from '../cmps/txt-input-cmp.js'
 import inputTypeSelect from '../cmps/input-type-select-cmp.js'
+import txtNoteModal from '../cmps/txt-note-modal-cmp.js'
+
+import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 
 import noteService from '../services/notes.service.js'
 
@@ -25,36 +27,29 @@ export default {
       <div class="input-bar" >
       <input type="text" placeholder="enter todo" v-model="newNote.content.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div> 
       </template>
-
-
       
     </div>
 
       <!-- <pre>{{newNote}}</pre> -->
 
-      <!-- <div v-for="(note, i) in notes" @click="editNote(note , i)" "> -->
-          <!-- <color-ctrl></color-ctrl> -->
-
 
 <!--//////////////////// NOTES  //////////////////////////////////// -->
 
 {{activeNoteIdx}} 
-          <component :is="note.type" v-for="(note, i) in notes"
-          :info="note" @change-color = "changeColor($event,i)" 
-          @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)"
-          :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+    <component :is="note.type" v-for="(note, i) in notes"
+    :note="note" @change-color = "changeColor($event)" 
+    @delete-note="deleteNote(i,$event)" @click.native="editNote(note , i)" 
+    :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
       
   <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
       
-      <div class='edit-modal'  v-if = "activeNoteIdx !=-1"
-      :class="'note-color-'+[activeNote.color]" >
-            
-        <p contenteditable="true" @input="editText"> {{activeNote.content.txt}}</p>  
-        <div class="edit-footer flex space-between">
-          <div class="controls"><h3>control bar</h3></div>
-          <button @click="closeModal">Close</button>
-        </div>             
-      </div>
+    <div class='edit-modal'  v-if = "activeNoteIdx !=-1">
+
+      <component :is="[activeNote.type]+'-modal'" :note="activeNote" @close-modal="saveEdit" @change-color="changeColor($event)"></component > 
+      <!-- type is {{activeNote.type}}-modal -->
+      
+                 
+    </div>
   </section>
   `,
   data() {
@@ -63,58 +58,43 @@ export default {
       newNote: noteService.getEmptyTxtNote(),
       activeNoteIdx: -1,
       colors: 8,
-      editedTxt:''
-      
+      editedTxt: ''
     }
   },
   methods: {
     addTxtNote() {
-      console.log('this.newNote :', this.newNote)
       if (this.newNote.txt === '') return
       noteService.addTxtNote(this.newNote)
       this.newNote = noteService.getEmptyTxtNote()
-      console.log(this.notes)
     },
 
     deleteNote(noteIdx, ev) {
-      // console.log('delete', i, ev)
       this.notes.splice(noteIdx, 1)
     },
     editNote(note, i) {
-      console.log('note :', note)
       this.activeNoteIdx = i
+    },
+    saveEdit(editedNote) {
+      // let activeNote = this.notes[this.activeNoteIdx]
+  
+      noteService.setNote(editedNote)
+      this.activeNoteIdx = -1
     },
     keyUp(ev) {
       if (ev.key === 'Enter') {
         this.addNote()
       }
     },
-    closeModal() {
-      this.activeNote.content.txt = this.editedTxt
-      this.activeNoteIdx = -1
-    },
-    openColors() {
-      console.log('open the color palette')
-    },
 
-    changeColor(color, noteIdx) {
-      let id = this.notes[noteIdx].id
-      noteService.setValue(id, 'color', color)
+    changeColor(colorAndId) {
+      console.log('changgging', colorAndId)
+      noteService.setValue(colorAndId.id, 'color', colorAndId.color)
       this.notes = noteService.query()
-      console.log('this.notes :', this.notes)
+      console.log('this.notes :', this.notes);
     },
 
-
-    editText(ev) {
-      console.log(ev.target.innerText)
-      this.editedTxt = ev.target.innerText
-      console.log('this.editedTxt  :', this.editedTxt );
-    },
-
-
-
+  
     changeInputType(ev) {
-      console.log('ev is :', ev)
       switch (ev) {
         case 'txt':
           this.newNote = noteService.getEmptyTxtNote()
@@ -130,24 +110,41 @@ export default {
   },
 
   computed: {
-    activeNote: function() {
-      if (this.activeNoteIdx == -1) return null
-      return this.notes[this.activeNoteIdx]
-    },
-    // editedTxt: function() {
-    //   return this.activeNote.content.txt
-    // }
+    activeNote: {
+      get: function() {
+        if (this.activeNoteIdx == -1) return null
+        return this.notes[this.activeNoteIdx]
+      }
+      // set: function(editedNote) {
+      //   return editedNote
+      // }
+    }
   },
 
   components: {
-    controlBar,
     colorCtrl,
     txtNote,
     todoNote,
     'txt-note-input': txtInput,
-    'input-type-select': inputTypeSelect
+    'input-type-select': inputTypeSelect,
+    'txt-note-modal': txtNoteModal
   }
 }
 
 // <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
 // <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
+
+// computed: {
+//   fullName: {
+//     // getter
+//     get: function () {
+//       return this.firstName + ' ' + this.lastName
+//     },
+//     // setter
+//     set: function (newValue) {
+//       var names = newValue.split(' ')
+//       this.firstName = names[0]
+//       this.lastName = names[names.length - 1]
+//     }
+//   }
+// }

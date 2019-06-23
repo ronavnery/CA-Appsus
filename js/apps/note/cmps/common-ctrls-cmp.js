@@ -24,7 +24,7 @@ export default {
     openColorCtrl() {
       console.log('color event emitted form comctrl')
       this.$emit('open-colors')
-      this.showColorCtrl=true
+      // this.showColorCtrl=true
     },
     deleteNote() {
       this.$parent.$emit('delete-note')
