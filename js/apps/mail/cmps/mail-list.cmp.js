@@ -1,4 +1,4 @@
-import eventBus, { FILTER_BY, GO_TO } from '../../../event-bus.js';
+import eventBus, { FILTER_BY, GO_TO, UPDATE_CONTROLBAR } from '../../../event-bus.js';
 import listSearchbox from './list-searchbox.cmp.js'
 import mailPreview from './mail-preview.cmp.js'
 
@@ -7,7 +7,9 @@ export default {
     <section class="mail-list-container">
     <list-searchbox></list-searchbox>
     <div v-if="mails" class="previews flex column">
-        <mail-preview v-for="(mail,idx) in mailsToShow" :key="idx" :mail="mail" @mail-changed="updateMailStatus">
+        <mail-preview v-for="(mail,idx) in mailsToShow" 
+        :key="idx" :mail="mail" @mail-changed="updateMailStatus"
+        @mail-clicked="updateControlBar">
 
         </mail-preview>  
 
@@ -18,6 +20,7 @@ export default {
     created() {
         eventBus.$on(FILTER_BY, (searchTerm) => this.txtFilter = searchTerm)
         eventBus.$on(GO_TO, (section) => this.sectionFilter = section)
+        setTimeout(()=> eventBus.$emit(UPDATE_CONTROLBAR, {mail:this.mails[0], list: this.mailsToShow}),100)
     },
     data() {
         return {
@@ -51,6 +54,10 @@ export default {
     methods: {
         updateMailStatus(mail) {
             this.$emit('mail-changed', mail)
+        },
+        updateControlBar(mail) {
+            console.log('list got notified', mail)
+            eventBus.$emit(UPDATE_CONTROLBAR, {mail, list: this.mailsToShow})
         }
     },
     components: {

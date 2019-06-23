@@ -3,9 +3,9 @@ import eventBus, { GO_TO, MAILS_COUNT } from '../../../event-bus.js';
 export default {
     template: `
     <section class="side-bar-container flex column" v-if="mails">
-        <button class="new-mail-btn">New Mail</button>
+        <button class="new-mail-btn" @click="composeMail">New Mail</button>
         <ul>
-            <li class="flex space-between" @click="goTo('Inbox')">Inbox 
+            <li class="flex space-between" @click="handleClick('Inbox')">Inbox 
             <span class="inbox-count">{{mailsCount.inbox}}
             <span class="thick blue">({{mailsCount.unread}})</span></span></li>
             <li class="flex space-between" @click="goTo('Starred')">Starred 
@@ -19,17 +19,16 @@ export default {
     `,
     props: ['mails', 'mailsCount']
     ,
-    created() {
-        console.log('got mails!', this.mails)
-    },
-    data() {
-        return {
-            // mailsCount: null
-        }
-    },
     methods: {
+        handleClick(section) {
+            this.goTo(section)
+            this.$emit('section-clicked')
+        },
         goTo(section) {
             eventBus.$emit(GO_TO, section)
         },
+        composeMail() {
+            this.$emit('compose')
+        }
     }
 }

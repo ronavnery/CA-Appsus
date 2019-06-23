@@ -19,7 +19,6 @@ export default {
     <span>{{getMailData('body')}}</span>
     </section>
     `,
-    props: ['mails'],
     data() {
         return {
             mail: null

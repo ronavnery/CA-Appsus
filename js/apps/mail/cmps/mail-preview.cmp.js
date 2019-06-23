@@ -37,9 +37,8 @@ export default {
     },
     watch: {
         mail: {
-            handler: function(newVal) {
-                console.log('mail has updated', newVal)
-                this.$emit('mail-changed', newVal)
+            handler: function(changedMail) {
+                this.$emit('mail-changed', changedMail)
             },
             deep: true
         } 
@@ -51,10 +50,11 @@ export default {
     },
     methods: {
         handleMailClick() {
-            this.showMailDetails();
+            this.emitMailDetails();
             this.selectMail();
+            this.$emit('mail-clicked', this.mail)
         },
-        showMailDetails() {
+        emitMailDetails() {
             eventBus.$emit(SHOW_DETAILS, this.mail);
         },
         getMailData(key, length = 50) {

@@ -4,8 +4,8 @@ import detailsContent from './details-content.cmp.js'
 export default {
     template: `
     <section class="mail-details-container flex column">
-    <details-controlbar :mails="mails"></details-controlbar>
-    <details-content :mails="mails"></details-content>
+    <details-controlbar></details-controlbar>
+    <details-content></details-content>
     </section>
     `,
     props: ['mails', 'mailsCount'],
