@@ -90,6 +90,18 @@ $icon-circle-2: unicode(ea57);
 $icon-pin-2: unicode(ea58);
 $icon-text-style-2: unicode(ea59);
 $icon-text-options: unicode(ea5a);
+$icon-arrow-right-1: unicode(ea5b);
+$icon-arrow-left-1: unicode(ea5c);
+$icon-diagram-arrow-left: unicode(ea5d);
+$icon-diagram-arrow-right: unicode(ea5e);
+$icon-keyboard-arrow-right: unicode(ea5f);
+$icon-keyboard-arrow-left: unicode(ea60);
+$icon-keyboard-arrow-left-2: unicode(ea61);
+$icon-diagram-arrow-left-2: unicode(ea62);
+$icon-arrow-left: unicode(ea63);
+$icon-arrow-right: unicode(ea66);
+$icon-diagram-arrow-right-3: unicode(ea67);
+$icon-keyboard-arrow-right-2: unicode(ea68);
 
 .icon-navigation-right-circle-2::before {
   content: $icon-navigation-right-circle-2;
@@ -429,5 +441,53 @@ $icon-text-options: unicode(ea5a);
 
 .icon-text-options::before {
   content: $icon-text-options;
+}
+
+.icon-arrow-right-1::before {
+  content: $icon-arrow-right-1;
+}
+
+.icon-arrow-left-1::before {
+  content: $icon-arrow-left-1;
+}
+
+.icon-diagram-arrow-left::before {
+  content: $icon-diagram-arrow-left;
+}
+
+.icon-diagram-arrow-right::before {
+  content: $icon-diagram-arrow-right;
+}
+
+.icon-keyboard-arrow-right::before {
+  content: $icon-keyboard-arrow-right;
+}
+
+.icon-keyboard-arrow-left::before {
+  content: $icon-keyboard-arrow-left;
+}
+
+.icon-keyboard-arrow-left-2::before {
+  content: $icon-keyboard-arrow-left-2;
+}
+
+.icon-diagram-arrow-left-2::before {
+  content: $icon-diagram-arrow-left-2;
+}
+
+.icon-arrow-left::before {
+  content: $icon-arrow-left;
+}
+
+.icon-arrow-right::before {
+  content: $icon-arrow-right;
+}
+
+.icon-diagram-arrow-right-3::before {
+  content: $icon-diagram-arrow-right-3;
+}
+
+.icon-keyboard-arrow-right-2::before {
+  content: $icon-keyboard-arrow-right-2;
 }
 
