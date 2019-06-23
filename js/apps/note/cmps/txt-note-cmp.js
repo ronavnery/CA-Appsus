@@ -8,7 +8,6 @@ export default {
     <button @click.stop="togglePin($event)" id="button-pinned"><i class="icon  button-icon" v-bind:class="ToggeledPinIcon"></i></button>
  
        <pre> {{note.content.txt}}
-         {{note.pinned}}
        </pre> 
        <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @change-color="emitColorChange" @close-color="closeColors()"></color-ctrl> 

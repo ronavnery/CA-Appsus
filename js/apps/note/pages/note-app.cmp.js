@@ -12,7 +12,7 @@ import noteService from '../services/notes.service.js'
 export default {
   template: `
   <section class="note-app">
-    {{this.newNote.type}}
+    <!-- {{this.newNote.type}} -->
       <!-- <component :is="[newNote.type]+'-input'"></component> -->
     <div class="input-bar flex space-between">
       <template v-if="newNote.type === 'txt-note'">
@@ -34,22 +34,36 @@ export default {
 
 
 <!--//////////////////// NOTES  //////////////////////////////////// -->
-    <div className="pinned-notes-container">
-    <div class="notes-container flex flex-wrap">
+
+  <div class="notes-container">
+    <h3 v-if="hasPinnedNotes">Pinned Notes</h3>
+    <masonry   :cols="{default: 5 , 1100: 4 ,900: 3, 700: 2, 400: 1}" :gutter="{default: '30px'}">
+      
         <component :is="note.type" v-for="(note, i) in notes"
         :note="note" v-if="note.pinned===true" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
         @delete-note="deleteNote(i)" @click.native="editNote(i)" 
         :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
-    </div>
-    </div>
-
-    <div class="notes-container flex column flex-wrap">
-        <component :is="note.type" v-for="(note, i) in notes"
-        :note="note" v-if="note.pinned===false" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
+      
+    </masonry>
+    <h3 v-if="hasPinnedNotes">Others</h3>
+    <masonry   :cols="{default: 5 , 1100: 4 ,900: 3, 700: 2, 400: 1}" :gutter="     {default: '30px'}">
+      <div v-for="(note, i) in notes" :key="i" class="item">
+        <component :is="note.type" :note="note" v-if="note.pinned===false"
+        @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
         @delete-note="deleteNote(i)" @click.native="editNote(i)" 
-        :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+        :class="{ 'hide' :(activeNoteIdx===i) }">
+        </component>
+      </div>
+    </masonry>
+
+      <!-- <div class="standard-notes-container flex column flex-wrap">
+          <component :is="note.type" v-for="(note, i) in notes"
+          :note="note" v-if="note.pinned===false" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
+          @delete-note="deleteNote(i)" @click.native="editNote(i)" 
+          :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+      </div> -->
     </div>
-  <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
+  <!--//////////////////// EDIT MODAL  //////////////////////////////////// :key="index"-->        
       
     <div   v-if = "activeNoteIdx !=-1">
 
@@ -64,9 +78,8 @@ export default {
     return {
       notes: noteService.query(),
       newNote: noteService.getEmptyTxtNote(),
-      activeNoteIdx: -1,
-      colors: 8,
-      editedTxt: ''
+      activeNoteIdx: -1
+      // editedTxt: ''
     }
   },
   methods: {
@@ -81,7 +94,7 @@ export default {
       this.activeNoteIdx = -1
       this.notes = noteService.query()
     },
-    editNote( idx) {
+    editNote(idx) {
       if (this.activeNoteIdx !== -1) return
       this.activeNoteIdx = idx
     },
@@ -97,7 +110,7 @@ export default {
 
     changeColor(colorAndId) {
       noteService.setValue(colorAndId.id, 'color', colorAndId.color)
-      this.notes = noteService.query() 
+      this.notes = noteService.query()
     },
 
     changeInputType(ev) {
@@ -116,19 +129,20 @@ export default {
     togglePin(noteId) {
       console.log('noteId :', noteId)
       noteService.togglePinned(noteId)
-      this.notes = noteService.query() 
+      this.notes = noteService.query()
     }
   },
 
   computed: {
-    activeNote: {
-      get: function() {
-        if (this.activeNoteIdx == -1) return null
-        return this.notes[this.activeNoteIdx]
-      }
-      // set: function(editedNote) {
-      //   return editedNote
-      // }
+    activeNote: function() {
+      if (this.activeNoteIdx == -1) return null
+      return this.notes[this.activeNoteIdx]
+    },
+    hasPinnedNotes: function() {
+      let filteredArr = this.notes.filter((note)=>{return note.pinned})
+      return (filteredArr.length > 0)
+
+
     }
   },
 
@@ -145,17 +159,11 @@ export default {
 // <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
 // <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
 
+// },
 // computed: {
-//   fullName: {
-//     // getter
-//     get: function () {
-//       return this.firstName + ' ' + this.lastName
-//     },
-//     // setter
-//     set: function (newValue) {
-//       var names = newValue.split(' ')
-//       this.firstName = names[0]
-//       this.lastName = names[names.length - 1]
-//     }
+//   // a computed getter
+//   reversedMessage: function () {
+//     // `this` points to the vm instance
+//     return this.message.split('').reverse().join('')
 //   }
 // }

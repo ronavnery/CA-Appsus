@@ -49,7 +49,8 @@ body {
 
  p, pre, input{
      font-size: 1.6rem;
-     font-weight: 400
+     font-weight: 400;
+     line-height: 1.4;
  }
 
  pre {

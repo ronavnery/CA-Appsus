@@ -7,9 +7,15 @@ h4,
 h5 {
   color: var(--txt-dark);
 }
+.note-app {
+  margin-top: 3rem;
 
-.input-bar {
+}
+
+
+.note-app .input-bar {
   position: relative;
+
 
   width: 50rem;
   background-color: rgba(255, 255, 255, 1);
@@ -39,12 +45,15 @@ p {
   font-size: 1.8rem;
   margin: 0;
 }
-.note-app .notes-container {
-  max-height: calc(100vh - 10rem);
+.note-app {
+}
+.notes-container {
+  max-height: calc(100vh - 400px);
   justify-content: flex-start;
   align-content: flex-start;
+  padding: 2rem;
+ 
 }
-
 .note-app .note {
   position: relative;
   width: 16rem;
@@ -57,17 +66,19 @@ p {
   border-radius: 1px;
 }
 
+.pinned-notes-container{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+}
 
 #button-pinned {
   position: absolute;
   top: 0.4rem;
   right: 0rem;
   opacity: 1;
-
- 
 }
 .icon-pin {
-  color: var(--txt-dark)
+  color: var(--txt-dark);
 }
 /* MODAL////////////////// */
 .note-app .edit-modal {
