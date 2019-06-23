@@ -3,7 +3,8 @@ export const utilService = {
   saveToStorage,
   loadFromStorage,
   getRandomInt,
-  copyStringToClipboard
+  copyStringToClipboard,
+  getRandomBoolean
 }
 
 export const MAILS_DB = 'mails-db'
@@ -64,4 +65,8 @@ function copyStringToClipboard(str) {
   document.execCommand('copy');
   // Remove temporary element
   document.body.removeChild(el)
+}
+
+function getRandomBoolean() {
+  return (Math.random() > 0.5)
 }

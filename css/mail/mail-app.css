@@ -66,6 +66,7 @@ a {
     border: 1px solid #BDBDBD;
     text-indent: 15px;
     font-size: 1.8rem;
+    border-radius: 3px;
 }
 
 .searchbox-container .icon-magnifier {
@@ -182,6 +183,18 @@ a {
     margin-left: 30px;
 }
 
+.controlbar-nav-nums {
+    padding: 7px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.controlbar-nav-nums > .controlbar-of {
+    margin-left:0;
+    color: grey;
+    font-size: 2.5rem;
+}
+
 /* MAIL: DETAILS: CONTENT */
 
 .details-content-container {
@@ -230,4 +243,68 @@ a {
 .content-subject {
     font-size: 3.6rem;
     margin: 5% 0 5% 0;
+}
+
+/* MAIL: MAIL-COMPOSE */
+
+.mail-compose-container {
+    background: #F3F3F3;
+    border-left: 1px solid rgb(37, 42, 48);
+    width: calc(100vw - 785px);
+    height: calc(100vh - 50px);
+    background: #1C2129;
+    color: #F3F3F3;
+}
+
+.compose-bar {
+    height: 70px;
+    box-sizing: border-box;
+    background: #F3F3F3;
+    font-size: 5rem;
+    padding: 10px;
+    border-bottom: 1px solid rgb(37, 42, 48);
+}
+
+.compose-inputs {
+    margin: 30px;
+}
+
+.mail-compose-container input {
+    width: 80%;
+    margin: 1%;
+    height: 45%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(63, 71, 80);
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    color: #F3F3F3;
+}
+
+.compose-input-from-container, 
+.compose-input-to-container,
+.compose-input-subject-container {
+    position: relative;
+}
+
+.compose-from-title,
+.compose-to-title,
+.compose-subject-title {
+    position: absolute;
+    left: 1%;
+    top: 26%;
+    color: rgb(12, 157, 208);
+}
+
+.compose-from-input {
+    text-indent: 6rem;
+}
+
+.compose-to-input {
+    /* text-indent: 3%; */
+    text-indent: 4rem;
+}
+.compose-subject-input {
+    /* text-indent: 7%; */
+    text-indent: 8rem;
 }
