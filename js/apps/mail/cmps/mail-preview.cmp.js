@@ -5,6 +5,7 @@ let currMail = null;
 
 export default {
     template:`
+    <router-link :to="mailUrl">
     <section class="mail-preview-container flex" @click="handleMailClick" :class="mail.isSelected ? 'highlight-selected' : ''">
         <div class="preview-icons">
             <i class="icon icon-circle-1 icon-12 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
@@ -26,8 +27,14 @@ export default {
             <i class="icon icon-mailbox-in" v-else @click="toggleTrash"></i>
         </div>
     </section>
+    </router-link>
     `,
     props: ['mail'],
+    computed: {
+        mailUrl() {
+            return '/mail/' + this.mail.id
+        },
+    },
     methods: {
         handleMailClick() {
             this.showMailDetails();

@@ -7,7 +7,8 @@ let gNextSentTime = Date.now();
 
 export const mailService = {
     queryMails,
-    parseMail
+    parseMail,
+    getMailById
 }
 
 function queryMails() {
@@ -23,21 +24,21 @@ function queryMails() {
 function generateMails() {
     let mails = [
         createMail('Yonatan Gailli', 'yoanatan@gmail.com', `Are you done yet?`,
-    'Hi friend, I loved your work yesterday. Great stuff. cant wait to get it  ', gNextSentTime),
+            'Hi friend, I loved your work yesterday. Great stuff. cant wait to get it  ', gNextSentTime),
         createMail('Ron Avnery', 'avnery@gmail.com', `Re: Regarding you insurance claim`,
-    'Let’s Lorem efin ipsum times twenty four', gNextSentTime-(1*100000000)),
+            'Let’s Lorem efin ipsum times twenty four', gNextSentTime - (1 * 100000000)),
         createMail('Yonatan Gailli', 'yonatan@gmail.com', `When do you think you will be done?`,
-    'Boy are you fast! Hope your GF doesnt also, you know... ', gNextSentTime-(2*100000000)),
+            'Boy are you fast! Hope your GF doesnt also, you know... ', gNextSentTime - (2 * 100000000)),
         createMail('Ben Cohen', 'benc990@gmail.com', `Hi Friend`,
-    'Where is my money? You said yould pay me back for the Pizza I bought you and ...', gNextSentTime-(3*100000000)),
+            'Where is my money? You said yould pay me back for the Pizza I bought you and ...', gNextSentTime - (3 * 100000000)),
         createMail('Yaron Biton', 'yaronush@gmail.com', `Lets go fishing at your earliest convenience`,
-    'Me dying for some Sushi', gNextSentTime-(4*100000000)),
+            'Me dying for some Sushi', gNextSentTime - (4 * 100000000)),
         createMail('Dorris Katzavim', 'dorkatz@hotmail.com', `U R Hot`,
-    'Looking for Polish Bride? send me bank acount info for pretty bride', gNextSentTime-(5*100000000)),
+            'Looking for Polish Bride? send me bank acount info for pretty bride', gNextSentTime - (5 * 100000000)),
         createMail('Apple', 'do-not-reply@shitass.com', `Please buy our latest shie`,
-    'A spectacular $43,00 Mouse made out of carbon fiber and absolutely lovely whit...', gNextSentTime-(6*100000000)),
+            'A spectacular $43,00 Mouse made out of carbon fiber and absolutely lovely whit...', gNextSentTime - (6 * 100000000)),
         createMail('Prince Motombo Kalumbo', 'imaprince@nigeria.com', `Help me please`,
-    'I am the son of a Nigerian king and I stuck in hospital', gNextSentTime-(7*100000000)),
+            'I am the son of a Nigerian king and I stuck in hospital', gNextSentTime - (7 * 100000000)),
     ]
     // to push more emails:
     // const numOfMails = 10;
@@ -71,8 +72,13 @@ function parseMail(mail, key, length = 50) {
         else if (Date.now() - item > 86400000 && Date.now() - item < 172800000) return moment(item).fromNow();
         else return moment(item).format('LL');
     }
-    if (item.length > length) return item.substring(0,length) + '...'
+    if (item.length > length) return item.substring(0, length) + '...'
     return item;
+}
+
+function getMailById(mailId) {
+    const mail = mailsDB.find(mail => mail.id === mailId);
+    return Promise.resolve(mail);
 }
 
 function getRandomBoolean() {

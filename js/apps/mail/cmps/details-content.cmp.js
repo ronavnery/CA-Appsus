@@ -33,6 +33,12 @@ export default {
         eventBus.$on(SHOW_DETAILS, (mail) => {
             this.mail = mail
         })
+        const mailId = +this.$route.params.mailId;
+        mailService.getMailById(mailId)
+        .then(mail => {
+            this.mail = mail
+            console.log(this.mail)
+        })
     },
     methods: {
         getMailData(key, length = 50) {
