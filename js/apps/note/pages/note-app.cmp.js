@@ -18,15 +18,15 @@ export default {
       <template v-if="newNote.type === 'txt-note'">
         
         <input type="text" placeholder="Your note..."
-        v-model="newNote.content.txt" @keyup.enter="addTxtNote"
-        @blur="addTxtNote" class="text-input"/> 
+        v-model="newNote.content.txt" @keyup.enter="addNote"
+        @blur="addNote" class="text-input"/> 
         <input-type-select @input-change="changeInputType($event)"></input-type-select>
       </template>
 
-    <template v-else-if="newNote.type === 'todo-note'">
+    <!-- <template v-else-if="newNote.type === 'todo-note'">
       <div class="input-bar" >
       <input type="text" placeholder="enter todo" v-model="newNote.content.txt" @keyup.enter="addNote" @blur="addNote" class="text-input"/> </div> 
-      </template>
+      </template> -->
       
     </div>
 
@@ -74,8 +74,9 @@ export default {
     
   },
   methods: {
-    addTxtNote() {
+    addNote() {
       if (this.newNote.content.txt === '') return
+    
       noteService.addTxtNote(this.newNote)
       this.newNote = noteService.getEmptyTxtNote()
     },
