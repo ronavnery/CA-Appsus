@@ -8,9 +8,8 @@ export default {
     <router-link :to="mailUrl">
     <section class="mail-preview-container flex" @click="handleMailClick" :class="mail.isSelected ? 'highlight-selected' : ''">
         <div class="preview-icons">
-            <i class="icon icon-circle-1 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
-            <i class="icon icon-sign-badge-circle" v-if="mail.isRead" @click="toggleIsRead"></i>
-            <span class="icon-unread" v-if="!mail.isRead" @click="toggleIsRead">●</span>
+            <i class="icon icon-circle-2 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
+            <i class="icon icon-sign-badge-circle icon-read" v-if="mail.isRead" @click="toggleIsRead"></i>
             <i class="icon icon-rating-star" v-if="!mail.isStarred" @click="toggleStar"></i>
             <i class="icon icon-rating-star-3 icon-starred" v-else @click="toggleStar"></i>
         </div>

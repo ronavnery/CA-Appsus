@@ -9,11 +9,11 @@ export default {
     template: `
     <section class="mail-app-container flex">
         <side-bar :mails="mails" :mailsCount="mailsCount" 
-        @compose="isComposing=!isComposing" @section-clicked="isComposing=false"></side-bar>
-        <mail-list :mails="mails" @mail-changed="handleMailChange"></mail-list>
+        @compose-new="handleComposeNew" @section-clicked="isComposing=false"></side-bar>
+        <mail-list :mails="mails" @mail-changed="handleMailChange" @mail-clicked="handleMailClicked"></mail-list>
         <mail-details :mails="mails" :mailsCount="mailsCount" v-if="!isComposing" @reply-clicked="composeReply"></mail-details>
         <mail-compose v-if="isComposing" @mail-sent="handleMailSent" 
-        @reply-clicked="composeReply" :mailToReply="mailToReply"></mail-compose>
+        @reply-clicked="composeReply" :mailToReply="mailToReply" :isNew="isComposingNew"></mail-compose>
     </section>
     `,
     data() {
@@ -21,13 +21,13 @@ export default {
             mails: null,
             mailsCount: null,
             isComposing: false,
-            mailToReply: 'kuku'
+            isComposingNew: false,
+            mailToReply: null
         }
     },
     created() {
         this.mails = mailService.queryMails()
         this.calcMailsCount;
-
         // .then(mails => {
         //     this.mails = mails
         //     console.log('loaded mails', this.mails)
@@ -67,6 +67,13 @@ export default {
             this.isComposing=true;
             this.mailToReply = mail
             console.log('here is ', this.mailToReply)
+        },
+        handleComposeNew() {
+            this.isComposing = true
+            this.isComposingNew = true;
+        },
+        handleMailClicked() {
+            if (this.isComposing) this.isComposing=false;
         }
     },
     components: {

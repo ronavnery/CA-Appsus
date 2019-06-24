@@ -7,6 +7,7 @@ export const GO_TO = 'go-to'
 export const MAILS_COUNT = 'mails-count'
 export const UPDATE_CONTROLBAR = 'update-controlbar'
 export const UPDATE_TRASH = 'update-trash'
+export const MAIL_CLICKED = 'mail-clicked'
 
 // Notes:
 export const CHANGE_COLOR = 'change-color'

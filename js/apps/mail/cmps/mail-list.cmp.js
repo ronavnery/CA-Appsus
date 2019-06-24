@@ -9,7 +9,7 @@ export default {
     <div v-if="mails" class="previews flex column">
         <mail-preview v-for="(mail,idx) in mailsToShow" 
         :key="idx" :mail="mail" @mail-changed="updateMailStatus"
-        @mail-clicked="updateControlBar">
+        @mail-clicked="handleMailClicked">
 
         </mail-preview>  
 
@@ -55,8 +55,15 @@ export default {
         updateMailStatus(mail) {
             this.$emit('mail-changed', mail)
         },
+        handleMailClicked(mail) {
+            this.updateControlBar(mail);
+            this.updateMainApp()
+        },
         updateControlBar(mail) {
             eventBus.$emit(UPDATE_CONTROLBAR, {mail, list: this.mailsToShow})
+        },
+        updateMainApp() {
+            this.$emit('mail-clicked')
         }
     },
     components: {

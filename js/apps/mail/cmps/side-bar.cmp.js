@@ -28,7 +28,7 @@ export default {
             eventBus.$emit(GO_TO, section)
         },
         composeMail() {
-            this.$emit('compose')
+            this.$emit('compose-new')
         }
     }
 }

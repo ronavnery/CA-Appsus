@@ -124,8 +124,13 @@ a {
     width: 10%;
 }
 
-.icon-unread {
+.preview-icons .icon-unread {
     color: rgba(125,170,97,1);
+    font-size: 0.7rem;
+}
+
+.preview-icons .icon-read {
+    font-size: 0.7rem;
 }
 
 .icon-starred {
