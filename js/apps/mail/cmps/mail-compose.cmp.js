@@ -6,11 +6,11 @@ export default {
         <!-- Can be a seperate component, but its not due to lack of time -->
         <div class="compose-bar flex align-center">
             <div class="compose-send flex align-center" @click="handleSend">
-                <i class="icon icon-send-email send-icon icon-32"></i>
+                <i class="icon icon-send-email send-icon"></i>
                 <span class="send-title">Send</span>
             </div>
             <div class="compose-discard flex align-center">
-                <i class="icon icon-bin-2 discard-icon icon-32" @click="handleDiscard"></i>
+                <i class="icon icon-bin-2 discard-icon" @click="handleDiscard"></i>
                 <span class="discard-title">Discard</span>
             </div>
         </div>
@@ -26,18 +26,25 @@ export default {
                 <input type="text" class="compose-to-input" 
                 value="me@of-course.com" disabled>
             </div>
-            <div class="compose-input-to-container" v-if="mailToReply">
+            <!-- On Reply: -->
+            <div class="compose-input-to-container" v-else>
                 <span class="compose-to-title thick" >To:</span>
                 <input type="text" class="compose-to-input" 
-                value="this is a reply">
+                v-model="mailToReply.address">
             </div>
-            <div class="compose-input-subject-container">
+            <div class="compose-input-subject-container"v-if="!mailToReply">
                 <span class="compose-subject-title thick">Subject:</span>
                 <input ref="subjectInput" type="text" 
                 class="compose-subject-input"
                 v-model="composedMail.subject">
             </div>
-            <div class="compose-body-input" contenteditable="true"
+            <div class="compose-input-subject-container" v-else>
+                <span class="compose-subject-title thick">Subject:</span>
+                <input ref="subjectInput" type="text" 
+                class="compose-subject-input"
+                v-model="'RE: ' + mailToReply.subject">
+            </div>
+            <div ref="bodyInput" class="compose-body-input" contenteditable="true"
             @input="updateBodyTxt($event)"></div>
             
         </div>
@@ -45,7 +52,7 @@ export default {
     `,
     props: ['mailToReply'],
     mounted() {
-        this.focusOnSubjectInput()
+        this.focusOnLoad()
     },
     data() {
         return {
@@ -61,7 +68,12 @@ export default {
         updateBodyTxt(ev) {
             this.composedMail.body = ev.target.innerText
         },
-        focusOnSubjectInput() {
+        focusOnLoad() {
+            if (this.mailToReply) {
+                this.$refs.bodyInput.focus()
+                console.log(this.mailToReply)
+                return;
+            };
             this.$refs.subjectInput.focus();
         },
         handleSend() {

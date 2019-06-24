@@ -27,21 +27,23 @@ a {
     margin-bottom: 10px;
     color: white;
     width: 120px;
-    height: 25px;
+    height: 15px;
     padding: 10px;
     font-size: 1.4rem;
 }
 
 .side-bar-container li:hover {
-    background: rgba(12, 157, 208, 0.7);
+    /* background: rgba(12, 157, 208, 0.7); */
+    background: #f38721;
     border-radius: 3px;
 }
 
 .new-mail-btn {
     cursor: pointer;
-    height: 50px;
+    height: 30px;
     margin: 20px;
-    background: #0C9DD0;
+    /* background: #0C9DD0; */
+    background: #f38721;
     font-size: 1.4rem;
     border: none;
     color: white;
@@ -50,7 +52,7 @@ a {
 }
 
 .new-mail-btn:hover {
-    color: white;
+    transform: scale(1.1)
 }
 
 /* MAIL: LIST */
@@ -65,7 +67,7 @@ a {
 .searchbox-container {
     position: relative;
     height: 40px;
-    border-bottom: 1px solid #898989;
+    border-bottom: 0.5px solid #898989;
     width: 320px;
 }
 
@@ -88,8 +90,9 @@ a {
 }
 
 .previews {
-    overflow-y: scroll;
+    overflow-y: auto;
     flex:1;
+    border-right: 0.5px solid #898989;
 }
 
 /* MAIL: LIST: PREVIEW */
@@ -98,7 +101,7 @@ a {
     position: relative;
     cursor: pointer;
     max-height: max-content;
-    border-bottom: 1px solid #898989;
+    border-bottom: 0.5px solid #898989;
     box-sizing: border-box;
     padding: 10px;
     font-size: 1.4rem;
@@ -138,10 +141,10 @@ a {
     margin: 4px 0 4px 0;
 }
 
-.preview-time {
-    font-size: 1.4rem;
+.mail-preview-container .preview-time {
+    font-size: 1.2rem;
     color: #828282;
-    width: 15%
+    right: 0.5rem;
 }
 
 .preview-trash {
@@ -178,6 +181,7 @@ a {
     box-sizing: border-box;
     background: #F3F3F3;
     padding: 10px;
+    border-bottom: 0.5px solid #898989;
 }
 
 .controlbar-container > * {
@@ -189,8 +193,9 @@ a {
     color: rgb(12, 157, 208);
 }
 
-.controlbar-container  *:not(.control-reply) {
-    margin-left: 30px;
+.controlbar-container .control-reply-title {
+margin:  0 0 0 0.5rem;
+font-size: 1.4rem;
 }
 
 .controlbar-container .control-back,
@@ -214,18 +219,18 @@ a {
 
 .details-content-container {
     padding: 4%;
-    overflow-y: scroll;
-    color:white;
+    overflow-y: auto;
+    color:#1C2129;
     font-size: 1.4rem;
     box-sizing: border-box;
-    background: #1C2129;
+    background: #fff;
     flex:1;
 }
 
 .content-sender {
     height: 10%;
     font-size: 1.6rem;
-    color: white;
+    color: #1C2129;
 }
 
 .content-sender-avatar {
@@ -264,9 +269,9 @@ a {
     border-left: 1px solid rgb(37, 42, 48);
     width: calc(100vw - 785px);
     height: calc(100vh - 50px);
-    background: #1C2129;
-    color: #F3F3F3;
-    overflow-y: scroll;
+    background: #fff;
+    color: #1C2129;
+    overflow-y: auto;
     flex:2;
 }
 
@@ -275,7 +280,7 @@ a {
 }
 
 .compose-bar {
-    height: 70px;
+    height: 40px;
     box-sizing: border-box;
     background: #F3F3F3;
     padding: 10px;
@@ -283,7 +288,7 @@ a {
 }
 
 .send-title, .discard-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: rgb(37, 42, 48);
     margin-left: 2%;
 }
@@ -294,7 +299,7 @@ a {
 
 .compose-discard:hover *, .compose-send:hover * {
     font-weight: 500;
-    color: rgb(12, 157, 208)
+    color: #f38721
 }
 
 
@@ -313,9 +318,9 @@ a {
     background: none;
     border: none;
     border-bottom: 1px solid rgb(63, 71, 80);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     padding-bottom: 0.1rem;
-    color: #F3F3F3;
+    color: #1C2129;
 }
 
 .compose-input-from-container, 
@@ -327,27 +332,28 @@ a {
 .compose-from-title,
 .compose-to-title,
 .compose-subject-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     position: absolute;
     left: 1%;
     top: 26%;
-    color: rgb(12, 157, 208);
+    color: #f38721
 }
 
 .compose-from-input {
-    text-indent: 6rem;
+    text-indent: 4.5rem;
 }
 
 .compose-to-input {
-    text-indent: 4rem;
+    text-indent: 2.5rem;
 }
 .compose-subject-input {
-    text-indent: 8rem;
+    text-indent: 6rem;
 }
 
 .compose-body-input {
     margin-top: 4%;
     min-width: 85%;
-    min-height: 63vh;
+    min-height: 25vh;
     margin-left: 1%;
+    font-size: 1.4rem;
 }

@@ -3,7 +3,10 @@ import eventBus, { MAILS_COUNT, UPDATE_CONTROLBAR } from '../../../event-bus.js'
 export default {
     template:`
     <section class="controlbar-container flex space-between align-center">
-    <i class="icon icon-email-action-reply control-reply" @click="handleReplyClick"></i>
+    <div class="control-reply flex align-center" @click="handleReplyClick">
+    <i class="icon icon-email-action-reply" ></i>
+    <span class="control-reply-title">Reply</span>
+    </div>
     <i class="icon icon-email-action-reply-all control-replyall"></i>
     <i class="icon icon-arrow-left-1  control-back"></i>
     <span class="controlbar-nav-nums">{{currMailPlaceInList}} 

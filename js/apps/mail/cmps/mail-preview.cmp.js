@@ -20,7 +20,7 @@ export default {
             <span class="preview-body"> {{getMailData('body')}}</span> 
         </div>
         <div class="preview-time">
-            <span class="preview-time align-end">{{getMailData('sentAt')}}</span> 
+            <span class="preview-time-title align-end">{{getMailData('sentAt')}}</span> 
         </div>
         <div class="preview-trash">
             <i class="icon icon-bin-2" v-if="!mail.isTrashed" @click="toggleTrash"></i>
