@@ -56,7 +56,6 @@ export default {
             this.$emit('mail-changed', mail)
         },
         updateControlBar(mail) {
-            console.log('list got notified', mail)
             eventBus.$emit(UPDATE_CONTROLBAR, {mail, list: this.mailsToShow})
         }
     },

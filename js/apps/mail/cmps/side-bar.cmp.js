@@ -7,7 +7,7 @@ export default {
         <ul class="side-bar-ul">
             <li class="flex space-between" @click="handleClick('Inbox')">Inbox 
             <span class="inbox-count">{{mailsCount.inbox}}
-            <span class="thick blue">({{mailsCount.unread}})</span></span></li>
+            <span class="thick green">({{mailsCount.unread}})</span></span></li>
             <li class="flex space-between" @click="goTo('Starred')">Starred 
             <span class="starred-count">{{mailsCount.starred}}</span></li>
             <li class="flex space-between" @click="goTo('Sent')">Sent 
