@@ -50,7 +50,7 @@ export default {
         </div>
     </section>
     `,
-    props: ['mailToReply','isComposingNew'],
+    props: ['mailToReply','isNew'],
     mounted() {
         this.focusOnLoad()
     },

@@ -78,8 +78,40 @@ body {
 }
 
 .app-header a {
-    color: #1C2129;
+    color: #f38721;;
     margin: 10px;
+}
+
+.app-header .main-nav-icon, .app-header .main-notification-icon {
+    color: white;
+    font-size: 3rem;
+    align-self: center;
+    margin-right: 1.4rem;
+    cursor: pointer;
+}
+
+.app-header .main-notification-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.app-header .main-nav-modal {
+    padding: 1rem;;
+    position: absolute;
+    background: #1C2129;
+    border: 0.5px solid white;
+    width: max-content;
+    height: max-content;
+    right: 40px;
+    top: 40px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.main-nav-modal .modal-icon {
+    width: 40px;
+    height: 40px;
 }
 
 .app-header a:hover {
@@ -101,6 +133,8 @@ body {
     height: 100%;
     margin: 0 auto;
 }
+
+
 .edit-footer{
     display:flex
 }
