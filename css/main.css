@@ -7,12 +7,12 @@
 /* Main */
 :root{
     --txt-dark: hsl(196, 93%, 11%);
-    --note-color-1: rgb(244, 255, 146) ;
-    --note-color-2: rgb(243, 169, 84) ;
-    --note-color-3: rgb(122, 202, 255) ;
-    --note-color-4: rgb(233, 160, 255) ;
-    --note-color-5: rgb(124, 255, 124) ;
-    --note-color-6: rgb(255, 128, 128) ;
+    --note-color-1: #f57ef5;
+    --note-color-2: #42b471;
+    --note-color-3: #e6b579;
+    --note-color-4:#8c4fe7;
+    --note-color-5: rgb(108, 182, 71);
+    --note-color-6: rgb(189, 82, 5);
     --note-color-7: rgb(189, 189, 189) ;
     --note-color-8: rgb(255, 255, 255) ;
 }
@@ -30,7 +30,7 @@ main {
 
 body {
     margin: 0;
-    background-image: url('../img/background/background.jpg');
+    background-image: url('../img/background/yellow_deep_bk3.svg');
     background-size: cover;
     font-family: 'Lato';
     font-size: 1.8rem;
