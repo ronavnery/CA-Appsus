@@ -486,3 +486,51 @@ icons
     content: "\ea5a";
 }
 
+.icon-arrow-right-1::before {
+    content: "\ea5b";
+}
+
+.icon-arrow-left-1::before {
+    content: "\ea5c";
+}
+
+.icon-diagram-arrow-left::before {
+    content: "\ea5d";
+}
+
+.icon-diagram-arrow-right::before {
+    content: "\ea5e";
+}
+
+.icon-keyboard-arrow-right::before {
+    content: "\ea5f";
+}
+
+.icon-keyboard-arrow-left::before {
+    content: "\ea60";
+}
+
+.icon-keyboard-arrow-left-2::before {
+    content: "\ea61";
+}
+
+.icon-diagram-arrow-left-2::before {
+    content: "\ea62";
+}
+
+.icon-arrow-left::before {
+    content: "\ea63";
+}
+
+.icon-arrow-right::before {
+    content: "\ea66";
+}
+
+.icon-diagram-arrow-right-3::before {
+    content: "\ea67";
+}
+
+.icon-keyboard-arrow-right-2::before {
+    content: "\ea68";
+}
+
