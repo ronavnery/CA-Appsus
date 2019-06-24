@@ -1,0 +1,275 @@
+[33mcommit 783fb29566a83ac571fcafa5735eea09375dd2ab[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: da61404 4917c1e
+Author: Yonatan Galili <yon.galili@gmail.com>
+Date:   Mon Jun 24 18:46:43 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 4917c1e5e1ec4ef89cbfebb7db7068037a961344[m
+Merge: da689d7 a3dbb64
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 18:45:56 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit da6140482f22f979101bd37bc7dcebd8d3a44cce[m
+Author: Yonatan Galili <yon.galili@gmail.com>
+Date:   Mon Jun 24 18:45:50 2019 +0300
+
+    bg and colr change
+
+[33mcommit da689d76446b31cce10de5579e62f0d9f38d94ae[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 18:45:44 2019 +0300
+
+    Header: added nav
+
+[33mcommit a3dbb64b466ff6945dd7a40f3c25094614fba44a[m
+Author: Yonatan Galili <yon.galili@gmail.com>
+Date:   Mon Jun 24 17:34:51 2019 +0300
+
+    todo lists
+
+[33mcommit b72342fb77326f5b13d7d0b2ec836b0248a0b9ee[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 17:31:55 2019 +0300
+
+    Mail: fixed minor bugs
+
+[33mcommit 7d38a50f3abf6e95f49467f342507d73e543e48f[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 16:53:18 2019 +0300
+
+    Mail: design change
+
+[33mcommit 989a05035f3731425e1bd212ec267eda364c6f79[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 16:06:08 2019 +0300
+
+    Mail: design change, added logo
+
+[33mcommit cc5e890a58b497a574cabcbd982766b687d21435[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 14:53:02 2019 +0300
+
+    Mail: Changed layout proportions
+
+[33mcommit abe9467f43aa654a2b704f9a7a4966730e2c20ba[m
+Merge: 8ec7ad5 48759de
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 11:12:52 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 8ec7ad5d8876365c4b21c49d83ff058f25c268a3[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 11:12:47 2019 +0300
+
+    Mail: minor changes
+
+[33mcommit 48759de08720b1236d8c54e572bc99e420079c28[m
+Author: Yonatan Galili <yon.galili@gmail.com>
+Date:   Mon Jun 24 11:11:56 2019 +0300
+
+    sent to mail icon
+
+[33mcommit dcd65f9e5239a4d5ee705d2ff6ce9166339f8d38[m
+Merge: 4d8fe19 4ff3d24
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 10:58:55 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 4d8fe190f76e7d1794caf2e0ebb0aeebb825b0dd[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Mon Jun 24 10:58:39 2019 +0300
+
+    Mail: added compose feature
+
+[33mcommit 4ff3d247c02c6e4f3e8838dc386fa30a5859d534[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Mon Jun 24 09:40:09 2019 +0300
+
+    Todo phase 1
+
+[33mcommit 0eef73ae8234fe9e519032ab45851641b4ceebab[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Mon Jun 24 07:37:58 2019 +0300
+
+    Pinned Notes in seperate array  & Masonary
+
+[33mcommit 36c7fe861f68b3638c809a8866024821f877b245[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Mon Jun 24 00:34:11 2019 +0300
+
+    masonary and pinned
+
+[33mcommit 45c8272ea9a6a8f841b7d7b0d2ab8232a27b6148[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 21:58:01 2019 +0300
+
+    updated icon font
+
+[33mcommit 4bb147e396efd21dae3cead26b62cc33880c23e1[m
+Merge: 98cdd89 9319a86
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 21:50:46 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 98cdd89957ecf5f6d093f9ae6ad50e910b64b1db[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 21:50:35 2019 +0300
+
+    pinned stage 1
+
+[33mcommit 9319a86835da573d2870a4581315d47278f272c5[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sun Jun 23 21:45:01 2019 +0300
+
+    Mail: mail compose, controlbar added features +++
+
+[33mcommit 87fe786d4f6567a9a90da6963f06246ea6c2ed72[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sun Jun 23 18:00:03 2019 +0300
+
+    Mail: working with local storage, side bar updates
+
+[33mcommit 97bbc7b2284eaca9159573afd06141bc6ddf17e9[m
+Merge: 722322a ed43742
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 17:51:56 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 722322a4a9272317b7f33db5bc932494faf9dc12[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 17:51:46 2019 +0300
+
+    before merge
+
+[33mcommit ed43742b089a2ac805fb1ce2e5021c08ef0d2ed7[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sun Jun 23 17:31:39 2019 +0300
+
+    changed utilService export, mail app redesign
+
+[33mcommit 6f5d0167f9e9ba954468a2e507d282321902a2ab[m
+Merge: 47545e2 bd7beb3
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sun Jun 23 14:19:23 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit bd7beb3774dba09db564b2f1f61592ec47d16a0c[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 14:14:55 2019 +0300
+
+    Note edit txt with dyn comp
+
+[33mcommit 47545e26b2581c430f904e85cfc6fa1fefeb68bc[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sun Jun 23 14:14:49 2019 +0300
+
+    Mail: added support for url paths for mails
+
+[33mcommit 68e331a7acc9dd4edbb2adfd25aee0bcb593c664[m
+Merge: ba7f348 5b637de
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sun Jun 23 00:01:14 2019 +0300
+
+    merge
+
+[33mcommit ba7f3489771197eb112e383fac6e9012da2a974d[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 23:56:09 2019 +0300
+
+    Finishes editing of txt note
+
+[33mcommit 5b637dedd81d94961d3ef7e90b7defc3a2b89dd4[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 22:05:32 2019 +0300
+
+    Mail: minor design changes
+
+[33mcommit 71ee8450d4d08a3c3803ac00e45c17a26eee0e57[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 21:48:14 2019 +0300
+
+    Changed lato font files, Added selected to mails
+
+[33mcommit c5b05940a5620bdaa15385ad94aaaed42261b74e[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 20:33:10 2019 +0300
+
+    icon font css path
+
+[33mcommit 66e913ea412cbb11a41b819a59706250469d6c26[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 20:30:01 2019 +0300
+
+    before merge - working on input
+
+[33mcommit 5aaa0660bfee1b4d7f742043b6c751332a57c838[m
+Merge: ef560e1 1bb0785
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 20:28:48 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit 1bb0785d2d2fca8cc96837861592f511107593c5[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 20:28:19 2019 +0300
+
+    Mail: improved mail details & added email address
+
+[33mcommit ef560e12b95b68f7cdb02e631ac1f7757e035e1f[m
+Merge: b3829aa 3086984
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 20:16:17 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit b3829aa0dbc002df416e78d719ca4c24a31b9c33[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 20:16:00 2019 +0300
+
+    before merge - working on input
+
+[33mcommit 30869842c546453ceec384c88f52dc4bd757973d[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 18:44:33 2019 +0300
+
+    fixed header + changedmail control bar color
+
+[33mcommit 2d2bb1750b5f499bef83756c339f05adb6118699[m
+Merge: bee13f5 7de00e9
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 18:41:41 2019 +0300
+
+    Merge branch 'master' of https://github.com/ronavnery/CA-Appsus
+
+[33mcommit bee13f500508b48aa7e0455e6f4cd5da9228dbb4[m
+Author: Ron Avnery <avnery@gmail.com>
+Date:   Sat Jun 22 18:41:31 2019 +0300
+
+    Mail: improved search, added trash
+
+[33mcommit 7de00e9f5710a03183502f9706b8402006f2b918[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 15:30:53 2019 +0300
+
+    change color done
+
+[33mcommit fe7c8458ebc386039a26bf8280ea2ff8d201bc0e[m
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 15:30:27 2019 +0300
+
+    chang color feature done
+
+[33mcommit 793406cc9f55e2b651bee67c5910447cb1ea3498[m
+Merge: 0cd0668 74e1f5f
+Author: galiliyo <yon.galili@gmail.com>
+Date:   Sat Jun 22 14:31:47 2019 +0300
+
+    Merge branch 'master' of https://github.com/

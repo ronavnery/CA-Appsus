@@ -8,7 +8,7 @@ h5 {
   color: var(--txt-dark);
 }
 .note-app {
-  margin-top: 3rem;
+  margin-top: 1rem;
 
 }
 
@@ -20,6 +20,7 @@ h5 {
   margin: 2rem auto;
   border-radius: 3px;
   align-items: center;
+  box-shadow: 10px 10px 16px rgba(0,0,0,0.3)
 }
 
 .input-bar input {
@@ -30,7 +31,7 @@ h5 {
 }
 
 .input-type-select {
-  width: 12rem;
+  width: rem;
 }
 
 h3 {
@@ -47,7 +48,7 @@ p {
   max-height: calc(100vh - 400px);
   justify-content: flex-start;
   align-content: flex-start;
-  padding: 2rem;
+  padding: 0 3rem;
 }
 
 /*  note display */
@@ -60,7 +61,7 @@ p {
 
 .note-app .note {
   position: relative;
-  width: 16rem;
+  width: 15rem;
   min-height: 8rem;
   background: #fff;
   padding: 1rem 1.6rem 2rem;
@@ -119,7 +120,7 @@ p {
   transform: translateX(-50%);
   top: 20vh;
   box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
   border-radius: 3px;
 }
 

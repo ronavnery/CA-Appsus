@@ -27,7 +27,7 @@ export default {
 
   <div class="notes-container">
     <h3 v-if="hasPinnedNotes">Pinned Notes</h3>
-    <masonry   :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}">
+    <masonry   :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '20px'}">
         <note v-for="(note, i) in pinnedNotes"
         :note="note"  v-show="editedNoteId!==note.id" @toggle-todo="toggleTodo(note.id,$event)" @change-color = "changeColor($event)"
         @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(note.id)" @click.native="editNote(note.id)"
@@ -35,7 +35,7 @@ export default {
     </masonry>
 
     <h3 v-if="hasPinnedNotes">Others</h3>
-    <masonry :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}"> 
+    <masonry :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '20px'}"> 
     <note v-for="(note, i) in otherNotes"
         :note="note"  :class="{ 'hide' :(editedNoteId===note.id)  }" @toggle-todo="toggleTodo(note.id,$event)" @change-color = "changeColor($event)"
         @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(note.id)" @click.native="editNote(note.id)"
