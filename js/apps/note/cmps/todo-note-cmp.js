@@ -1,22 +1,28 @@
+// import xxxx from './color-ctrl-cmp.js'
+
 export default {
   template: `
-    <section class="note" @changecolor="changeColor(ev)">
-      <i class="icon icon-sm icon-list-bullets-1"></i>
-      <li v-for="todo in note.content.todos">{{todo.txt}}</li>
-      
-    </section>
+    <div class="todo-note">
+      <ul class="todo-list">
+        <li v-for="(todo,todoIdx) in note.content" @click.stop="toggleTodo(todoIdx)"  :class={done:(todo.isDone)} > <span v-if="(todo.isDone) "class="check">&#10004</span >{{todo.txt}}</li>
+      </ul>
+    </div>
     `,
-      props: ['note'],
-      data() {
-        return {}
+  props: ['note'],
+  data() {
+    return {
+      toggleTodo(todoIdx) {
+        // console.log('todoIdx :', todoIdx)
+        this.$parent.$emit('toggle-todo',todoIdx)
       },
-      created() {
-      
-      },
-      methods: {
-    deleteNote(ev) {
-      this.$emit('deleteNote', ev.target.parentElement)
-    },
-    
-  }
+      doneStyle: {
+        active: true,
+        'text-danger': false
+      }
+    }
+  },
+  created: function() {},
+  computed: {},
+  methods: {}
+  // components: {xxxx }
 }

@@ -39,14 +39,14 @@ export default {
     <h3 v-if="hasPinnedNotes">Pinned Notes</h3>
     <masonry   :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}">
         <note v-for="(note, i) in pinnedNotes"
-        :note="note"  v-show="activeNoteIdx!==i" @change-color = "changeColor($event)"
+        :note="note"  v-show="activeNoteIdx!==i" @toggle-todo="toggleTodo(note.id,$event)" @change-color = "changeColor($event)"
         @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(i)" @click.native="editNote(i)"></note >
     </masonry>
 
     <h3 v-if="hasPinnedNotes">Others</h3>
     <masonry :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}"> 
     <note v-for="(note, i) in otherNotes"
-        :note="note"  v-show="activeNoteIdx!==i" @change-color = "changeColor($event)"
+        :note="note"  v-show="activeNoteIdx!==i" @toggle-todo="toggleTodo(note.id,$event)" @change-color = "changeColor($event)"
         @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(i)" @click.native="editNote(i)"></note >
     </masonry>
   </div>
@@ -60,6 +60,7 @@ export default {
       
                  
     </div>
+    <!-- <pre>{{notes}}</pre> -->
   </section>
   `,
   data() {
@@ -70,6 +71,7 @@ export default {
     }
   },
   created(){
+    
   },
   methods: {
     addTxtNote() {
@@ -119,6 +121,11 @@ export default {
       console.log('noteId :', noteId)
       noteService.togglePinned(noteId)
       this.notes = noteService.query()
+    },
+
+    toggleTodo(noteId , todoIdx){
+     console.log('noteIdx,todoIdx :', noteId,todoIdx);
+     noteService.toggleTodo(noteId,todoIdx)
     }
   },
 
@@ -143,7 +150,7 @@ export default {
 
   components: {
     colorCtrl,
-    note: note,
+    note,
     'txt-note-input': txtInput,
     'input-type-select': inputTypeSelect,
     'txt-note-modal': txtNoteModal

@@ -12,11 +12,8 @@ h5 {
 
 }
 
-
 .note-app .input-bar {
   position: relative;
-
-
   width: 50rem;
   background-color: rgba(255, 255, 255, 1);
   padding: 1rem 0.6rem;
@@ -51,24 +48,27 @@ p {
   justify-content: flex-start;
   align-content: flex-start;
   padding: 2rem;
- 
 }
-.note-app .note {
-  position: relative;
-  width: 16rem;
-  min-height: 10rem;
-  background: #fff;
-  padding: 1rem 1.6rem 0.2rem;
-  /* padding-bottom: 0; */
-  margin: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 1px;
-}
+
+/*  note display */
+
 
 .pinned-notes-container{
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
 }
+
+.note-app .note {
+  position: relative;
+  width: 16rem;
+  min-height: 8rem;
+  background: #fff;
+  padding: 1rem 1.6rem 2rem;
+  margin: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 1px;
+}
+
 
 #button-pinned {
   position: absolute;
@@ -79,6 +79,41 @@ p {
 .icon-pin {
   color: var(--txt-dark);
 }
+
+
+/* TODO NOTE */
+.note-app .todo-note{
+  list-style  :none;
+}
+
+.note-app .todo-note li
+{
+  list-style  :none;
+  /* margin-left: 14px; */
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.note-app .todo-note ul {
+  margin-left: 0;
+  padding: 0.4rem;
+}
+
+.todo-note li.done{
+  text-decoration: line-through;
+  margin-left:0px;
+}
+
+.todo-note ul span{
+  margin-right: 3px;;
+}
+
+
+
+
+
+
+
 /* MODAL////////////////// */
 .note-app .edit-modal {
   width: 50vw;
@@ -105,6 +140,7 @@ p {
 .note-app .edit-footer {
   padding-top: 1rem;
 }
+/* ///////////////////  */
 
 .note-app .hide {
   opacity: 0;
@@ -113,21 +149,6 @@ p {
 .note li {
   font-size: 1.6rem;
 }
-
-/* .note::before,
-.note::after{
-  content: '';
-display: block;
-right:0;
-top:0;
-position: absolute;
-
-} */
-/* .note::after{
-  border-top: 20px solid transparent;
-  border-left: 20px solid rgba(32, 32, 32, 0.2);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3)
-} */
 
 .note .icon {
   position: absolute;
@@ -167,6 +188,9 @@ position: absolute;
 .note-app .note-color-8 {
   background-color: var(--note-color-8);
 }
+
+/* /////////// ctrls ///////////// */
+
 
 .common-ctrl {
   /* border:1px dashed red; */
@@ -251,22 +275,3 @@ position: absolute;
   border: 1px solid rgb(95, 95, 95);
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-.list-complete-item {
-  transition: all 1s;
-  /* display: inline-block; */
-  margin-right: 10px;
-}
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.list-complete-leave-active {
-  position: absolute;
-}

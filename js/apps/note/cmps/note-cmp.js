@@ -1,5 +1,7 @@
 import commonControls from './common-ctrls-cmp.js'
 import colorCtrl from './color-ctrl-cmp.js'
+import txtNote from './txt-note-cmp.js'
+import todoNote from './todo-note-cmp.js'
 import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 
 export default {
@@ -7,11 +9,12 @@ export default {
     <section class="note" :class="'note-color-'+[note.color]">
     <button @click.stop="togglePin($event)" id="button-pinned"><i class="icon  button-icon" v-bind:class="ToggeledPinIcon"></i></button>
  
-       <pre> {{note.content.txt}}
-       </pre> 
-       <transition name="scale-fade">
+
+    <component :is="note.type" :note="note"  />
+
+      <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @change-color="emitColorChange" @close-color="closeColors()"></color-ctrl> 
-        </transition>
+      </transition>
        <common-controls @open-colors="openColors()"></common-controls>
     
     </section>
@@ -31,7 +34,9 @@ export default {
     togglePin() {
       this.$emit('toggle-pin')
     },
-
+    // toggle(ev){
+    //   console.log('ev :', ev);
+    // },
     openColors() {
       this.showColorCtrl = true
     },
@@ -43,5 +48,5 @@ export default {
       this.$emit('change-color', { color, id: this.note.id })
     }
   },
-  components: { commonControls, colorCtrl }
+  components: { todoNote, txtNote, commonControls, colorCtrl }
 }

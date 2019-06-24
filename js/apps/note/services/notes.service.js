@@ -6,11 +6,12 @@ export default {
   getEmptyTodoNote,
   getEmptyImgNote,
   query,
-  addTxtNote,
+  addNote,
   setValue,
   setNote,
   deleteNote,
-  togglePinned
+  togglePinned,
+  toggleTodo
 }
 
 var gNotes = []
@@ -31,7 +32,7 @@ function query() {
   return gNotes
 }
 
-function addTxtNote(note) {
+function addNote(note) {
   note.id = makeId()
   // console.log('note :', note)
   gNotes.unshift(note)
@@ -40,23 +41,46 @@ function addTxtNote(note) {
 
 
 function _createNotes() {
-  addTxtNote(getEmptyTxtNote('Finish Note App', 1))
-  addTxtNote(getEmptyTxtNote('Get a haircut \n Live a little', 2 ))
-  addTxtNote(getEmptyTxtNote('Love me or leave me and let me be lonely \n You wont believe me but I love you only \n I\'d rather be lonley than happy with somebody else...', 4 ))
-  addTxtNote(getEmptyTxtNote('Go to the beach', 2))
-  addTxtNote(getEmptyTxtNote('O snail \n\tClimb Mount Fuji,   \nBut slowly, \n \t\t slowly!', 5))
-  // addTxtNote(getEmptyTodoNote('Buy Flowers', 3))
+  addNote(getEmptyTxtNote('Finish Note App', 1,true))
+
+  let newTodoNote = 
+    {
+      type: 'todo-note',
+      content: [ 
+        { txt: 'Finish Note App',
+        isDone: false },
+        { txt: 'Live a little',
+        isDone: false },
+        { txt: 'Do the dishes',
+        isDone: true }],
+        color: 2,
+        pinned: false,
+        lastEdited: Date.now()
+      } 
+
+  addNote(newTodoNote)
+
+  addNote(getEmptyTxtNote('txtGet a haircut} \n Live a little', 2 ))
+
+  addNote(getEmptyTxtNote('Love me or leave me and let me be lonely \n You wont believe me but I love you only \n I\'d rather be lonley than happy with somebody else...', 4 ))
+
+  addNote(getEmptyTxtNote('Go to the beach', 2))
+
+  addNote(getEmptyTxtNote('O snail \n\tClimb Mount Fuji,   \nBut slowly, \n \t\t slowly!', 5))
+
+  addNote(getEmptyTxtNote('Buy her flowers\nsay you\'re sorry\nwhatever', 3))
+
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyTxtNote(txt = '', color) {
+function getEmptyTxtNote(txt = '', color, pinned=false) {
   return {
     type: 'txt-note',
     content: {
       txt
     },
     color,
-    pinned: false,
+    pinned,
     lastEdited: Date.now()
   }
 }
@@ -76,12 +100,10 @@ function getEmptyImgNote(imageURL = null, color) {
 function getEmptyTodoNote(txt = '', color) {
   return {
     type: 'todo-note',
-    content: {
-      todos: [{ txt, isDone: false }],
+    content: [{ txt, isDone: false }],
       color,
       pinned: false,
       lastEdited: Date.now()
-    }
   }
 }
 
@@ -107,8 +129,16 @@ function togglePinned(noteId) {
   let note = getNoteById(noteId)
   note.pinned = !note.pinned
   utilService.saveToStorage('notes', gNotes)
+}
+
+function toggleTodo(id,todoIdx){
+  let noteIdx = getIdxById(id)
+  let todo = gNotes[noteIdx].content[todoIdx]
+  todo.isDone = !todo.isDone
+  console.log('todo :', todo);
 
 }
+
 
 function getNoteById(id) {
   return gNotes.find(note => {
