@@ -1,5 +1,3 @@
-// need to import utilService
-// need to import storageService
 import { utilService, MAILS_DB } from '../../../services/utils.service.js'
 
 let mailsDB;
@@ -11,7 +9,7 @@ export const mailService = {
     parseMail,
     getMailById,
     createMail,
-    pushNewMail,
+    pushNewMail
 }
 
 function queryMails() {
@@ -137,4 +135,3 @@ function getMailById(mailId) {
     const mail = mailsDB.find(mail => mail.id === mailId);
     return Promise.resolve(mail);
 }
-
