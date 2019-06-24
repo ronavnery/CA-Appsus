@@ -11,12 +11,11 @@
     --note-color-2: #42b471;
     --note-color-3: #e6b579;
     --note-color-4:#8c4fe7;
-    --note-color-5: rgb(108, 182, 71);
+    --note-color-5: rgb(130, 226, 101);
     --note-color-6: rgb(189, 82, 5);
     --note-color-7: rgb(189, 189, 189) ;
     --note-color-8: rgb(255, 255, 255) ;
 }
-
 
 
 html {
@@ -34,16 +33,16 @@ body {
     background-size: cover;
     font-family: 'Lato';
     font-size: 1.8rem;
+    overflow-x: hidden;
 }
 
-/* Fonts */
-
-/* @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/' );
+.notes-container h3{
+    color:wheat;
+    font-family: raleway;
+    font-weight: 300;
+   margin-top:2rem;
+   margin-bottom: 0.8rem; 
 }
-
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Raleway:300,300i,400,400i,500,500i,600,700,800&display=swap'); */
 
 /* ---------------- Typography Styles ----------- */
  p, pre, input, h2, h3, h4, h5{
@@ -134,11 +133,9 @@ body {
     margin: 0 auto;
 }
 
-
 .edit-footer{
     display:flex
 }
-
 
 .scale-fade-enter-active {
     transition: all .4s ease;
