@@ -1,5 +1,4 @@
-import txtNote from '../cmps/txt-note-cmp.js'
-import todoNote from '../cmps/todo-note-cmp.js'
+import note from '../cmps/note-cmp.js'
 import colorCtrl from '../cmps/color-ctrl-cmp.js'
 import txtInput from '../cmps/txt-input-cmp.js'
 import inputTypeSelect from '../cmps/input-type-select-cmp.js'
@@ -11,6 +10,7 @@ import noteService from '../services/notes.service.js'
 
 export default {
   template: `
+ 
   <section class="note-app">
     <!-- {{this.newNote.type}} -->
       <!-- <component :is="[newNote.type]+'-input'"></component> -->
@@ -37,33 +37,21 @@ export default {
 
   <div class="notes-container">
     <h3 v-if="hasPinnedNotes">Pinned Notes</h3>
-    <masonry   :cols="{default: 5 , 1100: 4 ,900: 3, 700: 2, 400: 1}" :gutter="{default: '30px'}">
-      
-        <component :is="note.type" v-for="(note, i) in notes"
-        :note="note" v-if="note.pinned===true" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
-        @delete-note="deleteNote(i)" @click.native="editNote(i)" 
-        :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
-      
-    </masonry>
-    <h3 v-if="hasPinnedNotes">Others</h3>
-    <masonry   :cols="{default: 5 , 1100: 4 ,900: 3, 700: 2, 400: 1}" :gutter="     {default: '30px'}">
-      <div v-for="(note, i) in notes" :key="i" class="item">
-        <component :is="note.type" :note="note" v-if="note.pinned===false"
-        @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
-        @delete-note="deleteNote(i)" @click.native="editNote(i)" 
-        :class="{ 'hide' :(activeNoteIdx===i) }">
-        </component>
-      </div>
+    <masonry   :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}">
+        <note v-for="(note, i) in pinnedNotes"
+        :note="note"  v-show="activeNoteIdx!==i" @change-color = "changeColor($event)"
+        @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(i)" @click.native="editNote(i)"></note >
     </masonry>
 
-      <!-- <div class="standard-notes-container flex column flex-wrap">
-          <component :is="note.type" v-for="(note, i) in notes"
-          :note="note" v-if="note.pinned===false" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
-          @delete-note="deleteNote(i)" @click.native="editNote(i)" 
-          :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
-      </div> -->
-    </div>
-  <!--//////////////////// EDIT MODAL  //////////////////////////////////// :key="index"-->        
+    <h3 v-if="hasPinnedNotes">Others</h3>
+    <masonry :cols="{default: 6, 1200: 5 , 1100: 4 ,900: 3, 670: 2}" :gutter="{default: '30px'}"> 
+    <note v-for="(note, i) in otherNotes"
+        :note="note"  v-show="activeNoteIdx!==i" @change-color = "changeColor($event)"
+        @toggle-pin = "togglePin(note.id)" @delete-note="deleteNote(i)" @click.native="editNote(i)"></note >
+    </masonry>
+  </div>
+    
+  <!--//////////////////// EDIT MODAL  //////////////////////////////////// -->        
       
     <div   v-if = "activeNoteIdx !=-1">
 
@@ -78,9 +66,10 @@ export default {
     return {
       notes: noteService.query(),
       newNote: noteService.getEmptyTxtNote(),
-      activeNoteIdx: -1
-      // editedTxt: ''
+      activeNoteIdx: -1,
     }
+  },
+  created(){
   },
   methods: {
     addTxtNote() {
@@ -139,31 +128,31 @@ export default {
       return this.notes[this.activeNoteIdx]
     },
     hasPinnedNotes: function() {
-      let filteredArr = this.notes.filter((note)=>{return note.pinned})
-      return (filteredArr.length > 0)
-
-
-    }
+      let filteredArr = this.notes.filter(note => {
+        return note.pinned
+      })
+      return filteredArr.length > 0
+    },
+    pinnedNotes:function(){
+      return this.notes.filter((note)=>{return note.pinned})
+    },
+    otherNotes:function(){
+      return this.notes.filter((note)=>{return !note.pinned})
+    },
   },
 
   components: {
     colorCtrl,
-    txtNote,
-    todoNote,
+    note: note,
     'txt-note-input': txtInput,
     'input-type-select': inputTypeSelect,
     'txt-note-modal': txtNoteModal
   }
 }
 
-// <!-- <input type="checkbox" v-model="newNote.isDone"  /> Done? -->
-// <!-- <input type="number" v-model.number="newNote.priority" placeholder="Priority"  />  -->
-
-// },
-// computed: {
-//   // a computed getter
-//   reversedMessage: function () {
-//     // `this` points to the vm instance
-//     return this.message.split('').reverse().join('')
-//   }
-// }
+// <!-- <div class="standard-notes-container flex column flex-wrap">
+// <component :is="note.type" v-for="(note, i) in notes"
+// :note="note" v-if="note.pinned===false" @change-color = "changeColor($event)" @toggle-pin = "togglePin(note.id)"
+// @delete-note="deleteNote(i)" @click.native="editNote(i)" 
+// :class="{ 'hide' :(activeNoteIdx===i) }" ></component >
+// </div> -->

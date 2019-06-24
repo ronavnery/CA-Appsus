@@ -1,0 +1,101 @@
+@import '../css/helpers.css';
+@import './mail/mail-app.css';
+@import './note/note-main.css';
+@import '../fonts/icon-font/css/style.css';
+@import '../css/fonts.css';
+
+/* Main */
+:root{
+    --txt-dark: hsl(196, 93%, 11%);
+    --note-color-1: rgb(244, 255, 146) ;
+    --note-color-2: rgb(243, 169, 84) ;
+    --note-color-3: rgb(122, 202, 255) ;
+    --note-color-4: rgb(233, 160, 255) ;
+    --note-color-5: rgb(124, 255, 124) ;
+    --note-color-6: rgb(255, 128, 128) ;
+    --note-color-7: rgb(189, 189, 189) ;
+    --note-color-8: rgb(255, 255, 255) ;
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+
+
+body {
+    margin: 0;
+    background-image: url('../img/background/background.jpg');
+    background-size: cover;
+    font-family: 'Lato';
+    font-size: 1.8rem;
+}
+
+/* Fonts */
+
+/* @font-face {
+    font-family: 'Lato';
+    src: url('../fonts/' );
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Raleway:300,300i,400,400i,500,500i,600,700,800&display=swap'); */
+
+/* ---------------- Typography Styles ----------- */
+ p, pre, input, h2, h3, h4, h5{
+     font-family: Lato;
+ }
+
+ p, pre, input{
+     font-size: 1.6rem;
+     font-weight: 400;
+     line-height: 1.4;
+ }
+
+ pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: wrap break-word;       /* Internet Explorer 5.5+ */
+   }
+
+
+/* ----------------Layout --------------*/
+/* --------------- 
+/* Header */
+
+.app-header {
+    width: 100%;
+    height: 50px;
+    background: #1C2129;
+    color:white;
+    font-size: 2rem;
+}
+
+.app-header a {
+    color: white;
+    margin: 10px;
+}
+
+.app-header a:hover {
+    color: cyan;
+}
+
+.edit-footer{
+    display:flex
+}
+
+
+.scale-fade-enter-active {
+    transition: all .4s ease;
+  }
+  .scale-fade-leave-active {
+    transition: all .4s ;
+  }
+  .scale-fade-enter, .scale-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: scale(10px);
+    opacity: 0;
+  }

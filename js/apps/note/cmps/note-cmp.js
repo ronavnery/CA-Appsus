@@ -1,5 +1,5 @@
 import commonControls from './common-ctrls-cmp.js'
-import colorCtrl from '../cmps/color-ctrl-cmp.js'
+import colorCtrl from './color-ctrl-cmp.js'
 import eventBus, { CHANGE_COLOR } from '../../../event-bus.js'
 
 export default {
