@@ -66,6 +66,7 @@ export default {
             const body = this.composedMail.body
             const newMail = mailService.createMail('Me Of-Course', address, subject, body)
             mailService.pushNewMail(newMail);
+            this.$emit('mail-sent')
         },
         handleDiscard() {
 

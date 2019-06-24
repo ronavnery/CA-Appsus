@@ -173,6 +173,7 @@ a {
 
 .controlbar-container * {
     cursor: pointer;
+    padding-top: 0.5%;
 }
 
 .controlbar-container *:hover {
@@ -184,8 +185,8 @@ a {
 }
 
 .controlbar-nav-nums {
-    padding: 7px;
-    font-size: 3rem;
+    /* padding: 7px; */
+    font-size: 2rem;
     text-align: center;
 }
 

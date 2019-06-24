@@ -12,7 +12,7 @@ export default {
         @compose="isComposing=!isComposing" @section-clicked="isComposing=false"></side-bar>
         <mail-list :mails="mails" @mail-changed="handleMailChange"></mail-list>
         <mail-details :mails="mails" :mailsCount="mailsCount" v-if="!isComposing"></mail-details>
-        <mail-compose v-if="isComposing"></mail-compose>
+        <mail-compose v-if="isComposing" @mail-sent="handleMailSent"></mail-compose>
     </section>
     `,
     data() {
@@ -25,6 +25,7 @@ export default {
     created() {
         this.mails = mailService.queryMails()
         this.calcMailsCount;
+
         // .then(mails => {
         //     this.mails = mails
         //     console.log('loaded mails', this.mails)
@@ -49,8 +50,16 @@ export default {
             this.calcMailsCount
             this.saveToStorage()
         },
+        handleMailSent() {
+            this.loadFromStorage()
+            this.isComposing = false;
+        },
         saveToStorage() {
             utilService.saveToStorage(MAILS_DB, this.mails)
+        },
+        loadFromStorage() {
+            const mails = utilService.loadFromStorage(MAILS_DB)
+            this.mails = mails
         }
     },
     components: {
