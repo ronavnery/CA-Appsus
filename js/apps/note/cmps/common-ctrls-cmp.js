@@ -3,7 +3,7 @@ import colorCtrl from './color-ctrl-cmp.js'
 export default {
   template: `
 <div class="common-ctrl flex flex-end ">
-  
+    <button @click.stop="openColorCtrl($event)" ><i class="icon button-icon icon-email-action-reply-1"></i></button>  
     <button @click.stop="openColorCtrl($event)" ><i class="icon button-icon icon-color-painting-palette-1"></i></button>   
     
     <button @click.stop="deleteNote($event)"><i class="icon button-icon icon-bin-1-heavy"></i></button>
@@ -12,7 +12,7 @@ export default {
     `,
   props: ['colors'],
   data() {
-    return {  }
+    return {}
   },
   created() {
     // console.log('colors at cmn control',this.colors)
@@ -30,5 +30,7 @@ export default {
       this.$parent.$emit('delete-note')
     }
   },
-  components: { colorCtrl }
+  components: {
+    colorCtrl
+  }
 }

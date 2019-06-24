@@ -68,12 +68,16 @@ function _createNotes() {
 
   addNote(getEmptyTxtNote('O snail \n\tClimb Mount Fuji,   \nBut slowly, \n \t\t slowly!', 5))
 
+  addNote(getEmptyTxtNote('Go to the beach', 2))
+
+  addNote(getEmptyTxtNote('O snail \n\tClimb Mount Fuji,   \nBut slowly, \n \t\t slowly!', 5))
+
   addNote(getEmptyTxtNote('Buy her flowers\nsay you\'re sorry\nwhatever', 3))
 
   console.log('gNotes created', gNotes)
 }
 
-function getEmptyTxtNote(txt = '', color, pinned=false) {
+function getEmptyTxtNote(txt = '', color=1, pinned=false) {
   return {
     type: 'txt-note',
     content: {
