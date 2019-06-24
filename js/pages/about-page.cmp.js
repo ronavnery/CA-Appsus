@@ -2,11 +2,10 @@
 
 export default {
     template: `
-    <section class="about-page-container">
-       <button></button>
-
-
-
+    <section class="about-container flex align-center justify-center">
+    <div class="about-content">
+    ABOUT - COMING SOON
+    </div>
     </section>
     `,
     data() {

@@ -98,7 +98,7 @@ body {
 .app-header .main-nav-modal {
     padding: 1rem;;
     position: absolute;
-    background: #1C2129;
+    background: white;
     border: 0.5px solid white;
     width: max-content;
     height: max-content;
@@ -109,6 +109,17 @@ body {
     z-index: 1;
 }
 
+a .modal-icon {
+    width:30px;
+    height:30px;
+}
+a .modal-icon:hover {
+    animation: icon-spin 2s infinite linear;
+}
+
+.main-notification-icon:hover {
+    animation: icon-spin 2s infinite linear;
+}
 .main-nav-modal .modal-icon {
     width: 40px;
     height: 40px;
@@ -124,6 +135,10 @@ body {
     background: #1C2129;
     padding: 5px;   
     box-sizing: border-box;
+}
+
+.header-logo-container a {
+    margin: 0;
 }
 
 .header-logo {
@@ -151,3 +166,50 @@ body {
     transform: scale(10px);
     opacity: 0;
   }
+
+  /* HOME CONTAINER */
+
+.home-container {
+    flex: 1;
+    background: #1c2129;
+}
+.home-container .logo-fruitonly {
+    width: 400px;
+    /* height: 100px; */
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.home-container .home-mail-icon,
+.home-container .home-notes-icon {
+    width: 100px;
+    height: 100px;
+}
+.home-container .home-mail-icon:hover,
+.home-container .home-notes-icon:hover {
+    width: 100px;
+    height: 100px;
+    animation: icon-spin 2s infinite linear;
+}
+
+.home-container .home-mail-icon {
+    margin-right: 100px;
+}
+
+.home-container .home-content {
+    margin: 0 auto;
+}
+
+.home-container .home-fruitonly-container {
+    /* margin-bottom: 100px; */
+}
+
+/* ABOUT CONTAINER */
+
+.about-container {
+    flex: 1
+}
+
+.about-container .about-content {
+    margin: 0 auto;
+}

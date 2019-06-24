@@ -5,7 +5,7 @@ import aboutPage from './pages/about-page.cmp.js'
 import detailsContentCmp from './apps/mail/cmps/details-content.cmp.js';
 
 export default [
-    { path: '/', component: homePage },
+    { path: '/home', component: homePage },
     { path: '/mail', component: mailApp, children:
         [
             { path: ':mailId', component: detailsContentCmp}

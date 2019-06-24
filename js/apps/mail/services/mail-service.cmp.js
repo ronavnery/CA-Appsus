@@ -43,6 +43,53 @@ function generateMails() {
             'A spectacular $43,00 Mouse made out of carbon fiber and absolutely lovely whit...', gNextSentTime - (6 * 100000000)),
         createMail('Prince Motombo Kalumbo', 'imaprince@nigeria.com', `Help me please`,
             'I am the son of a Nigerian king and I stuck in hospital', gNextSentTime - (7 * 100000000)),
+
+        createMail('Lisa', 'lisa@kariio.com', `Tonight!!! LOVE, LABOR, LOSS Feature Film Release  `,
+            'Hi! please RSVP as seats are very limited. If you plan to come to the NYC celebration – feature film screening, spoken word performances by Urban Word NYC poets who pre-screened the film and a networking/cocktail reception with special guests, please email me asap and I will add your name to the list. See you, Lisa.', gNextSentTime - (8 * 100000000)),
+        createMail('Ebay', 'customer-support@ebay.com', `RE: Invoice for eBay item #7630018502 Sony DSR11 DSR-11 DVCAM Deck  `,
+            `The way the process works is we first make you an offer within 24 hours.  You will get an email with your ElectronixMax quote number and offer, and the email will have a PDF attachment with all the details of your offer.  If you like the offer, which we will do our best to make sure that is the case,
+            you will simply need to follow the steps
+            
+            ____________________________________________
+            Re: GBA  
+            
+            I am posting it on my FTP. It will be there in about an hour.
+            There will be two files: one file is an MPEG-4 (compressed pic/sound)
+            and one file is AIFF full quality sound.
+            
+            to download go to ftp.jonathan-ko.com
+            user : download
+            password: files
+            
+            Please use the high quality sound (the aiff file).
+            Let me know if there are problems.
+            JG
+            `, gNextSentTime - (9 * 100000000)),
+        createMail('Anat Kron', 'anat@gmail.com', `Hi again...`,
+            `Hi ,
+            Thanks for writing back but if you don't mind I would rather talk on the phone.
+            You can reach me at 646-234-3695.
+            I don't think I need voice over. Just maybe an image of my book
+            or website, maybe taken from this website
+             
+            Have a glorious day  
+            Anat
+            __________________________________________________________________________
+            `, gNextSentTime - (10 * 100000000)),
+        createMail('David Dobes', 'daviddob22@gmail.com', `Hello...  My name is David..`,
+            `Hello...  My name is David, a Member of the Confederation of the Food and Drink Industries of the EU, France president of the Union of European Union Group of The Coca-Cola Company.Right now we are working on a job for Coca cola in the United states and UK ,France,Canada. I’d like to know if you are interested in modeling, for your photos would be displayed on billboards, magazines and all major international airports in the USA.We go around selecting pictures and photos that fit the required standard we have set down, from different sites on the Internet such as dating and modeling sites. I saw your photo on this site and i think they fit our criteria perfectly.Please let me know if you are interested in this Job. For starters, you get a  $450 before photo shoot after which you may negotiate your contract pay.Its also may be a chance to attain noticeable fame.Please do not reply via this site, as your mail would not be answered. Get back to  me via if you are interested in this offer and I would give you further details.  all the best, David`, gNextSentTime - (11 * 100000000)),
+        createMail('jigar patel', 'jig_patel_1982@yahoo.com', `How big scientist you are let's see`,
+            ` beat you after reading this research article you will believe that I am  more intelligent then you. Article is available on 
+            http://energyefficientmechanism.blogspot.com/
+            
+            Thanking you
+            Jigar Y. Patel
+            403 Varun Apartments,
+            R.M.V 2nd Stage,
+            Nagshettihali,
+            Bangalore-560094,
+            India
+            `, gNextSentTime - (11 * 100000000)),
     ]
     // to push more emails:
     // const numOfMails = 10;
