@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       toggleTodo(todoIdx) {
-        // console.log('todoIdx :', todoIdx)
         this.$parent.$emit('toggle-todo',todoIdx)
       },
       doneStyle: {
@@ -24,5 +23,5 @@ export default {
   created: function() {},
   computed: {},
   methods: {}
-  // components: {xxxx }
+
 }

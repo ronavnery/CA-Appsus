@@ -1,23 +1,28 @@
-import colorCtrl from '../cmps/color-ctrl-cmp.js'
-import commonControls from '../cmps/common-ctrls-cmp.js'
+import colorCtrl from './color-ctrl-cmp.js'
+import commonControls from './common-ctrls-cmp.js'
+import todoNote from './todo-note-cmp.js'
+
 
 export default {
   template: `
     <section class="edit-modal" :class="'note-color-'+[note.color]">
-           
-        <!-- <pre>{{localNote}}</pre> -->
-        
-        <p contenteditable="true"  @input="editText($event)">
+    
+        <template v-if="(note.type==='txt-note')">
+          <p contenteditable="true"  @input="editText($event)">
             {{localNote.content.txt}}</p>  
+        </template>
+        <template v-else>
+            <todo-note :note="note"></todo-note>
+        </template>
         <div class="edit-footer flex space-between">
-        <div class="controls">
+        <div class="controls ">
         <transition name="scale-fade">
          <color-ctrl v-if="showColorCtrl" @close-color="closeColors()" @change-color="emitColorChange($event)"></color-ctrl> 
         </transition>
-       <common-controls @delete-note="deleteNote" @open-colors="openColors()" ></common-controls>
+       <common-controls @delete-note="deleteNote" @open-colors="openColors()" id="ctrls-modal"></common-controls>
 
         </div>
-        <button @click="closeModal">Close</button>
+        <button class="button-close" @click="closeModal">Close</button>
     </div>  
 
         </section>
@@ -60,5 +65,5 @@ export default {
       this.parent.$emit('delete-note')
     }
   },
-  components: { commonControls, colorCtrl }
+  components: { commonControls, colorCtrl, 'todo-note':todoNote}
 }

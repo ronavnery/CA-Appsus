@@ -16,7 +16,6 @@ export default {
   computed: {},
   methods: {
     emitit: function(val) {
-      console.log('input typle :', val);
       this.$emit('input-change', val)
     }
   },
