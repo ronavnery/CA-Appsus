@@ -10,7 +10,7 @@ export default {
         <div class="preview-icons">
             <i class="icon icon-circle-1 icon-12 icon-unread" v-if="!mail.isRead" @click="toggleIsRead"></i>
             <i class="icon icon-sign-badge-circle icon-12" v-if="mail.isRead" @click="toggleIsRead"></i>
-            <!-- <span class="icon-unread" v-if="!mail.isRead" @click="toggleIsRead">●</span> -->
+            <span class="icon-unread" v-if="!mail.isRead" @click="toggleIsRead">●</span>
             <i class="icon icon-rating-star icon-16" v-if="!mail.isStarred" @click="toggleStar"></i>
             <i class="icon icon-rating-star-3 icon-starred icon-16" v-else @click="toggleStar"></i>
         </div>

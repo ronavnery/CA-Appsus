@@ -205,7 +205,8 @@ a {
     color:white;
     font-size: 2.5rem;
     box-sizing: border-box;
-    background-image: linear-gradient(to top, #0c9dd0, #2f7da6, #345f7d, #304455, #252a30);
+    background: #1C2129;
+    /* background-image: linear-gradient(to top, #0c9dd0, #2f7da6, #345f7d, #304455, #252a30); */
 }
 
 .content-sender {
@@ -254,6 +255,11 @@ a {
     height: calc(100vh - 50px);
     background: #1C2129;
     color: #F3F3F3;
+    overflow-y: scroll;
+}
+
+.mail-compose-container  * {
+    outline: none;
 }
 
 .compose-bar {
@@ -265,12 +271,32 @@ a {
     border-bottom: 1px solid rgb(37, 42, 48);
 }
 
+.send-title, .discard-title {
+    font-size: 2rem;
+    color: rgb(37, 42, 48);
+    margin-left: 2%;
+}
+
+.compose-discard, .compose-send {
+    cursor: pointer;
+}
+
+.compose-discard:hover *, .compose-send:hover * {
+    font-weight: 500;
+    color: rgb(12, 157, 208)
+}
+
+
+.compose-discard {
+    margin-left: 2%;
+}
+
 .compose-inputs {
     margin: 30px;
 }
 
 .mail-compose-container input {
-    width: 80%;
+    width: 99%;
     margin: 1%;
     height: 45%;
     background: none;
@@ -307,4 +333,11 @@ a {
 .compose-subject-input {
     /* text-indent: 7%; */
     text-indent: 8rem;
+}
+
+.compose-body-input {
+    margin-top: 4%;
+    min-width: 85%;
+    min-height: 63vh;
+    margin-left: 1%;
 }

@@ -9,7 +9,9 @@ let gNextSentTime = Date.now();
 export const mailService = {
     queryMails,
     parseMail,
-    getMailById
+    getMailById,
+    createMail,
+    pushNewMail,
 }
 
 function queryMails() {
@@ -65,6 +67,12 @@ function createMail(sender, address, subject, body, sentAt = Date.now()) {
         isSent: false,
         isSelected: false
     }
+}
+
+function pushNewMail(newMail) {
+    let mails = utilService.loadFromStorage(MAILS_DB);
+    mails.unshift(newMail)
+    utilService.saveToStorage(MAILS_DB, mails)
 }
 
 function parseMail(mail, key, length = 50) {
