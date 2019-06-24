@@ -21,10 +21,15 @@ export default {
                 <input type="text" class="compose-from-input"
                 value="me@of-course.com" disabled>
             </div>
-            <div class="compose-input-to-container">
+            <div class="compose-input-to-container" v-if="!mailToReply">
                 <span class="compose-to-title thick" >To:</span>
                 <input type="text" class="compose-to-input" 
                 value="me@of-course.com" disabled>
+            </div>
+            <div class="compose-input-to-container" v-if="mailToReply">
+                <span class="compose-to-title thick" >To:</span>
+                <input type="text" class="compose-to-input" 
+                value="this is a reply">
             </div>
             <div class="compose-input-subject-container">
                 <span class="compose-subject-title thick">Subject:</span>
@@ -38,6 +43,7 @@ export default {
         </div>
     </section>
     `,
+    props: ['mailToReply'],
     mounted() {
         this.focusOnSubjectInput()
     },
@@ -48,7 +54,6 @@ export default {
                 to: 'me@of-course.com',
                 subject: '',
                 body: '',
-
             }
         }
     },

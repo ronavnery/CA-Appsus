@@ -3,12 +3,22 @@ a {
     text-decoration: inherit; /* no underline */
   }
 
+  /* MAIL APP */
+
+.mail-app-container {
+      flex: 1;
+      overflow: hidden;
+}
+
 /* MAIL: SIDE BAR */
 
 .side-bar-container {
-    width: 285px;
+    width: 160px;
     background: #1C2129;
-    height: calc(100vh - 50px);
+}
+
+.side-bar-ul {
+    padding-left: 1rem;
 }
 
 .side-bar-container li {
@@ -16,9 +26,10 @@ a {
     list-style: none;
     margin-bottom: 10px;
     color: white;
-    width: 200px;
-    height: 54px;
+    width: 120px;
+    height: 25px;
     padding: 10px;
+    font-size: 1.4rem;
 }
 
 .side-bar-container li:hover {
@@ -31,7 +42,7 @@ a {
     height: 50px;
     margin: 20px;
     background: #0C9DD0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border: none;
     color: white;
     border-radius: 3px;
@@ -45,27 +56,27 @@ a {
 /* MAIL: LIST */
 
 .mail-list-container {
-    width: 500px;
-    height: calc(100vh - 50px);
     background: #F3F3F3;
+    flex: 1;
 }
 
 /* MAIL: LIST: SEARCHBOX */
 
 .searchbox-container {
     position: relative;
-    height: 70px;
+    height: 40px;
     border-bottom: 1px solid #898989;
+    width: 320px;
 }
 
 .searchbox-container input {
-    margin: 15px;
+    margin: 0.5rem;
     padding-right: 50px;
-    width: 300px;
-    height: 40px;
+    width: 200px;
+    height: 20px;
     border: 1px solid #BDBDBD;
     text-indent: 15px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     border-radius: 3px;
 }
 
@@ -73,12 +84,12 @@ a {
     position: absolute;
     top: 27px;
     right: 138px;
-    font-size: 2.2rem;
+    font-size: 1.4rem;
 }
 
 .previews {
-    height: calc(100vh - 50px - 70px);
     overflow-y: scroll;
+    flex:1;
 }
 
 /* MAIL: LIST: PREVIEW */
@@ -90,7 +101,7 @@ a {
     border-bottom: 1px solid #898989;
     box-sizing: border-box;
     padding: 10px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     border-left: 4px solid #0C9DD0;
 }
 
@@ -128,7 +139,7 @@ a {
 }
 
 .preview-time {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #828282;
     width: 15%
 }
@@ -155,25 +166,23 @@ a {
 /* MAIL: DETAILS */
 
 .mail-details-container {
-    width: calc(100vw - 785px);
-    height: calc(100vh - 50px);
     background: rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
+    flex:3;
 }
 
 /* MAIL: DETAILS: CONTROLBAR */
 
 .controlbar-container {
-    height: 70px;
+    height: 40px;
     box-sizing: border-box;
     background: #F3F3F3;
-    font-size: 5rem;
     padding: 10px;
 }
 
-.controlbar-container * {
+.controlbar-container > * {
     cursor: pointer;
-    padding-top: 0.5%;
+    /* padding: 1.1rem; */
 }
 
 .controlbar-container *:hover {
@@ -184,58 +193,59 @@ a {
     margin-left: 30px;
 }
 
+.controlbar-container .control-back,
+.controlbar-container .control-forward {
+    font-size: 1rem;
+}
+
 .controlbar-nav-nums {
     /* padding: 7px; */
-    font-size: 2rem;
+    font-size: 1.4rem;
     text-align: center;
 }
 
 .controlbar-nav-nums > .controlbar-of {
     margin-left:0;
     color: grey;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
 }
 
 /* MAIL: DETAILS: CONTENT */
 
 .details-content-container {
-    padding: 5%;
+    padding: 4%;
     overflow-y: scroll;
-    height: calc(100vh - 50px - 70px);
-    /* color: rgb(37, 42, 48); */
     color:white;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     box-sizing: border-box;
     background: #1C2129;
-    /* background-image: linear-gradient(to top, #0c9dd0, #2f7da6, #345f7d, #304455, #252a30); */
+    flex:1;
 }
 
 .content-sender {
     height: 10%;
-    font-size: 4rem;
-    /* color: rgb(37, 42, 48) */
+    font-size: 1.6rem;
     color: white;
 }
 
 .content-sender-avatar {
     margin-right: 2%;
-    width: 75px;
-    line-height: 75px;
+    width: 40px;
+    line-height: 40px;
     border-radius: 50%;
     text-align: center;
-    font-size: 32px;
-    border: 1px solid rgb(37, 42, 48);
-    background-image: linear-gradient(to top, #00c9dd, #1b93a2, #1d616b, #163338, #000506);
+    font-size: 2rem;
+    border: 1px solid rgb(100, 109, 121);
 }
 
 .content-sender-email {
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-left: 2px;
 }
 
 .content-time {
     margin-left: auto;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
 }
 
 .content-clock-icon {
@@ -243,8 +253,8 @@ a {
 }
 
 .content-subject {
-    font-size: 3.6rem;
-    margin: 5% 0 5% 0;
+    font-size: 1.4rem;
+    margin: 3% 0 7% 0;
 }
 
 /* MAIL: MAIL-COMPOSE */
@@ -257,6 +267,7 @@ a {
     background: #1C2129;
     color: #F3F3F3;
     overflow-y: scroll;
+    flex:2;
 }
 
 .mail-compose-container  * {
@@ -267,13 +278,12 @@ a {
     height: 70px;
     box-sizing: border-box;
     background: #F3F3F3;
-    font-size: 5rem;
     padding: 10px;
     border-bottom: 1px solid rgb(37, 42, 48);
 }
 
 .send-title, .discard-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: rgb(37, 42, 48);
     margin-left: 2%;
 }
@@ -303,8 +313,8 @@ a {
     background: none;
     border: none;
     border-bottom: 1px solid rgb(63, 71, 80);
-    font-size: 2rem;
-    padding-bottom: 0.5rem;
+    font-size: 1.6rem;
+    padding-bottom: 0.1rem;
     color: #F3F3F3;
 }
 
@@ -317,6 +327,7 @@ a {
 .compose-from-title,
 .compose-to-title,
 .compose-subject-title {
+    font-size: 1.6rem;
     position: absolute;
     left: 1%;
     top: 26%;
@@ -328,11 +339,9 @@ a {
 }
 
 .compose-to-input {
-    /* text-indent: 3%; */
     text-indent: 4rem;
 }
 .compose-subject-input {
-    /* text-indent: 7%; */
     text-indent: 8rem;
 }
 

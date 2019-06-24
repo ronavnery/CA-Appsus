@@ -11,15 +11,17 @@ export default {
         <side-bar :mails="mails" :mailsCount="mailsCount" 
         @compose="isComposing=!isComposing" @section-clicked="isComposing=false"></side-bar>
         <mail-list :mails="mails" @mail-changed="handleMailChange"></mail-list>
-        <mail-details :mails="mails" :mailsCount="mailsCount" v-if="!isComposing"></mail-details>
-        <mail-compose v-if="isComposing" @mail-sent="handleMailSent"></mail-compose>
+        <mail-details :mails="mails" :mailsCount="mailsCount" v-if="!isComposing" @reply-clicked="composeReply"></mail-details>
+        <mail-compose v-if="isComposing" @mail-sent="handleMailSent" 
+        @reply-clicked="composeReply" :mailToReply="mailToReply"></mail-compose>
     </section>
     `,
     data() {
         return {
             mails: null,
             mailsCount: null,
-            isComposing: false
+            isComposing: false,
+            mailToReply: 'kuku'
         }
     },
     created() {
@@ -60,6 +62,11 @@ export default {
         loadFromStorage() {
             const mails = utilService.loadFromStorage(MAILS_DB)
             this.mails = mails
+        },
+        composeReply(mail) {
+            this.isComposing=true;
+            this.mailToReply = mail
+            console.log('here is ', this.mailToReply)
         }
     },
     components: {

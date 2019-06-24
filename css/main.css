@@ -23,7 +23,10 @@ html {
     font-size: 62.5%;
 }
 
-
+main {
+    max-height: 100vh;
+    min-height: 100vh;
+}
 
 body {
     margin: 0;
@@ -68,10 +71,10 @@ body {
 
 .app-header {
     width: 100%;
-    height: 50px;
+    min-height: 40px;
     background: #1C2129;
     color:white;
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
 .app-header a {

@@ -15,8 +15,8 @@ export default {
         <span >{{getMailData('sentAt')}}</span>
         </div>
     </div>
-    <span class="content-subject">{{getMailData('subject')}}</span>
-    <span>{{getMailData('body')}}</span>
+    <div class="content-subject thick">Subject: {{getMailData('subject')}}</div>
+    <div class="content-body">{{getMailData('body')}}</div>
     </section>
     `,
     data() {

@@ -4,7 +4,7 @@ import detailsContent from './details-content.cmp.js'
 export default {
     template: `
     <section class="mail-details-container flex column">
-    <details-controlbar></details-controlbar>
+    <details-controlbar @reply-clicked="handleReplyClick"></details-controlbar>
     <details-content></details-content>
     </section>
     `,
@@ -12,5 +12,10 @@ export default {
     components: {
         detailsControlbar,
         detailsContent
+    },
+    methods: {
+        handleReplyClick(mail) {
+            this.$emit('reply-clicked', mail)
+        }
     }
 }

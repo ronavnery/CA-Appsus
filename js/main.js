@@ -8,8 +8,7 @@ import appHeader from './sharedCmps/app-header.cmp.js'
 var appsus = new Vue({
     el: "#appsus",
     template: `
-        <main>
-            <!-- <app-header></app-header> -->
+        <main class="flex column">
             <app-header></app-header>
             <router-view></router-view>
         </main>

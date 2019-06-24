@@ -4,7 +4,7 @@ import mailPreview from './mail-preview.cmp.js'
 
 export default {
     template:`
-    <section class="mail-list-container">
+    <section class="mail-list-container flex column">
     <list-searchbox></list-searchbox>
     <div v-if="mails" class="previews flex column">
         <mail-preview v-for="(mail,idx) in mailsToShow" 

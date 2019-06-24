@@ -2,15 +2,15 @@ import eventBus, { MAILS_COUNT, UPDATE_CONTROLBAR } from '../../../event-bus.js'
 
 export default {
     template:`
-    <section class="controlbar-container flex">
-    <i class="icon icon-email-action-reply control-reply icon-32"></i>
-    <i class="icon icon-email-action-reply-all control-replyall icon-32"></i>
-    <i class="icon icon-arrow-left-1 icon-32 control-back"></i>
+    <section class="controlbar-container flex space-between align-center">
+    <i class="icon icon-email-action-reply control-reply" @click="handleReplyClick"></i>
+    <i class="icon icon-email-action-reply-all control-replyall"></i>
+    <i class="icon icon-arrow-left-1  control-back"></i>
     <span class="controlbar-nav-nums">{{currMailPlaceInList}} 
         <span class="controlbar-of">of</span> {{currListMailsCount}} </span>
-    <i class="icon icon-arrow-right-1 icon-32 control-forward"></i>
-    <i class="icon icon-rating-star icon-32" @click="toggleStar"></i>
-    <i class="icon icon-bin-2 icon-32" @click="toggleTrash"></i>
+    <i class="icon icon-arrow-right-1 control-forward"></i>
+    <i class="icon icon-rating-star"  @click="toggleStar"></i>
+    <i class="icon icon-bin-2" @click="toggleTrash"></i>
 
     </section>
     `,
@@ -43,6 +43,9 @@ export default {
         },
         moveToNextMailOnList() {
             console.log(this.currList)
+        },
+        handleReplyClick() {
+            this.$emit('reply-clicked', this.currMail)
         }
     }
 }

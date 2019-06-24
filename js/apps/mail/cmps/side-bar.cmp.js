@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="side-bar-container flex column" v-if="mails">
         <button class="new-mail-btn" @click="composeMail">New Mail</button>
-        <ul>
+        <ul class="side-bar-ul">
             <li class="flex space-between" @click="handleClick('Inbox')">Inbox 
             <span class="inbox-count">{{mailsCount.inbox}}
             <span class="thick blue">({{mailsCount.unread}})</span></span></li>
