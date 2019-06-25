@@ -35,7 +35,6 @@ a {
 .side-bar-container li:hover {
     /* background: rgba(12, 157, 208, 0.7); */
     background: #f38721;
-    border-radius: 3px;
 }
 
 .new-mail-btn {

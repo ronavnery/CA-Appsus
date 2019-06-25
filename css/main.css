@@ -112,13 +112,8 @@ a .modal-icon {
     width:30px;
     height:30px;
 }
-a .modal-icon:hover {
-    animation: icon-spin 2s infinite linear;
-}
 
-.main-notification-icon:hover {
-    animation: icon-spin 2s infinite linear;
-}
+
 .main-nav-modal .modal-icon {
     width: 40px;
     height: 40px;
@@ -258,7 +253,6 @@ a .modal-icon:hover {
 .home-container .home-notes-icon:hover {
     width: 100px;
     height: 100px;
-    animation: icon-spin 2s infinite linear;
 }
 
 .home-container .home-mail-icon {

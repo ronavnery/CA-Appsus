@@ -7,7 +7,8 @@ export default {
     <i class="icon icon-email-action-reply" ></i>
     <span class="control-reply-title">Reply</span>
     </div>
-    <i class="icon icon-email-action-reply-all control-replyall"></i>
+    <!-- Reply all hidden -->
+    <i class="icon icon-email-action-reply-all control-replyall" class="hidden"></i>
     <i class="icon icon-arrow-left-1  control-back"></i>
     <span class="controlbar-nav-nums">{{currMailPlaceInList}} 
         <span class="controlbar-of">of</span> {{currListMailsCount}} </span>
