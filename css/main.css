@@ -189,6 +189,10 @@ a .modal-icon:hover {
     /* animation: fade-in 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
 }
 
+.app-header .header-links {
+    margin-left: auto;
+}
+
 .home-container .home-mail-icon,
 .home-container .home-notes-icon {
     /* animation: fade-in 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */

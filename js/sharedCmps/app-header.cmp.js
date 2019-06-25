@@ -8,7 +8,7 @@ export default {
                     <div class="header-logo"></div>
                 </router-link>
         </div>
-        <div class="flex space-between">
+        <div class="header-links flex space-between">
         <router-link to="/home">
             <img class="modal-icon" src="img/logo/home-logo.svg" />
             </router-link>
